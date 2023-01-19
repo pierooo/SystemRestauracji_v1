@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="SystemRestauracji.Views.NowyTowarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SystemRestauracji.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="StyleZakladekResources.xaml"/>
+    </UserControl.Resources>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="2" Content="Dodawanie nowego produktu "/>
+                <ComboBox MinWidth="120" Margin="2">
+                    <ComboBoxItem  Content="Kategoria" IsSelected="True"/>
+                </ComboBox>
+                <Label Margin="2" Width="100" HorizontalContentAlignment="Right" Content="Dostępność:"/>
+                <TextBox Margin="2" Width="100" Text="Na stanie" IsEnabled="True"/>
+            </StackPanel>
+            <Expander Header="Szczegóły" IsExpanded="True" Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <ComboBox Grid.Row="0" Grid.Column="0" Margin="2">
+                        <ComboBoxItem Content="VAT 8%" IsSelected="True"/>
+                        <ComboBoxItem Content="VAT 23%"/>
+                    </ComboBox>
+                    <TextBox Grid.Row="0" Grid.Column="1" Margin="2" Text="Cena" />
+                    <TextBox Grid.Row="0" Grid.Column="2" Text="Nazwa produktu"/>
+
+                    <ComboBox Grid.Row="1" Grid.Column="0" Margin="2" Text="Jednostka">
+                        <ComboBoxItem Content="Sztuka" IsSelected="True"/>
+                        <ComboBoxItem Content="Kilogram"/>
+                    </ComboBox>
+
+                    <TextBox Grid.Row="1" Grid.Column="2" IsEnabled="True" Text="Opis"/>
+                </Grid>
+            </Expander>
+
+            <Expander Header="Inne produkty kategorii" IsExpanded="True" Grid.Row="2">
+                <Border Grid.Row="2" Margin=" 12" BorderBrush="Black" BorderThickness="1">
+                    <DataGrid AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" MinWidth="100"/>
+                            <DataGridTextColumn Header="Nazwa" MinWidth="100"/>
+                            <DataGridTextColumn Header="Cena brutto" MinWidth="50"/>
+                            <DataGridTextColumn Header="Cena netto" MinWidth="50"/>
+                            <DataGridTextColumn Header="VAT" MinWidth="50"/>
+                            <DataGridCheckBoxColumn Header="Wycofany" MinWidth="100"/>
+                            <DataGridTextColumn Header="Opis" MinWidth="100"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Border>
+            </Expander>
+            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.RowSpan="4" VerticalAlignment="Center">
+                <Button Margin="20" Width="58" Height="58" Style="{StaticResource ConfirmButton}" Cursor="Hand">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Views/Content/Icons/confirm.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Margin="20" Width="58" Height="58" Style="{StaticResource ConfirmButton}" Cursor="Hand">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Views/Content/Icons/edit.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Margin="20" Width="58" Height="58" Style="{StaticResource ConfirmButton}" Cursor="Hand">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Views/Content/Icons/trash.png"/>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+
+</UserControl>

@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="SystemRestauracji.Views.NowaFakturaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SystemRestauracji.Views"
+             xmlns:resx ="clr-namespace:SystemRestauracji.ViewResources"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Button Margin="2" Content="Dokument"/>
+                <ComboBox MinWidth="120" Margin="2">
+                    <ComboBoxItem  Content="FA" IsSelected="True"/>
+                    <ComboBoxItem  Content="Drugi element"/>
+                </ComboBox>
+                <Label Margin="2" Width="100" HorizontalContentAlignment="Right" Content="Numer:"/>
+                <TextBox Margin="2" Width="100" Text="FA" IsEnabled="False"/>
+                <ComboBox Margin="2">
+                    <ComboBoxItem Content="AUTO" IsSelected="True"/>
+                    <ComboBoxItem Content="DrugiItem"/>
+                </ComboBox>
+                <DatePicker Margin="2"/>
+
+            </StackPanel>
+            <Expander Header="Dodaj" IsExpanded="True" Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <ComboBox Grid.Row="0" Grid.Column="0" Margin="2">
+                        <ComboBoxItem Content="Kontrahent" IsSelected="True"/>
+                        <ComboBoxItem Content="Drugi element"/>
+                    </ComboBox>
+                    <ComboBox Grid.Row="0" Grid.Column="1" Margin="2">
+                        <ComboBoxItem Content="BlachoTrapez" IsSelected="True"/>
+                        <ComboBoxItem Content="Drugi element"/>
+                    </ComboBox>
+                    <TextBox Grid.Row="0" Grid.Column="2" IsEnabled="False" Text="Blachotrapez Sp. z o.o."/>
+
+                    <ComboBox Grid.Row="1" Grid.Column="0" Margin="2">
+                        <ComboBoxItem Content="Kategoria" IsSelected="True"/>
+                        <ComboBoxItem Content="Drugi element"/>
+                    </ComboBox>
+                    <ComboBox Grid.Row="1" Grid.Column="1" Margin="2">
+                        <ComboBoxItem Content="PRZYCHODY" IsSelected="True"/>
+                        <ComboBoxItem Content="Drugi element"/>
+                    </ComboBox>
+                    <TextBox Grid.Row="1" Grid.Column="2" IsEnabled="True" Text="Przychody"/>
+                </Grid>
+            </Expander>
+            <Expander Header="Pozycje" IsExpanded="True" Grid.Row="2">
+                <Border Grid.Row="2" Margin=" 12" BorderBrush="Black" BorderThickness="1">
+                    <Expander IsExpanded="True" Header="{x:Static resx:GlobalResources.Ceny}">
+                        <DataGrid AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Numer Ceny" MinWidth="100"/>
+                                <DataGridTextColumn Header="Typ Ceny" MinWidth="100"/>
+                                <DataGridTextColumn Header="Akt" MinWidth="100"/>
+                                <DataGridTextColumn Header="Marża" MinWidth="50"/>
+                                <DataGridTextColumn Header="Zaokr" MinWidth="50"/>
+                                <DataGridTextColumn Header="Offset" MinWidth="50"/>
+                                <DataGridTextColumn Header="Cena brutto" MinWidth="100"/>
+                                <DataGridTextColumn Header="Cena netto" MinWidth="100"/>
+                                <DataGridTextColumn Header="Waluta" MinWidth="100"/>
+                                <DataGridCheckBoxColumn Header="Czy aktywne" MinWidth="100"/>
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Expander>
+                </Border>
+            </Expander>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

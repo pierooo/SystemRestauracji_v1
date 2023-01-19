@@ -1,0 +1,1466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RestaurantSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="LastModified" Type="datetime" />
+          <Property Name="PhotoUrl" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="15" />
+          <Property Name="Country" Type="nvarchar" MaxLength="100" />
+          <Property Name="NIP" Type="nvarchar" MaxLength="20" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="30" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="LastModified" Type="datetime" />
+          <Property Name="PhotoUrl" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Devices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="LastModified" Type="datetime" />
+          <Property Name="PhotoUrl" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="DocumentPositionsDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PositionName" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="DucumentId" Type="int" />
+          <Property Name="UnitPriceNet" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="UnitPriceGross" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="VAT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="LastModified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Documents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="AuthorFullName" Type="nvarchar" MaxLength="250" />
+          <Property Name="AuthorNIP" Type="nvarchar" MaxLength="250" />
+          <Property Name="RecipientFullName" Type="nvarchar" MaxLength="250" />
+          <Property Name="RecipientNIP" Type="nvarchar" MaxLength="250" />
+          <Property Name="EmployeeFullName" Type="nvarchar" MaxLength="250" />
+          <Property Name="PaymentDateLimit" Type="datetime" />
+          <Property Name="DocumentDate" Type="datetime" />
+          <Property Name="InvoiceId" Type="int" />
+          <Property Name="TotalAmountGross" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalAmountNet" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalAmountVAT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DocumentStatus" Type="nvarchar" MaxLength="100" />
+          <Property Name="Printed" Type="bit" />
+          <Property Name="WorkstationDeviceLinkId" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="LastModified" Type="datetime" />
+          <Property Name="AuthorPhotoUrl" Type="nvarchar" MaxLength="250" />
+          <Property Name="RecipientPhotoUrl" Type="nvarchar" MaxLength="250" />
+          <Property Name="DocumentPhotoUrl" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Invoices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Number" Type="nvarchar" MaxLength="10" />
+          <Property Name="AuthorCompanyName" Type="nvarchar" MaxLength="250" />
+          <Property Name="AuthorFullName" Type="nvarchar" MaxLength="250" />
+          <Property Name="AuthorNIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="AuthorFullAddress" Type="nvarchar" MaxLength="350" />
+          <Property Name="AuthorContact" Type="nvarchar" MaxLength="50" />
+          <Property Name="RecipientFirstName" Type="nvarchar" MaxLength="250" />
+          <Property Name="RecipientSecondName" Type="nvarchar" MaxLength="250" />
+          <Property Name="RecipientFullName" Type="nvarchar" MaxLength="250" />
+          <Property Name="RecipientNIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="RecipientFullAddress" Type="nvarchar" MaxLength="250" />
+          <Property Name="RecipientContact" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmployeeFullName" Type="nvarchar" MaxLength="250" />
+          <Property Name="PaymentStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentDateLimit" Type="nvarchar" MaxLength="50" />
+          <Property Name="InvoiceDate" Type="datetime" />
+          <Property Name="TotalAmountGross" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalAmountNet" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalAmountVAT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="InvoiceStatus" Type="nvarchar" MaxLength="100" />
+          <Property Name="Printed" Type="bit" />
+          <Property Name="WorkstationDeviceLinkId" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="LastModified" Type="datetime" />
+          <Property Name="AuthorPhotoUrl" Type="nvarchar" MaxLength="250" />
+          <Property Name="RecipientPhotoUrl" Type="nvarchar" MaxLength="250" />
+          <Property Name="DocumentPhotoUrl" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="RestaurantTableId" Type="int" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="TotalPriceNet" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalPriceGross" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OrderStatus" Type="nvarchar" MaxLength="100" />
+          <Property Name="PaymentId" Type="int" />
+          <Property Name="DocumentId" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="LastModified" Type="datetime" />
+          <Property Name="PhotoUrl" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="OrdersDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="UnitPriceNetto" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="VAT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="OrderDetailsStatus" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="LastModified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Payments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="EmployeeId" Type="int" />
+          <Property Name="PaymentDate" Type="datetime" />
+          <Property Name="PaymentDateLimit" Type="datetime" />
+          <Property Name="TotalAmountGross" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DeviceId" Type="int" />
+          <Property Name="PaymentStatus" Type="nvarchar" MaxLength="100" />
+          <Property Name="PaymentType" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="LastModified" Type="datetime" />
+          <Property Name="PhotoUrl" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="UnitPriceNet" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="UnitPriceGross" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="UnitsInStock" Type="int" />
+          <Property Name="Discontinued" Type="bit" />
+          <Property Name="VAT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="LastModified" Type="datetime" />
+          <Property Name="PhotoUrl" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Reservations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="EmployeeId" Type="int" />
+          <Property Name="ReservationDate" Type="datetime" />
+          <Property Name="OrderAmountLimit" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="RestaurantTableId" Type="int" />
+          <Property Name="NumberOfPeople" Type="int" />
+          <Property Name="ReservationStatus" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="LastModified" Type="datetime" />
+          <Property Name="PhotoUrl" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="RestaurantTables">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="LastModified" Type="datetime" />
+          <Property Name="PhotoUrl" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Role" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="30" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="100" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="15" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="250" />
+          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="250" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="LastModified" Type="datetime" />
+          <Property Name="PhotoUrl" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="WorkstationDeviceLinks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkstationId" Type="int" />
+          <Property Name="DeviceId" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Workstations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="LastModified" Type="datetime" />
+          <Property Name="PhotoUrl" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <Association Name="FK_DocumentPositionsDetails_Documents">
+          <End Role="Documents" Type="Self.Documents" Multiplicity="0..1" />
+          <End Role="DocumentPositionsDetails" Type="Self.DocumentPositionsDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DocumentPositionsDetails">
+              <PropertyRef Name="DucumentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documents_Invoices">
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="0..1" />
+          <End Role="Documents" Type="Self.Documents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Documents">
+              <PropertyRef Name="InvoiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documents_WorkstationDeviceLinks">
+          <End Role="WorkstationDeviceLinks" Type="Self.WorkstationDeviceLinks" Multiplicity="0..1" />
+          <End Role="Documents" Type="Self.Documents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkstationDeviceLinks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Documents">
+              <PropertyRef Name="WorkstationDeviceLinkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoices_WorkstationDeviceLinks">
+          <End Role="WorkstationDeviceLinks" Type="Self.WorkstationDeviceLinks" Multiplicity="0..1" />
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkstationDeviceLinks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="WorkstationDeviceLinkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Documents">
+          <End Role="Documents" Type="Self.Documents" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="DocumentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Payments">
+          <End Role="Payments" Type="Self.Payments" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="PaymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_RestaurantTables">
+          <End Role="RestaurantTables" Type="Self.RestaurantTables" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RestaurantTables">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="RestaurantTableId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrdersDetails_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="OrdersDetails" Type="Self.OrdersDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrdersDetails">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrdersDetails_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="OrdersDetails" Type="Self.OrdersDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrdersDetails">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payments_Devices">
+          <End Role="Devices" Type="Self.Devices" Multiplicity="0..1" />
+          <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="DeviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payments_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservations_RestaurantTables">
+          <End Role="RestaurantTables" Type="Self.RestaurantTables" Multiplicity="0..1" />
+          <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RestaurantTables">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reservations">
+              <PropertyRef Name="RestaurantTableId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservations_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reservations">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkstationDeviceLinks_Devices">
+          <End Role="Devices" Type="Self.Devices" Multiplicity="0..1" />
+          <End Role="WorkstationDeviceLinks" Type="Self.WorkstationDeviceLinks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkstationDeviceLinks">
+              <PropertyRef Name="DeviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkstationDeviceLinks_Workstations">
+          <End Role="Workstations" Type="Self.Workstations" Multiplicity="0..1" />
+          <End Role="WorkstationDeviceLinks" Type="Self.WorkstationDeviceLinks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workstations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkstationDeviceLinks">
+              <PropertyRef Name="WorkstationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RestaurantSystemModelStoreContainer">
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Devices" EntityType="Self.Devices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentPositionsDetails" EntityType="Self.DocumentPositionsDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Documents" EntityType="Self.Documents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdersDetails" EntityType="Self.OrdersDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reservations" EntityType="Self.Reservations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RestaurantTables" EntityType="Self.RestaurantTables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkstationDeviceLinks" EntityType="Self.WorkstationDeviceLinks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Workstations" EntityType="Self.Workstations" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DocumentPositionsDetails_Documents" Association="Self.FK_DocumentPositionsDetails_Documents">
+            <End Role="Documents" EntitySet="Documents" />
+            <End Role="DocumentPositionsDetails" EntitySet="DocumentPositionsDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documents_Invoices" Association="Self.FK_Documents_Invoices">
+            <End Role="Invoices" EntitySet="Invoices" />
+            <End Role="Documents" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documents_WorkstationDeviceLinks" Association="Self.FK_Documents_WorkstationDeviceLinks">
+            <End Role="WorkstationDeviceLinks" EntitySet="WorkstationDeviceLinks" />
+            <End Role="Documents" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoices_WorkstationDeviceLinks" Association="Self.FK_Invoices_WorkstationDeviceLinks">
+            <End Role="WorkstationDeviceLinks" EntitySet="WorkstationDeviceLinks" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Documents" Association="Self.FK_Orders_Documents">
+            <End Role="Documents" EntitySet="Documents" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Payments" Association="Self.FK_Orders_Payments">
+            <End Role="Payments" EntitySet="Payments" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_RestaurantTables" Association="Self.FK_Orders_RestaurantTables">
+            <End Role="RestaurantTables" EntitySet="RestaurantTables" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Users" Association="Self.FK_Orders_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrdersDetails_Orders" Association="Self.FK_OrdersDetails_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrdersDetails" EntitySet="OrdersDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrdersDetails_Products" Association="Self.FK_OrdersDetails_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="OrdersDetails" EntitySet="OrdersDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payments_Devices" Association="Self.FK_Payments_Devices">
+            <End Role="Devices" EntitySet="Devices" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payments_Users" Association="Self.FK_Payments_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservations_RestaurantTables" Association="Self.FK_Reservations_RestaurantTables">
+            <End Role="RestaurantTables" EntitySet="RestaurantTables" />
+            <End Role="Reservations" EntitySet="Reservations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservations_Users" Association="Self.FK_Reservations_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Reservations" EntitySet="Reservations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkstationDeviceLinks_Devices" Association="Self.FK_WorkstationDeviceLinks_Devices">
+            <End Role="Devices" EntitySet="Devices" />
+            <End Role="WorkstationDeviceLinks" EntitySet="WorkstationDeviceLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkstationDeviceLinks_Workstations" Association="Self.FK_WorkstationDeviceLinks_Workstations">
+            <End Role="Workstations" EntitySet="Workstations" />
+            <End Role="WorkstationDeviceLinks" EntitySet="WorkstationDeviceLinks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RestaurantSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="LastModified" Type="DateTime" />
+          <Property Name="PhotoUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Categories" FromRole="Categories" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NIP" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="LastModified" Type="DateTime" />
+          <Property Name="PhotoUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Devices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="LastModified" Type="DateTime" />
+          <Property Name="PhotoUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Payments" Relationship="Self.FK_Payments_Devices" FromRole="Devices" ToRole="Payments" />
+          <NavigationProperty Name="WorkstationDeviceLinks" Relationship="Self.FK_WorkstationDeviceLinks_Devices" FromRole="Devices" ToRole="WorkstationDeviceLinks" />
+        </EntityType>
+        <EntityType Name="DocumentPositionsDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PositionName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DucumentId" Type="Int32" />
+          <Property Name="UnitPriceNet" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="UnitPriceGross" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="VAT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="LastModified" Type="DateTime" />
+          <NavigationProperty Name="Documents" Relationship="Self.FK_DocumentPositionsDetails_Documents" FromRole="DocumentPositionsDetails" ToRole="Documents" />
+        </EntityType>
+        <EntityType Name="Documents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorFullName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorNIP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RecipientFullName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RecipientNIP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeFullName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentDateLimit" Type="DateTime" />
+          <Property Name="DocumentDate" Type="DateTime" />
+          <Property Name="InvoiceId" Type="Int32" />
+          <Property Name="TotalAmountGross" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalAmountNet" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalAmountVAT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DocumentStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Printed" Type="Boolean" />
+          <Property Name="WorkstationDeviceLinkId" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="LastModified" Type="DateTime" />
+          <Property Name="AuthorPhotoUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RecipientPhotoUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentPhotoUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DocumentPositionsDetails" Relationship="Self.FK_DocumentPositionsDetails_Documents" FromRole="Documents" ToRole="DocumentPositionsDetails" />
+          <NavigationProperty Name="Invoices" Relationship="Self.FK_Documents_Invoices" FromRole="Documents" ToRole="Invoices" />
+          <NavigationProperty Name="WorkstationDeviceLinks" Relationship="Self.FK_Documents_WorkstationDeviceLinks" FromRole="Documents" ToRole="WorkstationDeviceLinks" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Documents" FromRole="Documents" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Invoices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorCompanyName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorFullName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorNIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorFullAddress" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorContact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RecipientFirstName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RecipientSecondName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RecipientFullName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RecipientNIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RecipientFullAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RecipientContact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeFullName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentDateLimit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InvoiceDate" Type="DateTime" />
+          <Property Name="TotalAmountGross" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalAmountNet" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalAmountVAT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="InvoiceStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Printed" Type="Boolean" />
+          <Property Name="WorkstationDeviceLinkId" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="LastModified" Type="DateTime" />
+          <Property Name="AuthorPhotoUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RecipientPhotoUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentPhotoUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Documents" Relationship="Self.FK_Documents_Invoices" FromRole="Invoices" ToRole="Documents" />
+          <NavigationProperty Name="WorkstationDeviceLinks" Relationship="Self.FK_Invoices_WorkstationDeviceLinks" FromRole="Invoices" ToRole="WorkstationDeviceLinks" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="RestaurantTableId" Type="Int32" />
+          <Property Name="OrderDate" Type="DateTime" />
+          <Property Name="TotalPriceNet" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalPriceGross" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OrderStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentId" Type="Int32" />
+          <Property Name="DocumentId" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="LastModified" Type="DateTime" />
+          <Property Name="PhotoUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Documents" Relationship="Self.FK_Orders_Documents" FromRole="Orders" ToRole="Documents" />
+          <NavigationProperty Name="Payments" Relationship="Self.FK_Orders_Payments" FromRole="Orders" ToRole="Payments" />
+          <NavigationProperty Name="RestaurantTables" Relationship="Self.FK_Orders_RestaurantTables" FromRole="Orders" ToRole="RestaurantTables" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Orders_Users" FromRole="Orders" ToRole="Users" />
+          <NavigationProperty Name="OrdersDetails" Relationship="Self.FK_OrdersDetails_Orders" FromRole="Orders" ToRole="OrdersDetails" />
+        </EntityType>
+        <EntityType Name="OrdersDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="UnitPriceNetto" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="VAT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OrderDetailsStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="LastModified" Type="DateTime" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_OrdersDetails_Orders" FromRole="OrdersDetails" ToRole="Orders" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_OrdersDetails_Products" FromRole="OrdersDetails" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Payments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeId" Type="Int32" />
+          <Property Name="PaymentDate" Type="DateTime" />
+          <Property Name="PaymentDateLimit" Type="DateTime" />
+          <Property Name="TotalAmountGross" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DeviceId" Type="Int32" />
+          <Property Name="PaymentStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="LastModified" Type="DateTime" />
+          <Property Name="PhotoUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Devices" Relationship="Self.FK_Payments_Devices" FromRole="Payments" ToRole="Devices" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Payments" FromRole="Payments" ToRole="Orders" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Payments_Users" FromRole="Payments" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="UnitPriceNet" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="UnitPriceGross" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="UnitsInStock" Type="Int32" />
+          <Property Name="Discontinued" Type="Boolean" />
+          <Property Name="VAT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="LastModified" Type="DateTime" />
+          <Property Name="PhotoUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Categories" Relationship="Self.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
+          <NavigationProperty Name="OrdersDetails" Relationship="Self.FK_OrdersDetails_Products" FromRole="Products" ToRole="OrdersDetails" />
+        </EntityType>
+        <EntityType Name="Reservations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeId" Type="Int32" />
+          <Property Name="ReservationDate" Type="DateTime" />
+          <Property Name="OrderAmountLimit" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="RestaurantTableId" Type="Int32" />
+          <Property Name="NumberOfPeople" Type="Int32" />
+          <Property Name="ReservationStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="LastModified" Type="DateTime" />
+          <Property Name="PhotoUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RestaurantTables" Relationship="Self.FK_Reservations_RestaurantTables" FromRole="Reservations" ToRole="RestaurantTables" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Reservations_Users" FromRole="Reservations" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="RestaurantTables">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="LastModified" Type="DateTime" />
+          <Property Name="PhotoUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_RestaurantTables" FromRole="RestaurantTables" ToRole="Orders" />
+          <NavigationProperty Name="Reservations" Relationship="Self.FK_Reservations_RestaurantTables" FromRole="RestaurantTables" ToRole="Reservations" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Role" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" />
+          <Property Name="PostalCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="LastModified" Type="DateTime" />
+          <Property Name="PhotoUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Users" FromRole="Users" ToRole="Orders" />
+          <NavigationProperty Name="Payments" Relationship="Self.FK_Payments_Users" FromRole="Users" ToRole="Payments" />
+          <NavigationProperty Name="Reservations" Relationship="Self.FK_Reservations_Users" FromRole="Users" ToRole="Reservations" />
+        </EntityType>
+        <EntityType Name="WorkstationDeviceLinks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkstationId" Type="Int32" />
+          <Property Name="DeviceId" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="Devices" Relationship="Self.FK_WorkstationDeviceLinks_Devices" FromRole="WorkstationDeviceLinks" ToRole="Devices" />
+          <NavigationProperty Name="Documents" Relationship="Self.FK_Documents_WorkstationDeviceLinks" FromRole="WorkstationDeviceLinks" ToRole="Documents" />
+          <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoices_WorkstationDeviceLinks" FromRole="WorkstationDeviceLinks" ToRole="Invoices" />
+          <NavigationProperty Name="Workstations" Relationship="Self.FK_WorkstationDeviceLinks_Workstations" FromRole="WorkstationDeviceLinks" ToRole="Workstations" />
+        </EntityType>
+        <EntityType Name="Workstations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="LastModified" Type="DateTime" />
+          <Property Name="PhotoUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="WorkstationDeviceLinks" Relationship="Self.FK_WorkstationDeviceLinks_Workstations" FromRole="Workstations" ToRole="WorkstationDeviceLinks" />
+        </EntityType>
+        <Association Name="FK_Products_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payments_Devices">
+          <End Role="Devices" Type="Self.Devices" Multiplicity="0..1" />
+          <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="DeviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkstationDeviceLinks_Devices">
+          <End Role="Devices" Type="Self.Devices" Multiplicity="0..1" />
+          <End Role="WorkstationDeviceLinks" Type="Self.WorkstationDeviceLinks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkstationDeviceLinks">
+              <PropertyRef Name="DeviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DocumentPositionsDetails_Documents">
+          <End Role="Documents" Type="Self.Documents" Multiplicity="0..1" />
+          <End Role="DocumentPositionsDetails" Type="Self.DocumentPositionsDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DocumentPositionsDetails">
+              <PropertyRef Name="DucumentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documents_Invoices">
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="0..1" />
+          <End Role="Documents" Type="Self.Documents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Documents">
+              <PropertyRef Name="InvoiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documents_WorkstationDeviceLinks">
+          <End Role="WorkstationDeviceLinks" Type="Self.WorkstationDeviceLinks" Multiplicity="0..1" />
+          <End Role="Documents" Type="Self.Documents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkstationDeviceLinks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Documents">
+              <PropertyRef Name="WorkstationDeviceLinkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Documents">
+          <End Role="Documents" Type="Self.Documents" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="DocumentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoices_WorkstationDeviceLinks">
+          <End Role="WorkstationDeviceLinks" Type="Self.WorkstationDeviceLinks" Multiplicity="0..1" />
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkstationDeviceLinks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="WorkstationDeviceLinkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Payments">
+          <End Role="Payments" Type="Self.Payments" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="PaymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_RestaurantTables">
+          <End Role="RestaurantTables" Type="Self.RestaurantTables" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RestaurantTables">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="RestaurantTableId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrdersDetails_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="OrdersDetails" Type="Self.OrdersDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrdersDetails">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrdersDetails_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="OrdersDetails" Type="Self.OrdersDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrdersDetails">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payments_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservations_RestaurantTables">
+          <End Role="RestaurantTables" Type="Self.RestaurantTables" Multiplicity="0..1" />
+          <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RestaurantTables">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reservations">
+              <PropertyRef Name="RestaurantTableId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservations_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reservations">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkstationDeviceLinks_Workstations">
+          <End Role="Workstations" Type="Self.Workstations" Multiplicity="0..1" />
+          <End Role="WorkstationDeviceLinks" Type="Self.WorkstationDeviceLinks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workstations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkstationDeviceLinks">
+              <PropertyRef Name="WorkstationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RestaurantSystemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Categories" />
+          <EntitySet Name="Companies" EntityType="Self.Companies" />
+          <EntitySet Name="Devices" EntityType="Self.Devices" />
+          <EntitySet Name="DocumentPositionsDetails" EntityType="Self.DocumentPositionsDetails" />
+          <EntitySet Name="Documents" EntityType="Self.Documents" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoices" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" />
+          <EntitySet Name="OrdersDetails" EntityType="Self.OrdersDetails" />
+          <EntitySet Name="Payments" EntityType="Self.Payments" />
+          <EntitySet Name="Products" EntityType="Self.Products" />
+          <EntitySet Name="Reservations" EntityType="Self.Reservations" />
+          <EntitySet Name="RestaurantTables" EntityType="Self.RestaurantTables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="WorkstationDeviceLinks" EntityType="Self.WorkstationDeviceLinks" />
+          <EntitySet Name="Workstations" EntityType="Self.Workstations" />
+          <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payments_Devices" Association="Self.FK_Payments_Devices">
+            <End Role="Devices" EntitySet="Devices" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkstationDeviceLinks_Devices" Association="Self.FK_WorkstationDeviceLinks_Devices">
+            <End Role="Devices" EntitySet="Devices" />
+            <End Role="WorkstationDeviceLinks" EntitySet="WorkstationDeviceLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DocumentPositionsDetails_Documents" Association="Self.FK_DocumentPositionsDetails_Documents">
+            <End Role="Documents" EntitySet="Documents" />
+            <End Role="DocumentPositionsDetails" EntitySet="DocumentPositionsDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documents_Invoices" Association="Self.FK_Documents_Invoices">
+            <End Role="Invoices" EntitySet="Invoices" />
+            <End Role="Documents" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documents_WorkstationDeviceLinks" Association="Self.FK_Documents_WorkstationDeviceLinks">
+            <End Role="WorkstationDeviceLinks" EntitySet="WorkstationDeviceLinks" />
+            <End Role="Documents" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Documents" Association="Self.FK_Orders_Documents">
+            <End Role="Documents" EntitySet="Documents" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoices_WorkstationDeviceLinks" Association="Self.FK_Invoices_WorkstationDeviceLinks">
+            <End Role="WorkstationDeviceLinks" EntitySet="WorkstationDeviceLinks" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Payments" Association="Self.FK_Orders_Payments">
+            <End Role="Payments" EntitySet="Payments" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_RestaurantTables" Association="Self.FK_Orders_RestaurantTables">
+            <End Role="RestaurantTables" EntitySet="RestaurantTables" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Users" Association="Self.FK_Orders_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrdersDetails_Orders" Association="Self.FK_OrdersDetails_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrdersDetails" EntitySet="OrdersDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrdersDetails_Products" Association="Self.FK_OrdersDetails_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="OrdersDetails" EntitySet="OrdersDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payments_Users" Association="Self.FK_Payments_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservations_RestaurantTables" Association="Self.FK_Reservations_RestaurantTables">
+            <End Role="RestaurantTables" EntitySet="RestaurantTables" />
+            <End Role="Reservations" EntitySet="Reservations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservations_Users" Association="Self.FK_Reservations_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Reservations" EntitySet="Reservations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkstationDeviceLinks_Workstations" Association="Self.FK_WorkstationDeviceLinks_Workstations">
+            <End Role="Workstations" EntitySet="Workstations" />
+            <End Role="WorkstationDeviceLinks" EntitySet="WorkstationDeviceLinks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RestaurantSystemModelStoreContainer" CdmEntityContainer="RestaurantSystemEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Categories">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Companies">
+              <MappingFragment StoreEntitySet="Companies">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="NIP" ColumnName="NIP" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Devices">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Devices">
+              <MappingFragment StoreEntitySet="Devices">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentPositionsDetails">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.DocumentPositionsDetails">
+              <MappingFragment StoreEntitySet="DocumentPositionsDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+                <ScalarProperty Name="DucumentId" ColumnName="DucumentId" />
+                <ScalarProperty Name="UnitPriceNet" ColumnName="UnitPriceNet" />
+                <ScalarProperty Name="UnitPriceGross" ColumnName="UnitPriceGross" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documents">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Documents">
+              <MappingFragment StoreEntitySet="Documents">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AuthorFullName" ColumnName="AuthorFullName" />
+                <ScalarProperty Name="AuthorNIP" ColumnName="AuthorNIP" />
+                <ScalarProperty Name="RecipientFullName" ColumnName="RecipientFullName" />
+                <ScalarProperty Name="RecipientNIP" ColumnName="RecipientNIP" />
+                <ScalarProperty Name="EmployeeFullName" ColumnName="EmployeeFullName" />
+                <ScalarProperty Name="PaymentDateLimit" ColumnName="PaymentDateLimit" />
+                <ScalarProperty Name="DocumentDate" ColumnName="DocumentDate" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="TotalAmountGross" ColumnName="TotalAmountGross" />
+                <ScalarProperty Name="TotalAmountNet" ColumnName="TotalAmountNet" />
+                <ScalarProperty Name="TotalAmountVAT" ColumnName="TotalAmountVAT" />
+                <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+                <ScalarProperty Name="Printed" ColumnName="Printed" />
+                <ScalarProperty Name="WorkstationDeviceLinkId" ColumnName="WorkstationDeviceLinkId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="AuthorPhotoUrl" ColumnName="AuthorPhotoUrl" />
+                <ScalarProperty Name="RecipientPhotoUrl" ColumnName="RecipientPhotoUrl" />
+                <ScalarProperty Name="DocumentPhotoUrl" ColumnName="DocumentPhotoUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Invoices">
+              <MappingFragment StoreEntitySet="Invoices">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="AuthorCompanyName" ColumnName="AuthorCompanyName" />
+                <ScalarProperty Name="AuthorFullName" ColumnName="AuthorFullName" />
+                <ScalarProperty Name="AuthorNIP" ColumnName="AuthorNIP" />
+                <ScalarProperty Name="AuthorFullAddress" ColumnName="AuthorFullAddress" />
+                <ScalarProperty Name="AuthorContact" ColumnName="AuthorContact" />
+                <ScalarProperty Name="RecipientFirstName" ColumnName="RecipientFirstName" />
+                <ScalarProperty Name="RecipientSecondName" ColumnName="RecipientSecondName" />
+                <ScalarProperty Name="RecipientFullName" ColumnName="RecipientFullName" />
+                <ScalarProperty Name="RecipientNIP" ColumnName="RecipientNIP" />
+                <ScalarProperty Name="RecipientFullAddress" ColumnName="RecipientFullAddress" />
+                <ScalarProperty Name="RecipientContact" ColumnName="RecipientContact" />
+                <ScalarProperty Name="EmployeeFullName" ColumnName="EmployeeFullName" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+                <ScalarProperty Name="PaymentDateLimit" ColumnName="PaymentDateLimit" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="TotalAmountGross" ColumnName="TotalAmountGross" />
+                <ScalarProperty Name="TotalAmountNet" ColumnName="TotalAmountNet" />
+                <ScalarProperty Name="TotalAmountVAT" ColumnName="TotalAmountVAT" />
+                <ScalarProperty Name="InvoiceStatus" ColumnName="InvoiceStatus" />
+                <ScalarProperty Name="Printed" ColumnName="Printed" />
+                <ScalarProperty Name="WorkstationDeviceLinkId" ColumnName="WorkstationDeviceLinkId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="AuthorPhotoUrl" ColumnName="AuthorPhotoUrl" />
+                <ScalarProperty Name="RecipientPhotoUrl" ColumnName="RecipientPhotoUrl" />
+                <ScalarProperty Name="DocumentPhotoUrl" ColumnName="DocumentPhotoUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="RestaurantTableId" ColumnName="RestaurantTableId" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="TotalPriceNet" ColumnName="TotalPriceNet" />
+                <ScalarProperty Name="TotalPriceGross" ColumnName="TotalPriceGross" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdersDetails">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.OrdersDetails">
+              <MappingFragment StoreEntitySet="OrdersDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="UnitPriceNetto" ColumnName="UnitPriceNetto" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="OrderDetailsStatus" ColumnName="OrderDetailsStatus" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Payments">
+              <MappingFragment StoreEntitySet="Payments">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="PaymentDateLimit" ColumnName="PaymentDateLimit" />
+                <ScalarProperty Name="TotalAmountGross" ColumnName="TotalAmountGross" />
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="UnitPriceNet" ColumnName="UnitPriceNet" />
+                <ScalarProperty Name="UnitPriceGross" ColumnName="UnitPriceGross" />
+                <ScalarProperty Name="UnitsInStock" ColumnName="UnitsInStock" />
+                <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservations">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Reservations">
+              <MappingFragment StoreEntitySet="Reservations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="ReservationDate" ColumnName="ReservationDate" />
+                <ScalarProperty Name="OrderAmountLimit" ColumnName="OrderAmountLimit" />
+                <ScalarProperty Name="RestaurantTableId" ColumnName="RestaurantTableId" />
+                <ScalarProperty Name="NumberOfPeople" ColumnName="NumberOfPeople" />
+                <ScalarProperty Name="ReservationStatus" ColumnName="ReservationStatus" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RestaurantTables">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.RestaurantTables">
+              <MappingFragment StoreEntitySet="RestaurantTables">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkstationDeviceLinks">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.WorkstationDeviceLinks">
+              <MappingFragment StoreEntitySet="WorkstationDeviceLinks">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="WorkstationId" ColumnName="WorkstationId" />
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workstations">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Workstations">
+              <MappingFragment StoreEntitySet="Workstations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

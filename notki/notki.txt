@@ -1,0 +1,21 @@
+USE [RestaurantSystem_v0]
+GO
+
+/****** Object:  Table [dbo].[Workstations]    Script Date: 2023-01-18 23:02:11 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Workstations](
+	[Id] [int] NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+	[Description] [nvarchar](250) NULL,
+	[IsActive] [bit] NULL,
+	[LastModified] [datetime] NULL,
+	[PhotoUrl] [nvarchar](250) NULL
+) ON [PRIMARY]
+GO
+
+Data Source=PIOTR\SQLEXPRESS;Initial Catalog=RestaurantProject;Integrated Security=True

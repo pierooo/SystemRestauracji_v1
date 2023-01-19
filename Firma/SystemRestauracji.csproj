@@ -1,0 +1,254 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net48</TargetFramework>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Models\Entities\RestaurantSystemModel.edmx" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Remove="Views\Content\Icons\addOrder.png" />
+		<Resource Remove="Views\Content\Icons\showOrders.png" />
+		<Resource Remove="Views\Content\Icons\showClosedOrders.png" />
+		<Resource Remove="Views\Content\Icons\closeOrder.png" />
+		<Resource Remove="Views\Content\Icons\faktura.png" />
+		<Resource Remove="Views\Content\Icons\confirm.png" />
+		<Resource Remove="Views\Content\Icons\edit.png" />
+		<Resource Remove="Views\Content\Icons\trash.png" />
+		<Resource Remove="Views\Content\Icons\add.png" />
+		<Resource Remove="Views\Content\Icons\addFaktura.png" />
+		<Resource Remove="Views\Content\Icons\display.png" />
+		<Resource Remove="Views\Content\Icons\addEmployee.png" />
+		<Resource Remove="Views\Content\Icons\products.png" />
+		<Resource Remove="Views\Content\Icons\categories.png" />
+		<Resource Remove="Views\Content\Icons\round-table.png" />
+		<Resource Remove="Views\Content\Icons\cargo.png" />
+		<Resource Remove="Views\Content\Icons\printer.png" />
+		<Resource Remove="Views\Content\Icons\information.png" />
+		<Resource Remove="Views\Content\Icons\contract.png" />
+		<Resource Remove="Views\Content\Icons\employee.png" />
+
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EntityDeploy Include="Models\Entities\RestaurantSystemModel.edmx">
+	    <Generator>EntityModelCodeGenerator</Generator>
+	    <LastGenOutput>RestaurantSystemModel.Designer.cs</LastGenOutput>
+	  </EntityDeploy>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="EntityFramework" Version="5.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="System.Security" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Views\Content\Icons\addOrder.png" />
+		<Resource Include="Views\Content\Icons\showOrders.png" />
+		<Resource Include="Views\Content\Icons\showClosedOrders.png" />
+		<Resource Include="Views\Content\Icons\closeOrder.png" />
+		<Resource Include="Views\Content\Icons\faktura.png" />
+		<Resource Include="Views\Content\Icons\confirm.png" />
+		<Resource Include="Views\Content\Icons\edit.png" />
+		<Resource Include="Views\Content\Icons\trash.png" />
+		<Resource Include="Views\Content\Icons\add.png" />
+		<Resource Include="Views\Content\Icons\addFaktura.png" />
+		<Resource Include="Views\Content\Icons\display.png" />
+		<Resource Include="Views\Content\Icons\addEmployee.png" />
+		<Resource Include="Views\Content\Icons\products.png" />
+		<Resource Include="Views\Content\Icons\categories.png" />
+		<Resource Include="Views\Content\Icons\round-table.png" />
+		<Resource Include="Views\Content\Icons\cargo.png" />
+		<Resource Include="Views\Content\Icons\printer.png" />
+		<Resource Include="Views\Content\Icons\information.png" />
+		<Resource Include="Views\Content\Icons\contract.png" />
+		<Resource Include="Views\Content\Icons\employee.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Models\Entities\RestaurantSystemModel.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>RestaurantSystemModel.edmx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\MojeOtwarteZamowieniaView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\MojeZamknieteZamowieniaView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\DodajStolikView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\GrafikView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\NowaKategoriaView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\DodajProduktDoKategoriiView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\MagazynProduktowView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\MojaZmianaView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\WszyscyDostawcyView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\TaZmianaZamowieniaView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\NowyDostawcaView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\DaneRestauracjiView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\WszyscyPracownicyView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\NowyPracownikView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\WszystkieDrukarkiView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\WszystkieRezerwacjeView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\WszystkieWynagrodzeniaView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\WszystkieZamowieniaView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\WszystkieStolikiView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\WszystkieKategorieView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+		<Compile Update="Views\WszystkieWorkstationView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+	  <Compile Update="Views\ZamknijZmianeView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\ZakonczZamowienieView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Views\NoweZamowienieView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Views\MojeOtwarteZamowieniaView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\MojeZamknieteZamowieniaView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\DodajStolikView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\GrafikView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\NowaKategoriaView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\DodajProduktDoKategoriiView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\MagazynProduktowView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\MojaZmianaView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\WszyscyDostawcyView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\TaZmianaZamowieniaView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\NowyDostawcaView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\DaneRestauracjiView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\WszyscyPracownicyView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\NowyPracownikView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\WszystkieDrukarkiView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\WszystkieRezerwacjeView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\WszystkieWynagrodzeniaView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\WszystkieZamowieniaView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\WszystkieStolikiView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\WszystkieKategorieView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+		<Page Update="Views\WszystkieWorkstationView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+	  <Page Update="Views\ZamknijZmianeView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\ZakonczZamowienieView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Views\NoweZamowienieView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	</ItemGroup>
+
+</Project>

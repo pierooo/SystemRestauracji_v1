@@ -1,0 +1,275 @@
+﻿<Window x:Class="SystemRestauracji.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SystemRestauracji"
+        mc:Ignorable="d"
+        Title="System Restauracji" Height="450" Width="800"
+        WindowState="Maximized">
+    <Window.Resources>
+        <ResourceDictionary Source="MainWindowResources.xaml"/>
+    </Window.Resources>
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Ctrl" Key="N" Command="{Binding NoweZamowienieCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="P" Command="{Binding TowaryCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="K" Command="{Binding KategorieCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="F" Command="{Binding NowaFakturaCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="A" Command="{Binding NowyTowarCommand}"/>
+            <KeyBinding Modifiers="Ctrl" Key="R" Command="{Binding RestauracjaCommand}"/>
+    </Window.InputBindings>
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0" Grid.Column="0" Margin="3">
+            <MenuItem Header="Zamknij zmianę" Command="{Binding ZamknijZmianeCommand}"/>
+            <MenuItem Header="Produkty" >
+                <MenuItem Header="Wyświetl" InputGestureText="Ctrl+P" Command="{Binding TowaryCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/icons/display.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Dodaj" InputGestureText="Ctrl+A" Command="{Binding NowyTowarCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/icons/addOrder.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Kategorie">
+                <MenuItem Header="Wyświetl" InputGestureText="Ctrl+K" Command="{Binding KategorieCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/icons/display.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Dodaj" Command="{Binding NowaKategoriaCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/icons/add.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Dodaj produkt" Command="{Binding DodajProduktDoKategoriCommand}">
+                <MenuItem.Icon>
+                    <Image Source="/Views/Content/icons/addFaktura.png" />
+                </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Typy Kategorii" Command="{Binding WszystkieTypyKategoriiCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/icons/addFaktura.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Dodaj Typ" Command="{Binding DodajTypKategoriCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/icons/addFaktura.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Stoliki">
+                <MenuItem Header="Wyświetl" Command="{Binding StolikiCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/icons/display.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Dodaj" Command="{Binding DodajStolikCommand}">
+                <MenuItem.Icon>
+                    <Image Source="/Views/Content/icons/add.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Sprzedaż">
+                <MenuItem Header="Wszystkie zamówienia" Command="{Binding ZamowieniaCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/icons/showOrders.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Ta zmiana" Command="{Binding TaZmianaZamowieniaCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/icons/showClosedOrders.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Magazyn">
+                <MenuItem Header="Produktów" Command="{Binding MagazynProduktyCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/icons/display.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Finanse">
+                <MenuItem Header="Faktury">
+                        <MenuItem Header="Wszystkie" Command="{Binding FakturyCommand}">
+                            <MenuItem.Icon>
+                                <Image Source="/Views/Content/icons/display.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    <MenuItem Header="Dodaj" InputGestureText="Ctrl+F" Command="{Binding NowaFakturaCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/icons/faktura.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Płatności">
+                    <MenuItem Header="Wynagrodzenia" Command="{Binding WynagrodzeniaCommand}"/>
+                </MenuItem>
+                <MenuItem Header="Firmy">
+                    <MenuItem Header="Dodaj nowa" Command="{Binding DodajDostawceCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/icons/addEmployee.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="Wyświetl" Command="{Binding DostawcyCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/icons/display.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Firma">
+                <MenuItem Header="Dane restauracji" InputGestureText="Ctrl+R" Command="{Binding RestauracjaCommand}"/>
+                <MenuItem Header="Pracownicy" >
+                    <MenuItem Header="Grafik" Command="{Binding GrafikCommand}"/>
+                    <MenuItem Header="Wszyscy" Command="{Binding PracownicyCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/icons/display.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Dodaj" Command="{Binding DodajPracownikaCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/icons/addEmployee.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Urządzenia">
+                    <MenuItem Header="Drukarki" Command="{Binding DrukarkiCommand}"/>
+                </MenuItem>
+                <MenuItem Header="Stacje robocze">
+                    <MenuItem Header="Komputery" Command="{Binding WorkstationCommand}"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Pokaż/Ukryj menu boczne" Command="{Binding PokazUkryjMenuBoczneAsyncCommand}"/>
+        </Menu>
+
+        <ToolBar Background="Beige" Grid.Row="1" Grid.Column="0" Margin="10,0,0,0">
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}" Command="{Binding NoweZamowienieCommand}" ToolTip="Nowe Zamówienie" Cursor="Hand">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/icons/addOrder.png" />
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}" Command="{Binding ZakonczZamowienieCommand}" ToolTip="Zamknij Zamówienie" Cursor="Hand">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/icons/closeOrder.png" />
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding MojeOtwarteZamowieniaCommand}" ToolTip="Otwarte Zamówienia" Cursor="Hand">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/icons/showOrders.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding MojeZamknieteZamowieniaCommand}" ToolTip="Zamknięte zamówienia" Cursor="Hand">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/icons/showClosedOrders.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <Separator HorizontalAlignment="Center" Width="3"/>
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding NowaFakturaCommand}" ToolTip="Nowa Faktura" Cursor="Hand">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/icons/addFaktura.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding FakturyCommand}" ToolTip="Wszystkie Faktury" Cursor="Hand">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/icons/faktura.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <Separator HorizontalAlignment="Center" Width="3"/>
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding TowaryCommand}" ToolTip="Wszystkie Towary" Cursor="Hand">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/icons/products.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding KategorieCommand}" ToolTip="Wszystkie Kategorie" Cursor="Hand">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/icons/categories.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding StolikiCommand}" ToolTip="Wszystkie Stoliki" Cursor="Hand">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/icons/round-table.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding DostawcyCommand}" ToolTip="Wszystkie Firmy" Cursor="Hand">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/icons/cargo.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding DrukarkiCommand}" ToolTip="Wszystkie Drukarki" Cursor="Hand">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/icons/printer.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <Separator HorizontalAlignment="Center" Width="3"/>
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding RestauracjaCommand}" ToolTip="Informacje- Restauracja" Cursor="Hand">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/icons/information.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding GrafikCommand}" ToolTip="Grafik Pracowników" Cursor="Hand">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/icons/contract.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding PracownicyCommand}" ToolTip="Wszyscy Pracownicy" Cursor="Hand">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/icons/employee.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+
+
+        </ToolBar>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{Binding SzerokoscKolumnyMenuBocznego}"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0">
+                <HeaderedContentControl
+                    Header="Operacje"
+                    Background="Aquamarine"
+                    Content="{Binding Path=Commands}"
+                    ContentTemplate="{StaticResource CommandsTemplate}"
+                    Style="{StaticResource MainHCCStyle}" Margin="0,5,0,0"
+                    />
+
+            </Border>
+            <Border Grid.Column="2" Margin="5">
+                <HeaderedContentControl
+                    Header="Przestrzeń robocza"
+                    Background="Aqua"
+                    Content="{Binding Path=Workspaces}"
+                    ContentTemplate="{StaticResource WorkspacesTemplate}"
+                    Style="{StaticResource MainHCCStyle}"
+                    />
+
+            </Border>
+        </Grid>
+
+        <StatusBar Grid.Row="3">
+            <StatusBarItem>
+                <TextBlock>Zalogowany pracownik: pracownik</TextBlock>
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem>
+                <TextBlock>Zapisywanie włączone</TextBlock>
+            </StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock>Data: 20.05.2022 <Separator/> Godzina: 00:00</TextBlock>
+            </StatusBarItem>
+        </StatusBar>
+
+    </Grid>
+</Window>
