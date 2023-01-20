@@ -16,7 +16,7 @@
         <KeyBinding Modifiers="Ctrl" Key="K" Command="{Binding GetCategoriesCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="F" Command="{Binding NowaFakturaCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="A" Command="{Binding NowyTowarCommand}"/>
-            <KeyBinding Modifiers="Ctrl" Key="R" Command="{Binding RestauracjaCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="R" Command="{Binding RestauracjaCommand}"/>
     </Window.InputBindings>
     <Grid x:Name="grid">
         <Grid.RowDefinitions>
@@ -51,17 +51,7 @@
                         <Image Source="/Views/Content/icons/add.png" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Dodaj produkt" Command="{Binding DodajProduktDoKategoriCommand}">
-                <MenuItem.Icon>
-                    <Image Source="/Views/Content/icons/addFaktura.png" />
-                </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Typy Kategorii" Command="{Binding WszystkieTypyKategoriiCommand}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/icons/addFaktura.png" />
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Dodaj Typ" Command="{Binding DodajTypKategoriCommand}">
+                <MenuItem Header="Dodaj produkt do kategorii" Command="{Binding DodajProduktDoKategoriCommand}">
                     <MenuItem.Icon>
                         <Image Source="/Views/Content/icons/addFaktura.png" />
                     </MenuItem.Icon>
@@ -74,10 +64,15 @@
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="Dodaj" Command="{Binding DodajStolikCommand}">
-                <MenuItem.Icon>
-                    <Image Source="/Views/Content/icons/add.png" />
-                </MenuItem.Icon>
-            </MenuItem>
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/icons/add.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Rezerwacje" Command="{Binding GetReservationsCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/icons/display.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="Sprzedaż">
                 <MenuItem Header="Wszystkie zamówienia" Command="{Binding ZamowieniaCommand}">
@@ -85,31 +80,29 @@
                         <Image Source="/Views/Content/icons/showOrders.png" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Ta zmiana" Command="{Binding TaZmianaZamowieniaCommand}">
+                <MenuItem Header="Otwarte zamówienia" Command="{Binding TaZmianaZamowieniaCommand}">
                     <MenuItem.Icon>
-                        <Image Source="/Views/Content/icons/showClosedOrders.png" />
+                        <Image Source="/Views/Content/icons/showOrders.png" />
                     </MenuItem.Icon>
                 </MenuItem>
-            </MenuItem>
-            <MenuItem Header="Magazyn">
-                <MenuItem Header="Produktów" Command="{Binding MagazynProduktyCommand}">
+                <MenuItem Header="Nowe zamówienie" Command="{Binding TaZmianaZamowieniaCommand}">
                     <MenuItem.Icon>
-                        <Image Source="/Views/Content/icons/display.png" />
+                        <Image Source="/Views/Content/icons/add.png" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Finanse">
                 <MenuItem Header="Faktury" >
-                        <MenuItem Header="Wyświetl" Command="{Binding FakturyCommand}">
-                            <MenuItem.Icon>
-                                <Image Source="/Views/Content/icons/display.png" />
-                            </MenuItem.Icon>
-                        </MenuItem>
-                        <MenuItem Header="Dodaj" InputGestureText="Ctrl+F" Command="{Binding NowaFakturaCommand}">
-                            <MenuItem.Icon>
-                                <Image Source="/Views/Content/icons/faktura.png" />
-                            </MenuItem.Icon>
-                        </MenuItem>
+                    <MenuItem Header="Wyświetl" Command="{Binding FakturyCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/icons/display.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Dodaj" InputGestureText="Ctrl+F" Command="{Binding NowaFakturaCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/icons/faktura.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Dokumenty" >
                     <MenuItem Header="Wyświetl" Command="{Binding GetDocumentsCommand}">
@@ -124,10 +117,26 @@
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Płatności">
-                    <MenuItem Header="Wynagrodzenia" Command="{Binding WynagrodzeniaCommand}"/>
+                    <MenuItem Header="Oczekujące" Command="{Binding WynagrodzeniaCommand}"/>
+                    <MenuItem Header="Archiwalne" Command="{Binding WynagrodzeniaCommand}"/>
                 </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Kontrahenci">
                 <MenuItem Header="Firmy">
-                    <MenuItem Header="Dodaj nowa" Command="{Binding DodajDostawceCommand}">
+                    <MenuItem Header="Dodaj nową" Command="{Binding DodajDostawceCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/icons/addEmployee.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="Wyświetl" Command="{Binding GetCompaniesCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/icons/display.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Osoby fizyczne">
+                    <MenuItem Header="Dodaj nową" Command="{Binding DodajDostawceCommand}">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/icons/addEmployee.png" />
                         </MenuItem.Icon>
@@ -143,26 +152,52 @@
             <MenuItem Header="Firma">
                 <MenuItem Header="Dane restauracji" InputGestureText="Ctrl+R" Command="{Binding RestauracjaCommand}"/>
                 <MenuItem Header="Pracownicy" >
-                    <MenuItem Header="Grafik" Command="{Binding GrafikCommand}"/>
                     <MenuItem Header="Wszyscy" Command="{Binding PracownicyCommand}">
-                    <MenuItem.Icon>
-                        <Image Source="/Views/Content/icons/display.png" />
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Dodaj" Command="{Binding DodajPracownikaCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/icons/display.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Dodaj" Command="{Binding DodajPracownikaCommand}">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/icons/addEmployee.png" />
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Urządzenia">
-                    <MenuItem Header="Drukarki" Command="{Binding DrukarkiCommand}"/>
+                    <MenuItem Header="Wyświetl" Command="{Binding }">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/icons/display.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Dodaj" Command="{Binding }">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/icons/addEmployee.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Stacje robocze">
-                    <MenuItem Header="Stacje robocze" Command="{Binding GetWorkstationsCommand}"/>
+                    <MenuItem Header="Wyświetl" Command="{Binding GetWorkstationsCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/icons/display.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Dodaj" Command="{Binding }">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/icons/addEmployee.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
-                <MenuItem Header="Połączone urządzenia ze stacjami roboczymi">
-                    <MenuItem Header="Wyświetl" Command="{Binding GetWorkstationDeviceLinksCommand}"/>
+                <MenuItem Header="Połączenia stacja - urządzenie">
+                    <MenuItem Header="Wyświetl" Command="{Binding GetWorkstationDeviceLinksCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/icons/display.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Dodaj" Command="{Binding }">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/icons/addEmployee.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Pokaż/Ukryj menu boczne" Command="{Binding PokazUkryjMenuBoczneAsyncCommand}"/>
