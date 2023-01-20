@@ -1,0 +1,30 @@
+﻿<local:WszystkieViewBase x:Class="SystemRestauracji.Views.GetDocumentsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SystemRestauracji.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="StyleZakladekResources.xaml"/>
+    </UserControl.Resources>
+    <Grid Background="White">
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nazwa dokumentu" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Faktura dla dokumentu" Binding="{Binding Path=InvoiveName}"/>
+                <DataGridTextColumn Header="Sprzedawca" Binding="{Binding Path=AuthorFullName}"/>
+                <DataGridTextColumn Header="Sprzedawca NIP" Binding="{Binding Path=AuthorNIP}"/>
+                <DataGridTextColumn Header="Nazwa odbiorcy" Binding="{Binding Path=RecipientFullName}"/>
+                <DataGridTextColumn Header="Odbiorca NIP" Binding="{Binding Path=RecipientNIP}"/>
+                <DataGridTextColumn Header="Termin płatności" Binding="{Binding Path=PaymentDateLimit}"/>
+                <DataGridTextColumn Header="Kwota do zapłaty brutto" Binding="{Binding Path=TotalAmountGross}"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Path=DocumentStatus}"/>
+                <DataGridTextColumn Header="Data dokumentu" Binding="{Binding Path=DocumentDate}"/>
+                <DataGridTextColumn Header="Wystawił" Binding="{Binding Path=EmployeeFullName}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</local:WszystkieViewBase>
