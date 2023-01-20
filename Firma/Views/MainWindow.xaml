@@ -12,7 +12,7 @@
     </Window.Resources>
     <Window.InputBindings>
         <KeyBinding Modifiers="Ctrl" Key="N" Command="{Binding NoweZamowienieCommand}"/>
-        <KeyBinding Modifiers="Ctrl" Key="P" Command="{Binding TowaryCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="P" Command="{Binding GetProductsCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="K" Command="{Binding KategorieCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="F" Command="{Binding NowaFakturaCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="A" Command="{Binding NowyTowarCommand}"/>
@@ -29,7 +29,7 @@
         <Menu Grid.Row="0" Grid.Column="0" Margin="3">
             <MenuItem Header="Zamknij zmianę" Command="{Binding ZamknijZmianeCommand}"/>
             <MenuItem Header="Produkty" >
-                <MenuItem Header="Wyświetl" InputGestureText="Ctrl+P" Command="{Binding TowaryCommand}">
+                <MenuItem Header="Wyświetl" InputGestureText="Ctrl+P" Command="{Binding GetProductsCommand}">
                     <MenuItem.Icon>
                         <Image Source="/Views/Content/icons/display.png" />
                     </MenuItem.Icon>
@@ -186,7 +186,7 @@
                 </ToggleButton.Background>
             </ToggleButton>
             <Separator HorizontalAlignment="Center" Width="3"/>
-            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding TowaryCommand}" ToolTip="Wszystkie Towary" Cursor="Hand">
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding GetProductsCommand}" ToolTip="Wszystkie Produkty" Cursor="Hand">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/icons/products.png"/>
                 </ToggleButton.Background>
