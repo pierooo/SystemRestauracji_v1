@@ -262,7 +262,7 @@ namespace SystemRestauracji.ViewModels
             return new List<CommandViewModel>
             {
                 new CommandViewModel("Moja zmiana",new BaseCommand(ShowMojaZmiana)), 
-                new CommandViewModel("Produkty",new BaseCommand(showAllTowar)),
+                new CommandViewModel("Produkty",new BaseCommand(GetProducts)),
                 new CommandViewModel("Kategorie",new BaseCommand(ShowAllKategorie)),
                 new CommandViewModel("Stoliki",new BaseCommand(ShowAllStoliki)),
                 new CommandViewModel("Rezerwacje",new BaseCommand(showAllRezerwacje)),
