@@ -15,8 +15,6 @@
                 <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
                 <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=Name}"/>
                 <DataGridTextColumn Header="Opis" Binding="{Binding Path=Description}"/>
-                <DataGridTextColumn Header="Typ" Binding="{Binding Path=WorkstationTypeName}"/>
-                <DataGridTextColumn Header="Restauracja" Binding="{Binding Path=RestaurantDescription}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
