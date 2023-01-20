@@ -5,7 +5,11 @@
                     >
 
     <!--tu bedziemy laczyc View z ViewModel zakładek-->
-   
+    <DataTemplate DataType="{x:Type vm:GetProductsViewModel}">
+        <vw:GetProductsView/>
+    </DataTemplate>
+
+    <!--old-->
     <DataTemplate DataType="{x:Type vm:WszystkieTowaryViewModel}">
         <vw:WszystkieTowaryView/>
     </DataTemplate>
