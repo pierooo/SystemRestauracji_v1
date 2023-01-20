@@ -9,6 +9,9 @@
         <vw:GetProductsView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:GetCompaniesViewModel}">
+        <vw:GetCompaniesView/>
+    </DataTemplate>
     <!--old-->
     <DataTemplate DataType="{x:Type vm:WszystkieTowaryViewModel}">
         <vw:WszystkieTowaryView/>
