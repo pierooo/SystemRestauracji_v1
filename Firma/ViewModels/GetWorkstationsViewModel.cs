@@ -7,7 +7,7 @@ namespace SystemRestauracji.ViewModels
 {
     public class GetWorkstationsViewModel : ViewModelBase<Workstations>
     {
-        public GetWorkstationsViewModel() : base("Workstations")
+        public GetWorkstationsViewModel() : base("Stacje robocze")
         {
         }
 
