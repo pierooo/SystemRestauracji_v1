@@ -99,12 +99,24 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Finanse">
-                <MenuItem Header="Faktury">
-                        <MenuItem Header="Wszystkie" Command="{Binding FakturyCommand}">
+                <MenuItem Header="Faktury" >
+                        <MenuItem Header="Wyświetl" Command="{Binding FakturyCommand}">
                             <MenuItem.Icon>
                                 <Image Source="/Views/Content/icons/display.png" />
                             </MenuItem.Icon>
                         </MenuItem>
+                        <MenuItem Header="Dodaj" InputGestureText="Ctrl+F" Command="{Binding NowaFakturaCommand}">
+                            <MenuItem.Icon>
+                                <Image Source="/Views/Content/icons/faktura.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Dokumenty" >
+                    <MenuItem Header="Wyświetl" Command="{Binding GetDocumentsCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/icons/display.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
                     <MenuItem Header="Dodaj" InputGestureText="Ctrl+F" Command="{Binding NowaFakturaCommand}">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/icons/faktura.png" />
