@@ -138,9 +138,6 @@
 	  <Compile Update="Views\WszystkieKategorieView.xaml.cs">
 	    <SubType>Code</SubType>
 	  </Compile>
-		<Compile Update="Views\WszystkieWorkstationView.xaml.cs">
-			<SubType>Code</SubType>
-		</Compile>
 	  <Compile Update="Views\ZamknijZmianeView.xaml.cs">
 	    <SubType>Code</SubType>
 	  </Compile>
@@ -233,10 +230,6 @@
 	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 	    <SubType>Designer</SubType>
 	  </Page>
-		<Page Update="Views\WszystkieWorkstationView.xaml">
-			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-			<SubType>Designer</SubType>
-		</Page>
 	  <Page Update="Views\ZamknijZmianeView.xaml">
 	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 	    <SubType>Designer</SubType>

@@ -147,7 +147,7 @@
                     <MenuItem Header="Drukarki" Command="{Binding DrukarkiCommand}"/>
                 </MenuItem>
                 <MenuItem Header="Stacje robocze">
-                    <MenuItem Header="Komputery" Command="{Binding WorkstationCommand}"/>
+                    <MenuItem Header="Komputery" Command="{Binding GetWorkstationsCommand}"/>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Pokaż/Ukryj menu boczne" Command="{Binding PokazUkryjMenuBoczneAsyncCommand}"/>

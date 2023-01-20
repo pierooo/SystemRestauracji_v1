@@ -16,6 +16,10 @@
     <DataTemplate DataType="{x:Type vm:GetCategoriesViewModel}">
         <vw:GetCategoriesView/>
     </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:GetWorkstationsViewModel}">
+        <vw:GetWorkstationsView/>
+    </DataTemplate>
     <!--old-->
     <DataTemplate DataType="{x:Type vm:WszystkieTowaryViewModel}">
         <vw:WszystkieTowaryView/>
@@ -96,9 +100,6 @@
     </DataTemplate>
     <DataTemplate DataType="{x:Type vm:WszystkieDrukarkiViewModel}">
         <vw:WszystkieDrukarkiView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:WszystkieWorkstationViewModel}">
-        <vw:WszystkieWorkstationView/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type vm:WszystkieRezerwacjeViewModel}">
         <vw:WszystkieRezerwacjeView/>

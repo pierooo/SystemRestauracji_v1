@@ -1,4 +1,4 @@
-﻿<local:WszystkieViewBase x:Class="SystemRestauracji.Views.WszystkieWorkstationView"
+﻿<local:WszystkieViewBase x:Class="SystemRestauracji.Views.GetWorkstationsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -19,6 +19,6 @@
                 <DataGridTextColumn Header="Restauracja" Binding="{Binding Path=RestaurantDescription}"/>
             </DataGrid.Columns>
         </DataGrid>
-
+        
     </Grid>
 </local:WszystkieViewBase>
