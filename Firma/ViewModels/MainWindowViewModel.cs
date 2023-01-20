@@ -57,6 +57,14 @@ namespace SystemRestauracji.ViewModels
                 return new BaseCommand(GetCategories);
             }
         }
+
+        public ICommand GetRestaurantTablesCommand
+        {
+            get
+            {
+                return new BaseCommand(GetRestaurantTables);
+            }
+        }
         #endregion
         #region stare
         public ICommand PokazUkryjMenuBoczneAsyncCommand { get { return new BaseCommand(async () => await PokazUkryjmenuBoczneAsync()); } }
@@ -282,7 +290,7 @@ namespace SystemRestauracji.ViewModels
                 new CommandViewModel("Moja zmiana",new BaseCommand(ShowMojaZmiana)), 
                 new CommandViewModel("Produkty",new BaseCommand(GetProducts)),
                 new CommandViewModel("Kategorie",new BaseCommand(GetCategories)),
-                new CommandViewModel("Stoliki",new BaseCommand(ShowAllStoliki)),
+                new CommandViewModel("Stoliki",new BaseCommand(GetRestaurantTables)),
                 new CommandViewModel("Rezerwacje",new BaseCommand(showAllRezerwacje)),
                 new CommandViewModel("Dane firmy",new BaseCommand(showDaneRestauracji)),
             };
@@ -381,6 +389,16 @@ namespace SystemRestauracji.ViewModels
             this.setActiveWorkspace(workspace);
         }
 
+        private void GetRestaurantTables()
+        {
+            GetRestaurantTablesViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetRestaurantTablesViewModel) as GetRestaurantTablesViewModel;
+            if (workspace == null)
+            {
+                workspace = new GetRestaurantTablesViewModel();
+                this.Workspaces.Add(workspace);
+            }
+            this.setActiveWorkspace(workspace);
+        }
         #endregion
         #region stare
         private void ShowAllKategorie()

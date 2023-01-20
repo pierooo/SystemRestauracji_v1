@@ -68,7 +68,7 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Stoliki">
-                <MenuItem Header="Wyświetl" Command="{Binding StolikiCommand}">
+                <MenuItem Header="Wyświetl" Command="{Binding GetRestaurantTablesCommand}">
                     <MenuItem.Icon>
                         <Image Source="/Views/Content/icons/display.png" />
                     </MenuItem.Icon>
@@ -196,7 +196,7 @@
                     <ImageBrush ImageSource="/Views/Content/icons/categories.png"/>
                 </ToggleButton.Background>
             </ToggleButton>
-            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding StolikiCommand}" ToolTip="Wszystkie Stoliki" Cursor="Hand">
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding GetRestaurantTablesCommand}" ToolTip="Wszystkie Stoliki w restauracji" Cursor="Hand">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/icons/round-table.png"/>
                 </ToggleButton.Background>
