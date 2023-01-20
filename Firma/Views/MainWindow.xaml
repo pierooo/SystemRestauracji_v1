@@ -121,7 +121,7 @@
                         </MenuItem.Icon>
                     </MenuItem>
 
-                    <MenuItem Header="Wyświetl" Command="{Binding DostawcyCommand}">
+                    <MenuItem Header="Wyświetl" Command="{Binding GetCompaniesCommand}">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/icons/display.png" />
                         </MenuItem.Icon>
@@ -201,7 +201,7 @@
                     <ImageBrush ImageSource="/Views/Content/icons/round-table.png"/>
                 </ToggleButton.Background>
             </ToggleButton>
-            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding DostawcyCommand}" ToolTip="Wszystkie Firmy" Cursor="Hand">
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding GetCompaniesCommand}" ToolTip="Wszystkie Firmy" Cursor="Hand">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/icons/cargo.png"/>
                 </ToggleButton.Background>

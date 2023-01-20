@@ -1,11 +1,11 @@
 ﻿namespace SystemRestauracji.Views
 {
     /// <summary>
-    /// Interaction logic for GetProductsView.xaml
+    /// Interaction logic for GetCompanies.xaml
     /// </summary>
-    public partial class GetProductsView : WszystkieViewBase
+    public partial class GetCompaniesView : WszystkieViewBase
     {
-        public GetProductsView()
+        public GetCompaniesView()
         {
             InitializeComponent();
         }

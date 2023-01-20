@@ -42,6 +42,14 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
+        public ICommand GetCompaniesCommand
+        {
+            get
+            {
+                return new BaseCommand(GetCompanies);
+            }
+        }
+
         //stare
         public ICommand PokazUkryjMenuBoczneAsyncCommand { get { return new BaseCommand(async () => await PokazUkryjmenuBoczneAsync()); } }
 
@@ -340,6 +348,18 @@ namespace SystemRestauracji.ViewModels
             }
             this.setActiveWorkspace(workspace);
         }
+
+        private void GetCompanies()
+        {
+            GetCompaniesViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetCompaniesViewModel) as GetCompaniesViewModel;
+            if (workspace == null)
+            {
+                workspace = new GetCompaniesViewModel();
+                this.Workspaces.Add(workspace);
+            }
+            this.setActiveWorkspace(workspace);
+        }
+
 
         //old
         private void ShowAllKategorie()
