@@ -33,7 +33,16 @@ namespace SystemRestauracji.ViewModels
         }
         #endregion
         #region Komendy menu i paska narzedzi
+        //after refactoring
+        public ICommand GetProductsCommand
+        {
+            get
+            {
+                return new BaseCommand(GetProducts);
+            }
+        }
 
+        //stare
         public ICommand PokazUkryjMenuBoczneAsyncCommand { get { return new BaseCommand(async () => await PokazUkryjmenuBoczneAsync()); } }
 
         public ICommand NowyTowarCommand
@@ -319,15 +328,20 @@ namespace SystemRestauracji.ViewModels
             this.Workspaces.Add(workspace);
             this.setActiveWorkspace(workspace);
         }
-        //private void Show(WorkspaceViewModel workspace)
-        //{
-        //    if (workspace == null)
-        //    {
-        //        workspace = new WszystkieKategorieViewModel();
-        //        this.Workspaces.Add(workspace);
-        //    }
-        //    this.setActiveWorkspace(workspace);
-        //}
+        
+        // after refactoring
+        private void GetProducts()
+        {
+            GetProductsViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetProductsViewModel) as GetProductsViewModel;
+            if (workspace == null)
+            {
+                workspace = new GetProductsViewModel();
+                this.Workspaces.Add(workspace);
+            }
+            this.setActiveWorkspace(workspace);
+        }
+
+        //old
         private void ShowAllKategorie()
         {
             WszystkieKategorieViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is WszystkieKategorieViewModel) as WszystkieKategorieViewModel;
