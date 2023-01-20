@@ -12,7 +12,7 @@
     </Window.Resources>
     <Window.InputBindings>
         <KeyBinding Modifiers="Ctrl" Key="N" Command="{Binding NoweZamowienieCommand}"/>
-        <KeyBinding Modifiers="Ctrl" Key="P" Command="{Binding TowaryCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="P" Command="{Binding GetProductsCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="K" Command="{Binding KategorieCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="F" Command="{Binding NowaFakturaCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="A" Command="{Binding NowyTowarCommand}"/>
@@ -186,7 +186,7 @@
                 </ToggleButton.Background>
             </ToggleButton>
             <Separator HorizontalAlignment="Center" Width="3"/>
-            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding TowaryCommand}" ToolTip="Wszystkie Towary" Cursor="Hand">
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding GetProductsCommand}" ToolTip="Wszystkie Produkty" Cursor="Hand">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/icons/products.png"/>
                 </ToggleButton.Background>
