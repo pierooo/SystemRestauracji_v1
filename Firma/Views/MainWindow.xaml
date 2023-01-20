@@ -217,7 +217,7 @@
                     <ImageBrush ImageSource="/Views/Content/icons/information.png"/>
                 </ToggleButton.Background>
             </ToggleButton>
-            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding GrafikCommand}" ToolTip="Grafik Pracowników" Cursor="Hand">
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding GetReservationsCommand}" ToolTip="Rezerwacje" Cursor="Hand">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/icons/contract.png"/>
                 </ToggleButton.Background>
