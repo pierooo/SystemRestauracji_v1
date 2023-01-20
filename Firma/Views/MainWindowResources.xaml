@@ -1,4 +1,4 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:vm="clr-namespace:SystemRestauracji.ViewModels"
                     xmlns:vw="clr-namespace:SystemRestauracji.Views"
@@ -23,6 +23,10 @@
 
     <DataTemplate DataType="{x:Type vm:GetReservationsViewModel}">
         <vw:GetReservationsView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:GetWorkstationsViewModel}">
+        <vw:GetWorkstationsView/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:GetWorkstationDeviceLinksViewModel}">

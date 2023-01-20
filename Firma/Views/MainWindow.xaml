@@ -147,7 +147,7 @@
                     <MenuItem Header="Drukarki" Command="{Binding DrukarkiCommand}"/>
                 </MenuItem>
                 <MenuItem Header="Stacje robocze">
-                    <MenuItem Header="Komputery" Command="{Binding WorkstationCommand}"/>
+                    <MenuItem Header="Stacje robocze" Command="{Binding GetWorkstationsCommand}"/>
                 </MenuItem>
                 <MenuItem Header="Połączone urządzenia ze stacjami roboczymi">
                     <MenuItem Header="Wyświetl" Command="{Binding GetWorkstationDeviceLinksCommand}"/>
