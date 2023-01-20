@@ -12,6 +12,10 @@
     <DataTemplate DataType="{x:Type vm:GetCompaniesViewModel}">
         <vw:GetCompaniesView/>
     </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:GetCategoriesViewModel}">
+        <vw:GetCategoriesView/>
+    </DataTemplate>
     <!--old-->
     <DataTemplate DataType="{x:Type vm:WszystkieTowaryViewModel}">
         <vw:WszystkieTowaryView/>

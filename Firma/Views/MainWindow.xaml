@@ -13,7 +13,7 @@
     <Window.InputBindings>
         <KeyBinding Modifiers="Ctrl" Key="N" Command="{Binding NoweZamowienieCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="P" Command="{Binding GetProductsCommand}"/>
-        <KeyBinding Modifiers="Ctrl" Key="K" Command="{Binding KategorieCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="K" Command="{Binding GetCategoriesCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="F" Command="{Binding NowaFakturaCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="A" Command="{Binding NowyTowarCommand}"/>
             <KeyBinding Modifiers="Ctrl" Key="R" Command="{Binding RestauracjaCommand}"/>
@@ -41,7 +41,7 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Kategorie">
-                <MenuItem Header="Wyświetl" InputGestureText="Ctrl+K" Command="{Binding KategorieCommand}">
+                <MenuItem Header="Wyświetl" InputGestureText="Ctrl+K" Command="{Binding GetCategoriesCommand}">
                     <MenuItem.Icon>
                         <Image Source="/Views/Content/icons/display.png" />
                     </MenuItem.Icon>
@@ -191,7 +191,7 @@
                     <ImageBrush ImageSource="/Views/Content/icons/products.png"/>
                 </ToggleButton.Background>
             </ToggleButton>
-            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding KategorieCommand}" ToolTip="Wszystkie Kategorie" Cursor="Hand">
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding GetCategoriesCommand}" ToolTip="Wszystkie Kategorie" Cursor="Hand">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/icons/categories.png"/>
                 </ToggleButton.Background>
