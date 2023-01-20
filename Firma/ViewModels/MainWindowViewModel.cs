@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -81,6 +81,15 @@ namespace SystemRestauracji.ViewModels
                 return new BaseCommand(GetWorkstations);
             }
         }
+
+        public ICommand GetWorkstationDeviceLinksCommand
+        {
+            get
+            {
+                return new BaseCommand(GetWorkstationDeviceLinks);
+            }
+        }
+        
         #endregion
         #region stare
         public ICommand PokazUkryjMenuBoczneAsyncCommand { get { return new BaseCommand(async () => await PokazUkryjmenuBoczneAsync()); } }
@@ -432,11 +441,23 @@ namespace SystemRestauracji.ViewModels
             GetWorkstationsViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetWorkstationsViewModel) as GetWorkstationsViewModel;
             if (workspace == null)
             {
-                workspace = new GetWorkstationsViewModel();
+                workspace = new GetWorkstationsViewModel();             
                 this.Workspaces.Add(workspace);
             }
             this.setActiveWorkspace(workspace);
         }
+        
+        private void GetWorkstationDeviceLinks()
+        {
+            GetWorkstationDeviceLinksViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetWorkstationDeviceLinksViewModel) as GetWorkstationDeviceLinksViewModel;
+            if (workspace == null)
+            {
+                workspace = new GetWorkstationDeviceLinksViewModel();
+                this.Workspaces.Add(workspace);
+            }
+            this.setActiveWorkspace(workspace);
+        }
+        
         #endregion
         #region stare
         private void ShowAllKategorie()
