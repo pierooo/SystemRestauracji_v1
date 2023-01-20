@@ -235,13 +235,7 @@ namespace SystemRestauracji.ViewModels
                 return new BaseCommand(ShowDrukarki);
             }
         }
-        public ICommand WorkstationCommand
-        {
-            get
-            {
-                return new BaseCommand(ShowWorkstations);
-            }
-        }
+
         public ICommand DodajDostawceCommand
         {
             get
@@ -501,16 +495,6 @@ namespace SystemRestauracji.ViewModels
             this.setActiveWorkspace(workspace);
         }
 
-        private void ShowWorkstations()
-        {
-            WszystkieWorkstationViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is WszystkieWorkstationViewModel) as WszystkieWorkstationViewModel;
-            if (workspace == null)
-            {
-                workspace = new WszystkieWorkstationViewModel();
-                this.Workspaces.Add(workspace);
-            }
-            this.setActiveWorkspace(workspace);
-        }
         private void showPracownicy()
         {
             WszyscyPracownicyViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is WszyscyPracownicyViewModel) as WszyscyPracownicyViewModel;
