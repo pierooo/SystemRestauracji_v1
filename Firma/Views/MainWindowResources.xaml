@@ -25,6 +25,10 @@
         <vw:GetReservationsView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:GetWorkstationDeviceLinksViewModel}">
+        <vw:GetWorkstationDeviceLinksView/>
+    </DataTemplate>
+
     <!--old-->
     <DataTemplate DataType="{x:Type vm:WszystkieTowaryViewModel}">
         <vw:WszystkieTowaryView/>

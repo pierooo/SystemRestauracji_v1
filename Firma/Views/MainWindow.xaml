@@ -149,6 +149,9 @@
                 <MenuItem Header="Stacje robocze">
                     <MenuItem Header="Komputery" Command="{Binding WorkstationCommand}"/>
                 </MenuItem>
+                <MenuItem Header="Połączone urządzenia ze stacjami roboczymi">
+                    <MenuItem Header="Wyświetl" Command="{Binding GetWorkstationDeviceLinksCommand}"/>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="Pokaż/Ukryj menu boczne" Command="{Binding PokazUkryjMenuBoczneAsyncCommand}"/>
         </Menu>
