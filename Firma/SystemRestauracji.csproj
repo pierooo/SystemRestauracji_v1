@@ -153,6 +153,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Update="connections.config">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Page Update="Views\MojeOtwarteZamowieniaView.xaml">
 	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 	    <SubType>Designer</SubType>
