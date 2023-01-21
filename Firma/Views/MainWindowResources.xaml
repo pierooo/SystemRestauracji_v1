@@ -37,7 +37,9 @@
         <vw:GetDocumentsView/>
     </DataTemplate>
 
-
+    <DataTemplate DataType="{x:Type vm:GetDevicesViewModel}">
+        <vw:GetDevicesView/>
+    </DataTemplate>
 
     <!--old-->
     <DataTemplate DataType="{x:Type vm:WszystkieTowaryViewModel}">
