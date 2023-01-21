@@ -6,6 +6,7 @@
         InProgress,
         Paid,
         Done,
-        Cancelled
+        Cancelled,
+        Fee
     }
 }
