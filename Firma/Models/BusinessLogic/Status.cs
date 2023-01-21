@@ -1,6 +1,6 @@
 ﻿namespace SystemRestauracji.Models.BusinessLogic
 {
-    public  enum OrderStatus
+    public  enum Status
     {
         Added,
         InProgress,
