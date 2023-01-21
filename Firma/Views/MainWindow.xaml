@@ -251,6 +251,12 @@
                     <ImageBrush ImageSource="/Views/Content/icons/round-table.png"/>
                 </ToggleButton.Background>
             </ToggleButton>
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding GetReservationsCommand}" ToolTip="Rezerwacje" Cursor="Hand">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/icons/contract.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <Separator HorizontalAlignment="Center" Width="3"/>
             <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding GetCompaniesCommand}" ToolTip="Wszystkie Firmy" Cursor="Hand">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/icons/cargo.png"/>
@@ -265,11 +271,6 @@
             <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding RestauracjaCommand}" ToolTip="Informacje- Restauracja" Cursor="Hand">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/icons/information.png"/>
-                </ToggleButton.Background>
-            </ToggleButton>
-            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding GetReservationsCommand}" ToolTip="Rezerwacje" Cursor="Hand">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/icons/contract.png"/>
                 </ToggleButton.Background>
             </ToggleButton>
             <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding PracownicyCommand}" ToolTip="Wszyscy Pracownicy" Cursor="Hand">
