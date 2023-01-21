@@ -75,12 +75,12 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Sprzedaż">
-                <MenuItem Header="Wszystkie zamówienia" Command="{Binding ZamowieniaCommand}">
+                <MenuItem Header="Wszystkie zamówienia" Command="{Binding GetOrdersCommand}">
                     <MenuItem.Icon>
                         <Image Source="/Views/Content/icons/showOrders.png" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Otwarte zamówienia" Command="{Binding TaZmianaZamowieniaCommand}">
+                <MenuItem Header="Otwarte zamówienia" Command="{Binding GetOpenedOrdersCommand}">
                     <MenuItem.Icon>
                         <Image Source="/Views/Content/icons/showOrders.png" />
                     </MenuItem.Icon>
@@ -220,12 +220,12 @@
                     <ImageBrush ImageSource="/Views/Content/icons/closeOrder.png" />
                 </ToggleButton.Background>
             </ToggleButton>
-            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding MojeOtwarteZamowieniaCommand}" ToolTip="Otwarte Zamówienia" Cursor="Hand">
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding GetOpenedOrdersCommand}" ToolTip="Otwarte Zamówienia" Cursor="Hand">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/icons/showOrders.png"/>
                 </ToggleButton.Background>
             </ToggleButton>
-            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding MojeZamknieteZamowieniaCommand}" ToolTip="Zamknięte zamówienia" Cursor="Hand">
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding GetClosedOrdersCommand}" ToolTip="Zamknięte zamówienia" Cursor="Hand">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/icons/showClosedOrders.png"/>
                 </ToggleButton.Background>

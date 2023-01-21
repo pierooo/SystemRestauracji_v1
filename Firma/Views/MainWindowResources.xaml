@@ -41,6 +41,10 @@
         <vw:GetDevicesView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:GetOrdersViewModel}">
+        <vw:GetOrdersView/>
+    </DataTemplate>
+
     <!--old-->
     <DataTemplate DataType="{x:Type vm:WszystkieTowaryViewModel}">
         <vw:WszystkieTowaryView/>

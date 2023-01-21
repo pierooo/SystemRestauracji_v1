@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Input;
 using SystemRestauracji.Helpers;
+using SystemRestauracji.Models.BusinessLogic;
 
 namespace SystemRestauracji.ViewModels
 {
@@ -103,6 +104,30 @@ namespace SystemRestauracji.ViewModels
             get
             {
                 return new BaseCommand(GetDevices);
+            }
+        }
+
+        public ICommand GetOpenedOrdersCommand
+        {
+            get
+            {
+                return new BaseCommand(GetOpenedOrders);
+            }
+        }
+        
+        public ICommand GetClosedOrdersCommand
+        {
+            get
+            {
+                return new BaseCommand(GetClosedOrders);
+            }
+        }
+        
+        public ICommand GetOrdersCommand
+        {
+            get
+            {
+                return new BaseCommand(GetOrders);
             }
         }
 
@@ -485,6 +510,39 @@ namespace SystemRestauracji.ViewModels
             if (workspace == null)
             {
                 workspace = new GetDevicesViewModel();
+                this.Workspaces.Add(workspace);
+            }
+            this.setActiveWorkspace(workspace);
+        }
+
+        private void GetOpenedOrders()
+        {
+            GetOrdersViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetOrdersViewModel) as GetOrdersViewModel;
+            if (workspace == null)
+            {
+                workspace = new GetOrdersViewModel(new[] { Status.Added, Status.InProgress, Status.Paid }, "Otwarte zamówienia");
+                this.Workspaces.Add(workspace);
+            }
+            this.setActiveWorkspace(workspace);
+        }
+
+        private void GetClosedOrders()
+        {
+            GetOrdersViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetOrdersViewModel) as GetOrdersViewModel;
+            if (workspace == null)
+            {
+                workspace = new GetOrdersViewModel(new[] { Status.Done, Status.Cancelled }, "Zamknięte zamówienia");
+                this.Workspaces.Add(workspace);
+            }
+            this.setActiveWorkspace(workspace);
+        }
+        
+        private void GetOrders()
+        {
+            GetOrdersViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetOrdersViewModel) as GetOrdersViewModel;
+            if (workspace == null)
+            {
+                workspace = new GetOrdersViewModel(new[] { Status.Added, Status.InProgress, Status.Paid, Status.Done, Status.Cancelled }, "Wszystkie zamówienia");
                 this.Workspaces.Add(workspace);
             }
             this.setActiveWorkspace(workspace);
