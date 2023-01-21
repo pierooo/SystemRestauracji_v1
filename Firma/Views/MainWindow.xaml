@@ -117,8 +117,14 @@
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Płatności">
-                    <MenuItem Header="Oczekujące" Command="{Binding WynagrodzeniaCommand}"/>
-                    <MenuItem Header="Archiwalne" Command="{Binding WynagrodzeniaCommand}"/>
+                    <MenuItem Header="Oczekujące" Command="{Binding }"/>
+                    <MenuItem Header="Archiwalne" Command="{Binding }"/>
+                    <MenuItem Header="Wydatki" Command="{Binding }"/>
+                    <MenuItem Header="Dodaj" Command="{Binding }">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Content/icons/add.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Kontrahenci">
