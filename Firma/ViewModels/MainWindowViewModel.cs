@@ -98,6 +98,14 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
+        public ICommand GetDevicesCommand
+        {
+            get
+            {
+                return new BaseCommand(GetDevices);
+            }
+        }
+
         #endregion
         #region stare
         public ICommand PokazUkryjMenuBoczneAsyncCommand { get { return new BaseCommand(async () => await PokazUkryjmenuBoczneAsync()); } }
@@ -466,6 +474,17 @@ namespace SystemRestauracji.ViewModels
             if (workspace == null)
             {
                 workspace = new GetDocumentsViewModel();
+                this.Workspaces.Add(workspace);
+            }
+            this.setActiveWorkspace(workspace);
+        }
+
+        private void GetDevices()
+        {
+            GetDevicesViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetDevicesViewModel) as GetDevicesViewModel;
+            if (workspace == null)
+            {
+                workspace = new GetDevicesViewModel();
                 this.Workspaces.Add(workspace);
             }
             this.setActiveWorkspace(workspace);

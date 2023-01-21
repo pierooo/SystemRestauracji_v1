@@ -164,7 +164,7 @@
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Urządzenia">
-                    <MenuItem Header="Wyświetl" Command="{Binding }">
+                    <MenuItem Header="Wyświetl" Command="{Binding GetDevicesCommand }">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/icons/display.png" />
                         </MenuItem.Icon>
@@ -256,7 +256,7 @@
                     <ImageBrush ImageSource="/Views/Content/icons/cargo.png"/>
                 </ToggleButton.Background>
             </ToggleButton>
-            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding DrukarkiCommand}" ToolTip="Wszystkie Drukarki" Cursor="Hand">
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding GetDevicesCommand}" ToolTip="Wszystkie Urządzenia" Cursor="Hand">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/icons/printer.png"/>
                 </ToggleButton.Background>
