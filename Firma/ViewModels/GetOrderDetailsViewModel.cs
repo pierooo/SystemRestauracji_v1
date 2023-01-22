@@ -31,7 +31,7 @@ namespace SystemRestauracji.ViewModels
                     Quantity = x.Quantity,
                     UnitPriceNetto = x.UnitPriceNetto,
                     VAT = x.VAT,
-                    UnitPriceGross = (x.UnitPriceNetto * x.Quantity) * (x.VAT / 10)
+                    UnitPriceGross = ((x.UnitPriceNetto + (x.UnitPriceNetto * (x.VAT / 100))) * x.Quantity)
                 }));
         }
     }

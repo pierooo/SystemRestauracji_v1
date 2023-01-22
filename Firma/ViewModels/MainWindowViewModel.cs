@@ -573,7 +573,7 @@ namespace SystemRestauracji.ViewModels
         {
             GetOrderDetailsViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetOrderDetailsViewModel) as GetOrderDetailsViewModel;
             var newWorkspace = new GetOrderDetailsViewModel(order, order.Id.ToString() + " " + order.Name);
-            if (workspace != null && workspace.OrderId != order.Id)
+            if (workspace != null)
             {
                 Workspaces[Workspaces.IndexOf(workspace)] = newWorkspace;
             }
