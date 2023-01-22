@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using GalaSoft.MvvmLight.Messaging;
 using SystemRestauracji.Models.BusinessLogic;
 using SystemRestauracji.Models.EntitiesForView;
 using SystemRestauracji.ViewModels.Abstract;
@@ -9,6 +10,25 @@ namespace SystemRestauracji.ViewModels
 {
     public class GetOrdersViewModel : ViewModelBase<OrderForAllView>
     {
+        private OrderForAllView selectedOrder;
+
+        public OrderForAllView SelectedOrder
+        {
+            get
+            {
+                return selectedOrder;
+            }
+            set
+            {
+                if (selectedOrder != value)
+                {
+                    selectedOrder = value;
+                    Messenger.Default.Send(new OrderForOrderDetailsView(selectedOrder.Id, selectedOrder.Name));
+                    //OnRequestClose();
+                }
+            }
+        }
+
         private readonly Status[] statuses;
         public GetOrdersViewModel(Status[] statuses, string viewName) : base(viewName)
         {

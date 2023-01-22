@@ -43,6 +43,7 @@
 
 	<ItemGroup>
 	  <PackageReference Include="EntityFramework" Version="5.0.0" />
+	  <PackageReference Include="MvvmLight" Version="5.4.1" />
 	</ItemGroup>
 
 	<ItemGroup>
