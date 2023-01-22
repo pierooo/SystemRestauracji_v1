@@ -8,12 +8,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Messaging;
 using SystemRestauracji.Helpers;
 using SystemRestauracji.Models.BusinessLogic;
+using SystemRestauracji.Models.EntitiesForView;
 
 namespace SystemRestauracji.ViewModels
 {
-    public  class MainWindowViewModel : BaseViewModel
+    public class MainWindowViewModel : BaseViewModel
     {
         #region PolaiWlasciwosci
         private int _SzerokoscKolumnyMenuBocznego = 150;
@@ -114,7 +116,7 @@ namespace SystemRestauracji.ViewModels
                 return new BaseCommand(GetOpenedOrders);
             }
         }
-        
+
         public ICommand GetClosedOrdersCommand
         {
             get
@@ -122,7 +124,7 @@ namespace SystemRestauracji.ViewModels
                 return new BaseCommand(GetClosedOrders);
             }
         }
-        
+
         public ICommand GetOrdersCommand
         {
             get
@@ -333,21 +335,23 @@ namespace SystemRestauracji.ViewModels
         private ReadOnlyCollection<CommandViewModel> _Commands;//to jest kolekcja komend wlewym menu
         public ReadOnlyCollection<CommandViewModel> Commands
         {
-            get 
-            { 
-                if(_Commands == null)//sprawdzam czy przyciski z lewej strony menu nie zostały zainicjalizowane
+            get
+            {
+                if (_Commands == null)//sprawdzam czy przyciski z lewej strony menu nie zostały zainicjalizowane
                 {
                     List<CommandViewModel> cmds = this.CreateCommands();//tworzę listę przyciskow za pomocą funkcji CreateCommands
                     _Commands = new ReadOnlyCollection<CommandViewModel>(cmds);//tę listę przypisuje do ReadOnlyCollection (bo readOnlyCollection można tylko tworzyć, nie można do niej dodawać)
                 }
-                return _Commands; 
-            }   
+                return _Commands;
+            }
         }
         private List<CommandViewModel> CreateCommands()//tu decydujemy jakie przyciski są w lewym menu
         {
+            Messenger.Default.Register<OrderForOrderDetailsView>(this, OpenGetOrdersDetails);
+
             return new List<CommandViewModel>
             {
-                new CommandViewModel("Moja zmiana",new BaseCommand(ShowMojaZmiana)), 
+                new CommandViewModel("Moja zmiana",new BaseCommand(ShowMojaZmiana)),
                 new CommandViewModel("Produkty",new BaseCommand(GetProducts)),
                 new CommandViewModel("Kategorie",new BaseCommand(GetCategories)),
                 new CommandViewModel("Stoliki",new BaseCommand(GetRestaurantTables)),
@@ -361,9 +365,9 @@ namespace SystemRestauracji.ViewModels
         private ObservableCollection<WorkspaceViewModel> _Workspaces; //to jest kolekcja zakładek
         public ObservableCollection<WorkspaceViewModel> Workspaces
         {
-            get 
+            get
             {
-                if(_Workspaces == null)
+                if (_Workspaces == null)
                 {
                     _Workspaces = new ObservableCollection<WorkspaceViewModel>();
                     _Workspaces.CollectionChanged += this.onWorkspacesChanged;
@@ -414,7 +418,7 @@ namespace SystemRestauracji.ViewModels
             this.Workspaces.Add(workspace);
             this.setActiveWorkspace(workspace);
         }
-        
+
         // after refactoring
         private void GetProducts()
         {
@@ -476,12 +480,12 @@ namespace SystemRestauracji.ViewModels
             GetWorkstationsViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetWorkstationsViewModel) as GetWorkstationsViewModel;
             if (workspace == null)
             {
-                workspace = new GetWorkstationsViewModel();             
+                workspace = new GetWorkstationsViewModel();
                 this.Workspaces.Add(workspace);
             }
             this.setActiveWorkspace(workspace);
         }
-        
+
         private void GetWorkstationDeviceLinks()
         {
             GetWorkstationDeviceLinksViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetWorkstationDeviceLinksViewModel) as GetWorkstationDeviceLinksViewModel;
@@ -518,37 +522,72 @@ namespace SystemRestauracji.ViewModels
         private void GetOpenedOrders()
         {
             GetOrdersViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetOrdersViewModel) as GetOrdersViewModel;
-            if (workspace == null)
+            var newWorkspace = new GetOrdersViewModel(new[] { Status.Added, Status.InProgress, Status.Paid }, "Otwarte zamówienia");
+            if (workspace != null)
             {
-                workspace = new GetOrdersViewModel(new[] { Status.Added, Status.InProgress, Status.Paid }, "Otwarte zamówienia");
-                this.Workspaces.Add(workspace);
+                Workspaces[Workspaces.IndexOf(workspace)] = newWorkspace;
             }
-            this.setActiveWorkspace(workspace);
+            else
+            {
+                this.Workspaces.Add(newWorkspace);
+            }
+
+            this.setActiveWorkspace(newWorkspace);
         }
 
         private void GetClosedOrders()
         {
             GetOrdersViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetOrdersViewModel) as GetOrdersViewModel;
-            if (workspace == null)
+            var newWorkspace = new GetOrdersViewModel(new[] { Status.Done, Status.Cancelled }, "Zamknięte zamówienia");
+            if (workspace != null)
             {
-                workspace = new GetOrdersViewModel(new[] { Status.Done, Status.Cancelled }, "Zamknięte zamówienia");
-                this.Workspaces.Add(workspace);
+                Workspaces[Workspaces.IndexOf(workspace)] = newWorkspace;
             }
-            this.setActiveWorkspace(workspace);
+            else
+            {
+                this.Workspaces.Add(newWorkspace);
+            }
+
+            this.setActiveWorkspace(newWorkspace);
         }
-        
+
         private void GetOrders()
         {
             GetOrdersViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetOrdersViewModel) as GetOrdersViewModel;
-            if (workspace == null)
+            var newWorkspace = new GetOrdersViewModel(new[] { Status.Added, Status.InProgress, Status.Paid, Status.Done, Status.Cancelled }, "Wszystkie zamówienia");
+            if (workspace != null)
             {
-                workspace = new GetOrdersViewModel(new[] { Status.Added, Status.InProgress, Status.Paid, Status.Done, Status.Cancelled }, "Wszystkie zamówienia");
-                this.Workspaces.Add(workspace);
+                Workspaces[Workspaces.IndexOf(workspace)] = newWorkspace;
             }
-            this.setActiveWorkspace(workspace);
+            else
+            {
+                this.Workspaces.Add(newWorkspace);
+            }
+
+            this.setActiveWorkspace(newWorkspace);
         }
 
         #endregion
+        #region MessengerUsings
+        private void OpenGetOrdersDetails(OrderForOrderDetailsView order)
+        {
+            GetOrderDetailsViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetOrderDetailsViewModel) as GetOrderDetailsViewModel;
+            var newWorkspace = new GetOrderDetailsViewModel(order, order.Id.ToString() + " " + order.Name);
+            if (workspace != null && workspace.OrderId != order.Id)
+            {
+                Workspaces[Workspaces.IndexOf(workspace)] = newWorkspace;
+            }
+            else
+            {
+                this.Workspaces.Add(newWorkspace);
+            }
+            this.setActiveWorkspace(newWorkspace);
+        }
+
+        #endregion
+
+
+
         #region stare
         private void ShowAllKategorie()
         {

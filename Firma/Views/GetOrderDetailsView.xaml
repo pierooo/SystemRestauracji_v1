@@ -1,0 +1,30 @@
+﻿<local:WszystkieViewBase x:Class="SystemRestauracji.Views.GetOrderDetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SystemRestauracji.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="StyleZakladekResources.xaml"/>
+    </UserControl.Resources>
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" FontSize="17pt" Margin="10,10,10,10" VerticalAlignment="Top" Height="40" Content="{Binding Path=OrderFullName}"/>
+        <DataGrid Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding List}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=ProductName}"/>
+                <DataGridTextColumn Header="Opis" Binding="{Binding Path=Description}"/>
+                <DataGridTextColumn Header="Ilość" Binding="{Binding Path=Quantity}"/>
+                <DataGridTextColumn Header="Cena jednostkowa netto" Binding="{Binding Path=UnitPriceNetto}"/>
+                <DataGridTextColumn Header="VAT" Binding="{Binding Path=VAT}"/>
+                <DataGridTextColumn Header="Kwota brutto" Binding="{Binding Path=UnitPriceGross}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</local:WszystkieViewBase>
