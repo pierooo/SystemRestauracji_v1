@@ -11,10 +11,10 @@
     </UserControl.Resources>
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" FontSize="17pt" Margin="10,10,10,10" VerticalAlignment="Top" Height="40" Content="{Binding Path=OrderFullName}"/>
+        <Label Grid.Row="0" FontSize="14pt" Margin="10,10,10,10" VerticalAlignment="Top" Height="40" Content="{Binding Path=OrderFullName}"/>
         <DataGrid Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding List}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
