@@ -11,6 +11,8 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using SystemRestauracji.Helpers;
 using SystemRestauracji.Models.BusinessLogic;
+using SystemRestauracji.Models.Correspondences;
+using SystemRestauracji.Models.Entities;
 using SystemRestauracji.Models.EntitiesForView;
 
 namespace SystemRestauracji.ViewModels
@@ -348,6 +350,8 @@ namespace SystemRestauracji.ViewModels
         private List<CommandViewModel> CreateCommands()//tu decydujemy jakie przyciski są w lewym menu
         {
             Messenger.Default.Register<OrderForOrderDetailsView>(this, OpenGetOrdersDetails);
+            Messenger.Default.Register<AddProductToOrder>(this, OpenViewForAddingProductToOrderDetails);
+            Messenger.Default.Register<Categories>(this, OpenProducts);
 
             return new List<CommandViewModel>
             {
@@ -418,17 +422,29 @@ namespace SystemRestauracji.ViewModels
             this.Workspaces.Add(workspace);
             this.setActiveWorkspace(workspace);
         }
-
-        // after refactoring
+        
         private void GetProducts()
         {
-            GetProductsViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetProductsViewModel) as GetProductsViewModel;
-            if (workspace == null)
+            GetProductsViewModel workspaceProducts = this.Workspaces.FirstOrDefault(vm => vm is GetProductsViewModel) as GetProductsViewModel;
+            GetCategoriesViewModel workspaceCategories = this.Workspaces.FirstOrDefault(vm => vm is GetCategoriesViewModel) as GetCategoriesViewModel;
+
+            if (workspaceProducts == null && workspaceCategories == null)
             {
-                workspace = new GetProductsViewModel();
-                this.Workspaces.Add(workspace);
+                workspaceProducts = new GetProductsViewModel();
+                this.Workspaces.Add(workspaceProducts);
             }
-            this.setActiveWorkspace(workspace);
+            else if (workspaceCategories != null)
+            {
+                workspaceProducts = new GetProductsViewModel();
+                Workspaces[Workspaces.IndexOf(workspaceCategories)] = workspaceProducts;
+            }
+            else if (workspaceProducts != null)
+            {
+                var newWorkspaceProducts = new GetProductsViewModel();
+                Workspaces[Workspaces.IndexOf(workspaceProducts)] = newWorkspaceProducts;
+                workspaceProducts = newWorkspaceProducts;
+            }
+            this.setActiveWorkspace(workspaceProducts);
         }
 
         private void GetCompanies()
@@ -444,13 +460,20 @@ namespace SystemRestauracji.ViewModels
 
         private void GetCategories()
         {
-            GetCategoriesViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetCategoriesViewModel) as GetCategoriesViewModel;
-            if (workspace == null)
+            GetProductsViewModel workspaceProducts = this.Workspaces.FirstOrDefault(vm => vm is GetProductsViewModel) as GetProductsViewModel;
+            GetCategoriesViewModel workspaceCategories = this.Workspaces.FirstOrDefault(vm => vm is GetCategoriesViewModel) as GetCategoriesViewModel;
+
+            if (workspaceProducts == null && workspaceCategories == null)
             {
-                workspace = new GetCategoriesViewModel();
-                this.Workspaces.Add(workspace);
+                workspaceCategories = new GetCategoriesViewModel();
+                this.Workspaces.Add(workspaceCategories);
             }
-            this.setActiveWorkspace(workspace);
+            else if (workspaceProducts != null)
+            {
+                workspaceCategories = new GetCategoriesViewModel();
+                Workspaces[Workspaces.IndexOf(workspaceProducts)] = workspaceCategories;
+            }
+            this.setActiveWorkspace(workspaceCategories);
         }
 
         private void GetRestaurantTables()
@@ -582,6 +605,49 @@ namespace SystemRestauracji.ViewModels
                 this.Workspaces.Add(newWorkspace);
             }
             this.setActiveWorkspace(newWorkspace);
+        }
+        
+        private void OpenProducts(Categories category)
+        {
+            GetCategoriesViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetCategoriesViewModel) as GetCategoriesViewModel;
+            var newWorkspace = new GetProductsViewModel(category);
+            Workspaces[Workspaces.IndexOf(workspace)] = newWorkspace;
+            this.setActiveWorkspace(newWorkspace);
+        }
+
+        private void OpenViewForAddingProductToOrderDetails(AddProductToOrder addProductToOrder)
+        {
+            GetCategoriesViewModel workspaceCategories = this.Workspaces.FirstOrDefault(vm => vm is GetCategoriesViewModel) as GetCategoriesViewModel;
+            GetProductsViewModel workspaceProducts = this.Workspaces.FirstOrDefault(vm => vm is GetProductsViewModel) as GetProductsViewModel;
+
+            var newWorkspaceForCategories = new GetCategoriesViewModel(addProductToOrder);
+            var newWorkspaceForProducts = new GetProductsViewModel(addProductToOrder);
+
+            if (addProductToOrder.BackToCategories || addProductToOrder.CategoryId == null && addProductToOrder.Product == null)
+            {
+                if (workspaceCategories != null)
+                {
+                    Workspaces[Workspaces.IndexOf(workspaceCategories)] = newWorkspaceForCategories;
+                }
+                else
+                {
+                    this.Workspaces.Add(newWorkspaceForCategories);
+                }
+
+                this.setActiveWorkspace(newWorkspaceForCategories);
+            }
+            else if (addProductToOrder.CategoryId != null && addProductToOrder.Product == null)
+            {
+                if (workspaceCategories != null)
+                {
+                    Workspaces[Workspaces.IndexOf(workspaceCategories)] = newWorkspaceForProducts;
+                }
+                else if(workspaceProducts != null)
+                {
+                    this.Workspaces.Remove(workspaceProducts);
+                }
+                this.setActiveWorkspace(newWorkspaceForProducts);
+            }
         }
 
         #endregion

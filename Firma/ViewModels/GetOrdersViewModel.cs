@@ -10,6 +10,8 @@ namespace SystemRestauracji.ViewModels
 {
     public class GetOrdersViewModel : ViewModelBase<OrderForAllView>
     {
+        private readonly Status[] statuses;
+
         private OrderForAllView selectedOrder;
 
         public OrderForAllView SelectedOrder
@@ -23,13 +25,16 @@ namespace SystemRestauracji.ViewModels
                 if (selectedOrder != value)
                 {
                     selectedOrder = value;
-                    Messenger.Default.Send(new OrderForOrderDetailsView(selectedOrder.Id, selectedOrder.Name));
-                    //OnRequestClose();
+                    var status = Status.Done;
+                    if (statuses.Any(x => x == Status.Added || x == Status.InProgress))
+                    {
+                        status = Status.Open;
+                    }
+                    Messenger.Default.Send(new OrderForOrderDetailsView(selectedOrder.Id, selectedOrder.Name, status));
                 }
             }
         }
 
-        private readonly Status[] statuses;
         public GetOrdersViewModel(Status[] statuses, string viewName) : base(viewName)
         {
             this.statuses = statuses;
