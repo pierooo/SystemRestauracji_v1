@@ -14,7 +14,15 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" FontSize="14pt" Margin="10,10,10,10" VerticalAlignment="Top" Height="40" Content="{Binding Path=OrderFullName}"/>
+        <Grid Grid.Row="0" Height="100">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" FontSize="14pt" Margin="10,10,10,10" VerticalAlignment="Top" Content="{Binding Path=OrderFullName}"/>
+            <Button Grid.Column="1" FontSize="12pt" Margin="10" Padding="5" VerticalAlignment="Top" BorderThickness="1" IsEnabled="{Binding AddProductButtonStatus}"  Content="Dodaj pozycję" Command="{Binding Path=AddProductToOrderDetailsCommand}"/>
+        </Grid>
         <DataGrid Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding List}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>

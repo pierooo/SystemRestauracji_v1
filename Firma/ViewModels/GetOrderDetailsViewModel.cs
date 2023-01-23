@@ -1,6 +1,10 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
+using SystemRestauracji.Helpers;
+using SystemRestauracji.Models.BusinessLogic;
+using SystemRestauracji.Models.Correspondences;
 using SystemRestauracji.Models.EntitiesForView;
 using SystemRestauracji.ViewModels.Abstract;
 
@@ -8,14 +12,32 @@ namespace SystemRestauracji.ViewModels
 {
     public class GetOrderDetailsViewModel : ViewModelBase<OrderDetailsForAllView>
     {
+        private Status orderStatus;
+
+        public bool AddProductButtonStatus { get; set; }
+
         public int OrderId { get; set; }
 
         public string OrderFullName { get; set; }
+
+        public ICommand AddProductToOrderDetailsCommand
+        {
+            get
+            {
+                if(orderStatus == Status.Open)
+                {
+                    return new BaseCommand(GetCategories);
+                }
+                return null;
+            }
+        }
 
         public GetOrderDetailsViewModel(OrderForOrderDetailsView order, string orderId) : base("Szczegóły - " + orderId)
         {
             this.OrderId = order.Id;
             this.OrderFullName = order.Id.ToString() + "-" + order.Name;
+            this.orderStatus = order.Status;
+            this.AddProductButtonStatus = order.Status == Status.Open ? true : false;
         }
 
         public override void Load()
@@ -33,6 +55,11 @@ namespace SystemRestauracji.ViewModels
                     VAT = x.VAT,
                     UnitPriceGross = ((x.UnitPriceNetto + (x.UnitPriceNetto * (x.VAT / 100))) * x.Quantity)
                 }));
+        }
+
+        private void GetCategories()
+        {
+            Messenger.Default.Send(new AddProductToOrder(OrderId, OrderFullName));
         }
     }
 }

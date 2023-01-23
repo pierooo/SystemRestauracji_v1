@@ -7,6 +7,7 @@
         Paid,
         Done,
         Cancelled,
-        Fee
+        Fee,
+        Open
     }
 }
