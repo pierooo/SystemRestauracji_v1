@@ -41,14 +41,14 @@ namespace SystemRestauracji.Views
     /// Step 2)
     /// Go ahead and use your control in the XAML file.
     ///
-    ///     <MyNamespace:WszystkieViewBase/>
+    ///     <MyNamespace:AddViewBase/>
     ///
     /// </summary>
-    public class WszystkieViewBase : UserControl
+    public class AddViewBase : UserControl
     {
-        static WszystkieViewBase()
+        static AddViewBase()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(WszystkieViewBase), new FrameworkPropertyMetadata(typeof(WszystkieViewBase)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(AddViewBase), new FrameworkPropertyMetadata(typeof(AddViewBase)));
         }
     }
 }

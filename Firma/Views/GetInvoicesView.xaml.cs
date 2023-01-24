@@ -3,7 +3,7 @@
     /// <summary>
     /// Interaction logic for GetInvoicesView.xaml
     /// </summary>
-    public partial class GetInvoicesView : WszystkieViewBase
+    public partial class GetInvoicesView : GetAllViewBase
     {
         public GetInvoicesView()
         {

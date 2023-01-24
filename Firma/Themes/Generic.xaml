@@ -3,10 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:SystemRestauracji.Views">
 
-    <Style TargetType="{x:Type local:WszystkieViewBase}">
+    <Style TargetType="{x:Type local:GetAllViewBase}">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type local:WszystkieViewBase}">
+                <ControlTemplate TargetType="{x:Type local:GetAllViewBase}">
                     <Grid Margin="0,10,0,10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50"/>
@@ -29,10 +29,10 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type local:JedenViewBase}">
+    <Style TargetType="{x:Type local:AddViewBase}">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type local:JedenViewBase}">
+                <ControlTemplate TargetType="{x:Type local:AddViewBase}">
                     <Grid Margin="0,10,0,10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="34"/>

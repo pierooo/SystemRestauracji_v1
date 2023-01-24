@@ -3,7 +3,7 @@
     /// <summary>
     /// Interaction logic for GetWorkstationsView.xaml
     /// </summary>
-    public partial class GetWorkstationsView : WszystkieViewBase
+    public partial class GetWorkstationsView : GetAllViewBase
     {
         public GetWorkstationsView()
         {

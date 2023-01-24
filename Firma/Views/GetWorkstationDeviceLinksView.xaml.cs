@@ -18,7 +18,7 @@ namespace SystemRestauracji.Views
     /// <summary>
     /// Interaction logic for GetWorkstationDeviceLinks.xaml
     /// </summary>
-    public partial class GetWorkstationDeviceLinksView : WszystkieViewBase
+    public partial class GetWorkstationDeviceLinksView : GetAllViewBase
     {
         public GetWorkstationDeviceLinksView()
         {

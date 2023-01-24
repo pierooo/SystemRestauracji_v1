@@ -41,14 +41,14 @@ namespace SystemRestauracji.Views
     /// Step 2)
     /// Go ahead and use your control in the XAML file.
     ///
-    ///     <MyNamespace:JedenViewBase/>
+    ///     <MyNamespace:GetAllViewBase/>
     ///
     /// </summary>
-    public class JedenViewBase : UserControl
+    public class GetAllViewBase : UserControl
     {
-        static JedenViewBase()
+        static GetAllViewBase()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(JedenViewBase), new FrameworkPropertyMetadata(typeof(JedenViewBase)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(GetAllViewBase), new FrameworkPropertyMetadata(typeof(GetAllViewBase)));
         }
     }
 }

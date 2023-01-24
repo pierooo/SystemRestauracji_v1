@@ -18,7 +18,7 @@ namespace SystemRestauracji.Views
     /// <summary>
     /// Interaction logic for WszystkieFakturyView.xaml
     /// </summary>
-    public partial class NowyDostawcaView : JedenViewBase
+    public partial class NowyDostawcaView : AddViewBase
     {
         public NowyDostawcaView()
         {

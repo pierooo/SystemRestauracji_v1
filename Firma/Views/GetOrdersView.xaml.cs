@@ -3,7 +3,7 @@
     /// <summary>
     /// Interaction logic for GetOpenedOrdersView.xaml
     /// </summary>
-    public partial class GetOrdersView : WszystkieViewBase
+    public partial class GetOrdersView : GetAllViewBase
     {
         public GetOrdersView()
         {

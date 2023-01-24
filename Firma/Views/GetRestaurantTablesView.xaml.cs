@@ -3,7 +3,7 @@
     /// <summary>
     /// Interaction logic for GetRestaurantTablesView.xaml
     /// </summary>
-    public partial class GetRestaurantTablesView : WszystkieViewBase
+    public partial class GetRestaurantTablesView : GetAllViewBase
     {
         public GetRestaurantTablesView()
         {

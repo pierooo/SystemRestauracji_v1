@@ -3,7 +3,7 @@
     /// <summary>
     /// Interaction logic for GetDevicesView.xaml
     /// </summary>
-    public partial class GetDevicesView : WszystkieViewBase
+    public partial class GetDevicesView : GetAllViewBase
     {
         public GetDevicesView()
         {

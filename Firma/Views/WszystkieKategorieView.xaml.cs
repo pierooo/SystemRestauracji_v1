@@ -3,7 +3,7 @@
     /// <summary>
     /// Interaction logic for NowyTowarView.xaml
     /// </summary>
-    public partial class WszystkieKategorieView : WszystkieViewBase
+    public partial class WszystkieKategorieView : GetAllViewBase
     {
         public WszystkieKategorieView()
         {
