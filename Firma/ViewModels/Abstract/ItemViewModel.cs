@@ -1,4 +1,7 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
+using System.Windows.Media.Imaging;
+using Microsoft.Win32;
 using SystemRestauracji.Helpers;
 using SystemRestauracji.Models.Entities;
 
@@ -10,6 +13,42 @@ namespace SystemRestauracji.ViewModels.Abstract
         public RestaurantSystemEntities Database { get; set; }
 
         public T Item { get; set; }
+
+        private BitmapImage image;
+
+        public BitmapImage Image
+        {
+            get
+            {
+                return this.image;
+            }
+            set
+            {
+                if (value != image)
+                {
+                    image = value;
+                    base.OnPropertyChanged(() => image);
+                }
+            }
+        }
+
+        private string imageUrl;
+
+        public string ImageUrl
+        {
+            get
+            {
+                return this.imageUrl;
+            }
+            set
+            {
+                if (value != imageUrl)
+                {
+                    imageUrl = value;
+                    base.OnPropertyChanged(() => imageUrl);
+                }
+            }
+        }
 
         #endregion
         #region Konstruktor
@@ -33,9 +72,24 @@ namespace SystemRestauracji.ViewModels.Abstract
                 return saveAndCloseCommand;
             }
         }
+
+        private BaseCommand loadImageCommand;
+        public ICommand LoadImageCommand
+        {
+            get
+            {
+                if(loadImageCommand is null)
+                {
+                    loadImageCommand = new BaseCommand(() => LoadImage());
+                    this.OnPropertyChanged(() => Image);
+                }
+                return loadImageCommand;
+            }
+        }
+
         #endregion
 
-        #region Save
+        #region Methods
         public abstract void Save();
 
         private void SaveAndClose()
@@ -43,7 +97,25 @@ namespace SystemRestauracji.ViewModels.Abstract
             Save();
             base.OnRequestClose();
         }
-        #endregion
 
+        public void LoadImage()
+        {
+            OpenFileDialog op = new OpenFileDialog();
+            op.Title = "Wybierz zdjęcie";
+            op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+              "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+              "Portable Network Graphic (*.png)|*.png";
+            if (op.ShowDialog() == true)
+            {
+                string selectedFileName = op.FileName;
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(selectedFileName);
+                bitmap.EndInit();
+                Image = bitmap;
+                ImageUrl = op.FileName;
+            }
+        }
+        #endregion
     }
 }

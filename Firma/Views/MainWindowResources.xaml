@@ -4,7 +4,7 @@
                     xmlns:vw="clr-namespace:SystemRestauracji.Views"
                     >
 
-    <!--tu bedziemy laczyc View z ViewModel zakładek-->
+    <!-- Get -->
     <DataTemplate DataType="{x:Type vm:GetProductsViewModel}">
         <vw:GetProductsView/>
     </DataTemplate>
@@ -60,6 +60,13 @@
     <DataTemplate DataType="{x:Type vm:GetInvoicesViewModel}">
         <vw:GetInvoicesView/>
     </DataTemplate>
+
+    <!-- Add -->
+    <DataTemplate DataType="{x:Type vm:AddCategoryViewModel}">
+        <vw:AddCategoryView/>
+    </DataTemplate>
+    
+    
 
     <!--old-->
     <DataTemplate DataType="{x:Type vm:WszystkieTowaryViewModel}">

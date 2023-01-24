@@ -7,7 +7,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="Models\Entities\RestaurantSystemModel.edmx" />
+	  <None Remove="Models\Entities\RestaurantSystemEntities.edmx" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -35,9 +35,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EntityDeploy Include="Models\Entities\RestaurantSystemModel.edmx">
+	  <EntityDeploy Include="Models\Entities\RestaurantSystemEntities.edmx">
 	    <Generator>EntityModelCodeGenerator</Generator>
-	    <LastGenOutput>RestaurantSystemModel.Designer.cs</LastGenOutput>
+	    <LastGenOutput>RestaurantSystemEntities.Designer.cs</LastGenOutput>
 	  </EntityDeploy>
 	</ItemGroup>
 
@@ -74,10 +74,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Models\Entities\RestaurantSystemModel.Designer.cs">
+	  <Compile Update="Models\Entities\RestaurantSystemEntities.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
-	    <DependentUpon>RestaurantSystemModel.edmx</DependentUpon>
+	    <DependentUpon>RestaurantSystemEntities.edmx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\MojeOtwarteZamowieniaView.xaml.cs">
 	    <SubType>Code</SubType>
@@ -154,9 +154,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Update="connections.config">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
+		<None Update="connections.config">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 	</ItemGroup>
 
 	<ItemGroup>

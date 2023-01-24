@@ -19,23 +19,23 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("RestaurantSystemModel", "FK_Products_Categories", "Categories", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Categories), "Products", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Products), true)]
-[assembly: EdmRelationshipAttribute("RestaurantSystemModel", "FK_Payments_Devices", "Devices", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Devices), "Payments", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Payments), true)]
-[assembly: EdmRelationshipAttribute("RestaurantSystemModel", "FK_WorkstationDeviceLinks_Devices", "Devices", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Devices), "WorkstationDeviceLinks", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.WorkstationDeviceLinks), true)]
-[assembly: EdmRelationshipAttribute("RestaurantSystemModel", "FK_DocumentPositionsDetails_Documents", "Documents", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Documents), "DocumentPositionsDetails", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.DocumentPositionsDetails), true)]
-[assembly: EdmRelationshipAttribute("RestaurantSystemModel", "FK_Documents_Invoices", "Invoices", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Invoices), "Documents", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Documents), true)]
-[assembly: EdmRelationshipAttribute("RestaurantSystemModel", "FK_Documents_WorkstationDeviceLinks", "WorkstationDeviceLinks", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.WorkstationDeviceLinks), "Documents", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Documents), true)]
-[assembly: EdmRelationshipAttribute("RestaurantSystemModel", "FK_Orders_Documents", "Documents", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Documents), "Orders", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Orders), true)]
-[assembly: EdmRelationshipAttribute("RestaurantSystemModel", "FK_Invoices_WorkstationDeviceLinks", "WorkstationDeviceLinks", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.WorkstationDeviceLinks), "Invoices", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Invoices), true)]
-[assembly: EdmRelationshipAttribute("RestaurantSystemModel", "FK_Orders_Payments", "Payments", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Payments), "Orders", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Orders), true)]
-[assembly: EdmRelationshipAttribute("RestaurantSystemModel", "FK_Orders_RestaurantTables", "RestaurantTables", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.RestaurantTables), "Orders", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Orders), true)]
-[assembly: EdmRelationshipAttribute("RestaurantSystemModel", "FK_Orders_Users", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SystemRestauracji.Models.Entities.Users), "Orders", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Orders), true)]
-[assembly: EdmRelationshipAttribute("RestaurantSystemModel", "FK_OrdersDetails_Orders", "Orders", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SystemRestauracji.Models.Entities.Orders), "OrdersDetails", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.OrdersDetails), true)]
-[assembly: EdmRelationshipAttribute("RestaurantSystemModel", "FK_OrdersDetails_Products", "Products", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SystemRestauracji.Models.Entities.Products), "OrdersDetails", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.OrdersDetails), true)]
-[assembly: EdmRelationshipAttribute("RestaurantSystemModel", "FK_Payments_Users", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Users), "Payments", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Payments), true)]
-[assembly: EdmRelationshipAttribute("RestaurantSystemModel", "FK_Reservations_RestaurantTables", "RestaurantTables", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.RestaurantTables), "Reservations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Reservations), true)]
-[assembly: EdmRelationshipAttribute("RestaurantSystemModel", "FK_Reservations_Users", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Users), "Reservations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Reservations), true)]
-[assembly: EdmRelationshipAttribute("RestaurantSystemModel", "FK_WorkstationDeviceLinks_Workstations", "Workstations", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Workstations), "WorkstationDeviceLinks", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.WorkstationDeviceLinks), true)]
+[assembly: EdmRelationshipAttribute("RestaurantSystem_v1Model", "FK_Products_Categories", "Categories", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Categories), "Products", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Products), true)]
+[assembly: EdmRelationshipAttribute("RestaurantSystem_v1Model", "FK_Payments_Devices", "Devices", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Devices), "Payments", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Payments), true)]
+[assembly: EdmRelationshipAttribute("RestaurantSystem_v1Model", "FK_WorkstationDeviceLinks_Devices", "Devices", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Devices), "WorkstationDeviceLinks", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.WorkstationDeviceLinks), true)]
+[assembly: EdmRelationshipAttribute("RestaurantSystem_v1Model", "FK_DocumentPositionsDetails_Documents", "Documents", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Documents), "DocumentPositionsDetails", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.DocumentPositionsDetails), true)]
+[assembly: EdmRelationshipAttribute("RestaurantSystem_v1Model", "FK_Documents_Invoices", "Invoices", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Invoices), "Documents", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Documents), true)]
+[assembly: EdmRelationshipAttribute("RestaurantSystem_v1Model", "FK_Documents_WorkstationDeviceLinks", "WorkstationDeviceLinks", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.WorkstationDeviceLinks), "Documents", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Documents), true)]
+[assembly: EdmRelationshipAttribute("RestaurantSystem_v1Model", "FK_Orders_Documents", "Documents", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Documents), "Orders", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Orders), true)]
+[assembly: EdmRelationshipAttribute("RestaurantSystem_v1Model", "FK_Invoices_WorkstationDeviceLinks", "WorkstationDeviceLinks", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.WorkstationDeviceLinks), "Invoices", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Invoices), true)]
+[assembly: EdmRelationshipAttribute("RestaurantSystem_v1Model", "FK_Orders_Payments", "Payments", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Payments), "Orders", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Orders), true)]
+[assembly: EdmRelationshipAttribute("RestaurantSystem_v1Model", "FK_Orders_RestaurantTables", "RestaurantTables", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.RestaurantTables), "Orders", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Orders), true)]
+[assembly: EdmRelationshipAttribute("RestaurantSystem_v1Model", "FK_Orders_Users", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SystemRestauracji.Models.Entities.Users), "Orders", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Orders), true)]
+[assembly: EdmRelationshipAttribute("RestaurantSystem_v1Model", "FK_OrdersDetails_Orders", "Orders", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SystemRestauracji.Models.Entities.Orders), "OrdersDetails", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.OrdersDetails), true)]
+[assembly: EdmRelationshipAttribute("RestaurantSystem_v1Model", "FK_OrdersDetails_Products", "Products", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SystemRestauracji.Models.Entities.Products), "OrdersDetails", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.OrdersDetails), true)]
+[assembly: EdmRelationshipAttribute("RestaurantSystem_v1Model", "FK_Payments_Users", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Users), "Payments", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Payments), true)]
+[assembly: EdmRelationshipAttribute("RestaurantSystem_v1Model", "FK_Reservations_RestaurantTables", "RestaurantTables", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.RestaurantTables), "Reservations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Reservations), true)]
+[assembly: EdmRelationshipAttribute("RestaurantSystem_v1Model", "FK_Reservations_Users", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Users), "Reservations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.Reservations), true)]
+[assembly: EdmRelationshipAttribute("RestaurantSystem_v1Model", "FK_WorkstationDeviceLinks_Workstations", "Workstations", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SystemRestauracji.Models.Entities.Workstations), "WorkstationDeviceLinks", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SystemRestauracji.Models.Entities.WorkstationDeviceLinks), true)]
 
 #endregion
 
@@ -282,22 +282,6 @@ namespace SystemRestauracji.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<sysdiagrams> sysdiagrams
-        {
-            get
-            {
-                if ((_sysdiagrams == null))
-                {
-                    _sysdiagrams = base.CreateObjectSet<sysdiagrams>("sysdiagrams");
-                }
-                return _sysdiagrams;
-            }
-        }
-        private ObjectSet<sysdiagrams> _sysdiagrams;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Users> Users
         {
             get
@@ -444,14 +428,6 @@ namespace SystemRestauracji.Models.Entities
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the sysdiagrams EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTosysdiagrams(sysdiagrams sysdiagrams)
-        {
-            base.AddObject("sysdiagrams", sysdiagrams);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Users EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToUsers(Users users)
@@ -486,7 +462,7 @@ namespace SystemRestauracji.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystemModel", Name="Categories")]
+    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystem_v1Model", Name="Categories")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Categories : EntityObject
@@ -667,18 +643,18 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Products_Categories", "Products")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Products_Categories", "Products")]
         public EntityCollection<Products> Products
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Products>("RestaurantSystemModel.FK_Products_Categories", "Products");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Products>("RestaurantSystem_v1Model.FK_Products_Categories", "Products");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Products>("RestaurantSystemModel.FK_Products_Categories", "Products", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Products>("RestaurantSystem_v1Model.FK_Products_Categories", "Products", value);
                 }
             }
         }
@@ -690,7 +666,7 @@ namespace SystemRestauracji.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystemModel", Name="Companies")]
+    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystem_v1Model", Name="Companies")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Companies : EntityObject
@@ -1012,7 +988,7 @@ namespace SystemRestauracji.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystemModel", Name="Devices")]
+    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystem_v1Model", Name="Devices")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Devices : EntityObject
@@ -1193,18 +1169,18 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Payments_Devices", "Payments")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Payments_Devices", "Payments")]
         public EntityCollection<Payments> Payments
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Payments>("RestaurantSystemModel.FK_Payments_Devices", "Payments");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Payments>("RestaurantSystem_v1Model.FK_Payments_Devices", "Payments");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Payments>("RestaurantSystemModel.FK_Payments_Devices", "Payments", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Payments>("RestaurantSystem_v1Model.FK_Payments_Devices", "Payments", value);
                 }
             }
         }
@@ -1215,18 +1191,18 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_WorkstationDeviceLinks_Devices", "WorkstationDeviceLinks")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_WorkstationDeviceLinks_Devices", "WorkstationDeviceLinks")]
         public EntityCollection<WorkstationDeviceLinks> WorkstationDeviceLinks
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<WorkstationDeviceLinks>("RestaurantSystemModel.FK_WorkstationDeviceLinks_Devices", "WorkstationDeviceLinks");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<WorkstationDeviceLinks>("RestaurantSystem_v1Model.FK_WorkstationDeviceLinks_Devices", "WorkstationDeviceLinks");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<WorkstationDeviceLinks>("RestaurantSystemModel.FK_WorkstationDeviceLinks_Devices", "WorkstationDeviceLinks", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<WorkstationDeviceLinks>("RestaurantSystem_v1Model.FK_WorkstationDeviceLinks_Devices", "WorkstationDeviceLinks", value);
                 }
             }
         }
@@ -1238,7 +1214,7 @@ namespace SystemRestauracji.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystemModel", Name="DocumentPositionsDetails")]
+    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystem_v1Model", Name="DocumentPositionsDetails")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class DocumentPositionsDetails : EntityObject
@@ -1515,16 +1491,16 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_DocumentPositionsDetails_Documents", "Documents")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_DocumentPositionsDetails_Documents", "Documents")]
         public Documents Documents
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Documents>("RestaurantSystemModel.FK_DocumentPositionsDetails_Documents", "Documents").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Documents>("RestaurantSystem_v1Model.FK_DocumentPositionsDetails_Documents", "Documents").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Documents>("RestaurantSystemModel.FK_DocumentPositionsDetails_Documents", "Documents").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Documents>("RestaurantSystem_v1Model.FK_DocumentPositionsDetails_Documents", "Documents").Value = value;
             }
         }
         /// <summary>
@@ -1536,13 +1512,13 @@ namespace SystemRestauracji.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Documents>("RestaurantSystemModel.FK_DocumentPositionsDetails_Documents", "Documents");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Documents>("RestaurantSystem_v1Model.FK_DocumentPositionsDetails_Documents", "Documents");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Documents>("RestaurantSystemModel.FK_DocumentPositionsDetails_Documents", "Documents", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Documents>("RestaurantSystem_v1Model.FK_DocumentPositionsDetails_Documents", "Documents", value);
                 }
             }
         }
@@ -1554,7 +1530,7 @@ namespace SystemRestauracji.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystemModel", Name="Documents")]
+    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystem_v1Model", Name="Documents")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Documents : EntityObject
@@ -2117,18 +2093,18 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_DocumentPositionsDetails_Documents", "DocumentPositionsDetails")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_DocumentPositionsDetails_Documents", "DocumentPositionsDetails")]
         public EntityCollection<DocumentPositionsDetails> DocumentPositionsDetails
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<DocumentPositionsDetails>("RestaurantSystemModel.FK_DocumentPositionsDetails_Documents", "DocumentPositionsDetails");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<DocumentPositionsDetails>("RestaurantSystem_v1Model.FK_DocumentPositionsDetails_Documents", "DocumentPositionsDetails");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<DocumentPositionsDetails>("RestaurantSystemModel.FK_DocumentPositionsDetails_Documents", "DocumentPositionsDetails", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<DocumentPositionsDetails>("RestaurantSystem_v1Model.FK_DocumentPositionsDetails_Documents", "DocumentPositionsDetails", value);
                 }
             }
         }
@@ -2139,16 +2115,16 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Documents_Invoices", "Invoices")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Documents_Invoices", "Invoices")]
         public Invoices Invoices
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Invoices>("RestaurantSystemModel.FK_Documents_Invoices", "Invoices").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Invoices>("RestaurantSystem_v1Model.FK_Documents_Invoices", "Invoices").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Invoices>("RestaurantSystemModel.FK_Documents_Invoices", "Invoices").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Invoices>("RestaurantSystem_v1Model.FK_Documents_Invoices", "Invoices").Value = value;
             }
         }
         /// <summary>
@@ -2160,13 +2136,13 @@ namespace SystemRestauracji.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Invoices>("RestaurantSystemModel.FK_Documents_Invoices", "Invoices");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Invoices>("RestaurantSystem_v1Model.FK_Documents_Invoices", "Invoices");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Invoices>("RestaurantSystemModel.FK_Documents_Invoices", "Invoices", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Invoices>("RestaurantSystem_v1Model.FK_Documents_Invoices", "Invoices", value);
                 }
             }
         }
@@ -2177,16 +2153,16 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Documents_WorkstationDeviceLinks", "WorkstationDeviceLinks")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Documents_WorkstationDeviceLinks", "WorkstationDeviceLinks")]
         public WorkstationDeviceLinks WorkstationDeviceLinks
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WorkstationDeviceLinks>("RestaurantSystemModel.FK_Documents_WorkstationDeviceLinks", "WorkstationDeviceLinks").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WorkstationDeviceLinks>("RestaurantSystem_v1Model.FK_Documents_WorkstationDeviceLinks", "WorkstationDeviceLinks").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WorkstationDeviceLinks>("RestaurantSystemModel.FK_Documents_WorkstationDeviceLinks", "WorkstationDeviceLinks").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WorkstationDeviceLinks>("RestaurantSystem_v1Model.FK_Documents_WorkstationDeviceLinks", "WorkstationDeviceLinks").Value = value;
             }
         }
         /// <summary>
@@ -2198,13 +2174,13 @@ namespace SystemRestauracji.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WorkstationDeviceLinks>("RestaurantSystemModel.FK_Documents_WorkstationDeviceLinks", "WorkstationDeviceLinks");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WorkstationDeviceLinks>("RestaurantSystem_v1Model.FK_Documents_WorkstationDeviceLinks", "WorkstationDeviceLinks");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<WorkstationDeviceLinks>("RestaurantSystemModel.FK_Documents_WorkstationDeviceLinks", "WorkstationDeviceLinks", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<WorkstationDeviceLinks>("RestaurantSystem_v1Model.FK_Documents_WorkstationDeviceLinks", "WorkstationDeviceLinks", value);
                 }
             }
         }
@@ -2215,18 +2191,18 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Orders_Documents", "Orders")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Orders_Documents", "Orders")]
         public EntityCollection<Orders> Orders
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Orders>("RestaurantSystemModel.FK_Orders_Documents", "Orders");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Orders>("RestaurantSystem_v1Model.FK_Orders_Documents", "Orders");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Orders>("RestaurantSystemModel.FK_Orders_Documents", "Orders", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Orders>("RestaurantSystem_v1Model.FK_Orders_Documents", "Orders", value);
                 }
             }
         }
@@ -2238,7 +2214,7 @@ namespace SystemRestauracji.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystemModel", Name="Invoices")]
+    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystem_v1Model", Name="Invoices")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Invoices : EntityObject
@@ -3017,18 +2993,18 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Documents_Invoices", "Documents")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Documents_Invoices", "Documents")]
         public EntityCollection<Documents> Documents
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Documents>("RestaurantSystemModel.FK_Documents_Invoices", "Documents");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Documents>("RestaurantSystem_v1Model.FK_Documents_Invoices", "Documents");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Documents>("RestaurantSystemModel.FK_Documents_Invoices", "Documents", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Documents>("RestaurantSystem_v1Model.FK_Documents_Invoices", "Documents", value);
                 }
             }
         }
@@ -3039,16 +3015,16 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Invoices_WorkstationDeviceLinks", "WorkstationDeviceLinks")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Invoices_WorkstationDeviceLinks", "WorkstationDeviceLinks")]
         public WorkstationDeviceLinks WorkstationDeviceLinks
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WorkstationDeviceLinks>("RestaurantSystemModel.FK_Invoices_WorkstationDeviceLinks", "WorkstationDeviceLinks").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WorkstationDeviceLinks>("RestaurantSystem_v1Model.FK_Invoices_WorkstationDeviceLinks", "WorkstationDeviceLinks").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WorkstationDeviceLinks>("RestaurantSystemModel.FK_Invoices_WorkstationDeviceLinks", "WorkstationDeviceLinks").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WorkstationDeviceLinks>("RestaurantSystem_v1Model.FK_Invoices_WorkstationDeviceLinks", "WorkstationDeviceLinks").Value = value;
             }
         }
         /// <summary>
@@ -3060,13 +3036,13 @@ namespace SystemRestauracji.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WorkstationDeviceLinks>("RestaurantSystemModel.FK_Invoices_WorkstationDeviceLinks", "WorkstationDeviceLinks");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WorkstationDeviceLinks>("RestaurantSystem_v1Model.FK_Invoices_WorkstationDeviceLinks", "WorkstationDeviceLinks");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<WorkstationDeviceLinks>("RestaurantSystemModel.FK_Invoices_WorkstationDeviceLinks", "WorkstationDeviceLinks", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<WorkstationDeviceLinks>("RestaurantSystem_v1Model.FK_Invoices_WorkstationDeviceLinks", "WorkstationDeviceLinks", value);
                 }
             }
         }
@@ -3078,7 +3054,7 @@ namespace SystemRestauracji.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystemModel", Name="Orders")]
+    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystem_v1Model", Name="Orders")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Orders : EntityObject
@@ -3451,16 +3427,16 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Orders_Documents", "Documents")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Orders_Documents", "Documents")]
         public Documents Documents
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Documents>("RestaurantSystemModel.FK_Orders_Documents", "Documents").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Documents>("RestaurantSystem_v1Model.FK_Orders_Documents", "Documents").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Documents>("RestaurantSystemModel.FK_Orders_Documents", "Documents").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Documents>("RestaurantSystem_v1Model.FK_Orders_Documents", "Documents").Value = value;
             }
         }
         /// <summary>
@@ -3472,13 +3448,13 @@ namespace SystemRestauracji.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Documents>("RestaurantSystemModel.FK_Orders_Documents", "Documents");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Documents>("RestaurantSystem_v1Model.FK_Orders_Documents", "Documents");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Documents>("RestaurantSystemModel.FK_Orders_Documents", "Documents", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Documents>("RestaurantSystem_v1Model.FK_Orders_Documents", "Documents", value);
                 }
             }
         }
@@ -3489,16 +3465,16 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Orders_Payments", "Payments")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Orders_Payments", "Payments")]
         public Payments Payments
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Payments>("RestaurantSystemModel.FK_Orders_Payments", "Payments").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Payments>("RestaurantSystem_v1Model.FK_Orders_Payments", "Payments").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Payments>("RestaurantSystemModel.FK_Orders_Payments", "Payments").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Payments>("RestaurantSystem_v1Model.FK_Orders_Payments", "Payments").Value = value;
             }
         }
         /// <summary>
@@ -3510,13 +3486,13 @@ namespace SystemRestauracji.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Payments>("RestaurantSystemModel.FK_Orders_Payments", "Payments");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Payments>("RestaurantSystem_v1Model.FK_Orders_Payments", "Payments");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Payments>("RestaurantSystemModel.FK_Orders_Payments", "Payments", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Payments>("RestaurantSystem_v1Model.FK_Orders_Payments", "Payments", value);
                 }
             }
         }
@@ -3527,16 +3503,16 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Orders_RestaurantTables", "RestaurantTables")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Orders_RestaurantTables", "RestaurantTables")]
         public RestaurantTables RestaurantTables
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RestaurantTables>("RestaurantSystemModel.FK_Orders_RestaurantTables", "RestaurantTables").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RestaurantTables>("RestaurantSystem_v1Model.FK_Orders_RestaurantTables", "RestaurantTables").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RestaurantTables>("RestaurantSystemModel.FK_Orders_RestaurantTables", "RestaurantTables").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RestaurantTables>("RestaurantSystem_v1Model.FK_Orders_RestaurantTables", "RestaurantTables").Value = value;
             }
         }
         /// <summary>
@@ -3548,13 +3524,13 @@ namespace SystemRestauracji.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RestaurantTables>("RestaurantSystemModel.FK_Orders_RestaurantTables", "RestaurantTables");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RestaurantTables>("RestaurantSystem_v1Model.FK_Orders_RestaurantTables", "RestaurantTables");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RestaurantTables>("RestaurantSystemModel.FK_Orders_RestaurantTables", "RestaurantTables", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RestaurantTables>("RestaurantSystem_v1Model.FK_Orders_RestaurantTables", "RestaurantTables", value);
                 }
             }
         }
@@ -3565,16 +3541,16 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Orders_Users", "Users")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Orders_Users", "Users")]
         public Users Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("RestaurantSystemModel.FK_Orders_Users", "Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("RestaurantSystem_v1Model.FK_Orders_Users", "Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("RestaurantSystemModel.FK_Orders_Users", "Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("RestaurantSystem_v1Model.FK_Orders_Users", "Users").Value = value;
             }
         }
         /// <summary>
@@ -3586,13 +3562,13 @@ namespace SystemRestauracji.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("RestaurantSystemModel.FK_Orders_Users", "Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("RestaurantSystem_v1Model.FK_Orders_Users", "Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("RestaurantSystemModel.FK_Orders_Users", "Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("RestaurantSystem_v1Model.FK_Orders_Users", "Users", value);
                 }
             }
         }
@@ -3603,18 +3579,18 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_OrdersDetails_Orders", "OrdersDetails")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_OrdersDetails_Orders", "OrdersDetails")]
         public EntityCollection<OrdersDetails> OrdersDetails
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<OrdersDetails>("RestaurantSystemModel.FK_OrdersDetails_Orders", "OrdersDetails");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<OrdersDetails>("RestaurantSystem_v1Model.FK_OrdersDetails_Orders", "OrdersDetails");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<OrdersDetails>("RestaurantSystemModel.FK_OrdersDetails_Orders", "OrdersDetails", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<OrdersDetails>("RestaurantSystem_v1Model.FK_OrdersDetails_Orders", "OrdersDetails", value);
                 }
             }
         }
@@ -3626,7 +3602,7 @@ namespace SystemRestauracji.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystemModel", Name="OrdersDetails")]
+    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystem_v1Model", Name="OrdersDetails")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class OrdersDetails : EntityObject
@@ -3905,16 +3881,16 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_OrdersDetails_Orders", "Orders")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_OrdersDetails_Orders", "Orders")]
         public Orders Orders
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Orders>("RestaurantSystemModel.FK_OrdersDetails_Orders", "Orders").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Orders>("RestaurantSystem_v1Model.FK_OrdersDetails_Orders", "Orders").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Orders>("RestaurantSystemModel.FK_OrdersDetails_Orders", "Orders").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Orders>("RestaurantSystem_v1Model.FK_OrdersDetails_Orders", "Orders").Value = value;
             }
         }
         /// <summary>
@@ -3926,13 +3902,13 @@ namespace SystemRestauracji.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Orders>("RestaurantSystemModel.FK_OrdersDetails_Orders", "Orders");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Orders>("RestaurantSystem_v1Model.FK_OrdersDetails_Orders", "Orders");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Orders>("RestaurantSystemModel.FK_OrdersDetails_Orders", "Orders", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Orders>("RestaurantSystem_v1Model.FK_OrdersDetails_Orders", "Orders", value);
                 }
             }
         }
@@ -3943,16 +3919,16 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_OrdersDetails_Products", "Products")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_OrdersDetails_Products", "Products")]
         public Products Products
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Products>("RestaurantSystemModel.FK_OrdersDetails_Products", "Products").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Products>("RestaurantSystem_v1Model.FK_OrdersDetails_Products", "Products").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Products>("RestaurantSystemModel.FK_OrdersDetails_Products", "Products").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Products>("RestaurantSystem_v1Model.FK_OrdersDetails_Products", "Products").Value = value;
             }
         }
         /// <summary>
@@ -3964,13 +3940,13 @@ namespace SystemRestauracji.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Products>("RestaurantSystemModel.FK_OrdersDetails_Products", "Products");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Products>("RestaurantSystem_v1Model.FK_OrdersDetails_Products", "Products");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Products>("RestaurantSystemModel.FK_OrdersDetails_Products", "Products", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Products>("RestaurantSystem_v1Model.FK_OrdersDetails_Products", "Products", value);
                 }
             }
         }
@@ -3982,7 +3958,7 @@ namespace SystemRestauracji.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystemModel", Name="Payments")]
+    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystem_v1Model", Name="Payments")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Payments : EntityObject
@@ -4329,16 +4305,16 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Payments_Devices", "Devices")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Payments_Devices", "Devices")]
         public Devices Devices
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Devices>("RestaurantSystemModel.FK_Payments_Devices", "Devices").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Devices>("RestaurantSystem_v1Model.FK_Payments_Devices", "Devices").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Devices>("RestaurantSystemModel.FK_Payments_Devices", "Devices").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Devices>("RestaurantSystem_v1Model.FK_Payments_Devices", "Devices").Value = value;
             }
         }
         /// <summary>
@@ -4350,13 +4326,13 @@ namespace SystemRestauracji.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Devices>("RestaurantSystemModel.FK_Payments_Devices", "Devices");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Devices>("RestaurantSystem_v1Model.FK_Payments_Devices", "Devices");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Devices>("RestaurantSystemModel.FK_Payments_Devices", "Devices", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Devices>("RestaurantSystem_v1Model.FK_Payments_Devices", "Devices", value);
                 }
             }
         }
@@ -4367,18 +4343,18 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Orders_Payments", "Orders")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Orders_Payments", "Orders")]
         public EntityCollection<Orders> Orders
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Orders>("RestaurantSystemModel.FK_Orders_Payments", "Orders");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Orders>("RestaurantSystem_v1Model.FK_Orders_Payments", "Orders");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Orders>("RestaurantSystemModel.FK_Orders_Payments", "Orders", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Orders>("RestaurantSystem_v1Model.FK_Orders_Payments", "Orders", value);
                 }
             }
         }
@@ -4389,16 +4365,16 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Payments_Users", "Users")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Payments_Users", "Users")]
         public Users Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("RestaurantSystemModel.FK_Payments_Users", "Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("RestaurantSystem_v1Model.FK_Payments_Users", "Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("RestaurantSystemModel.FK_Payments_Users", "Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("RestaurantSystem_v1Model.FK_Payments_Users", "Users").Value = value;
             }
         }
         /// <summary>
@@ -4410,13 +4386,13 @@ namespace SystemRestauracji.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("RestaurantSystemModel.FK_Payments_Users", "Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("RestaurantSystem_v1Model.FK_Payments_Users", "Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("RestaurantSystemModel.FK_Payments_Users", "Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("RestaurantSystem_v1Model.FK_Payments_Users", "Users", value);
                 }
             }
         }
@@ -4428,7 +4404,7 @@ namespace SystemRestauracji.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystemModel", Name="Products")]
+    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystem_v1Model", Name="Products")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Products : EntityObject
@@ -4753,16 +4729,16 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Products_Categories", "Categories")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Products_Categories", "Categories")]
         public Categories Categories
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Categories>("RestaurantSystemModel.FK_Products_Categories", "Categories").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Categories>("RestaurantSystem_v1Model.FK_Products_Categories", "Categories").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Categories>("RestaurantSystemModel.FK_Products_Categories", "Categories").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Categories>("RestaurantSystem_v1Model.FK_Products_Categories", "Categories").Value = value;
             }
         }
         /// <summary>
@@ -4774,13 +4750,13 @@ namespace SystemRestauracji.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Categories>("RestaurantSystemModel.FK_Products_Categories", "Categories");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Categories>("RestaurantSystem_v1Model.FK_Products_Categories", "Categories");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Categories>("RestaurantSystemModel.FK_Products_Categories", "Categories", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Categories>("RestaurantSystem_v1Model.FK_Products_Categories", "Categories", value);
                 }
             }
         }
@@ -4791,18 +4767,18 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_OrdersDetails_Products", "OrdersDetails")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_OrdersDetails_Products", "OrdersDetails")]
         public EntityCollection<OrdersDetails> OrdersDetails
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<OrdersDetails>("RestaurantSystemModel.FK_OrdersDetails_Products", "OrdersDetails");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<OrdersDetails>("RestaurantSystem_v1Model.FK_OrdersDetails_Products", "OrdersDetails");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<OrdersDetails>("RestaurantSystemModel.FK_OrdersDetails_Products", "OrdersDetails", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<OrdersDetails>("RestaurantSystem_v1Model.FK_OrdersDetails_Products", "OrdersDetails", value);
                 }
             }
         }
@@ -4814,7 +4790,7 @@ namespace SystemRestauracji.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystemModel", Name="Reservations")]
+    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystem_v1Model", Name="Reservations")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Reservations : EntityObject
@@ -5137,16 +5113,16 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Reservations_RestaurantTables", "RestaurantTables")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Reservations_RestaurantTables", "RestaurantTables")]
         public RestaurantTables RestaurantTables
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RestaurantTables>("RestaurantSystemModel.FK_Reservations_RestaurantTables", "RestaurantTables").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RestaurantTables>("RestaurantSystem_v1Model.FK_Reservations_RestaurantTables", "RestaurantTables").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RestaurantTables>("RestaurantSystemModel.FK_Reservations_RestaurantTables", "RestaurantTables").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RestaurantTables>("RestaurantSystem_v1Model.FK_Reservations_RestaurantTables", "RestaurantTables").Value = value;
             }
         }
         /// <summary>
@@ -5158,13 +5134,13 @@ namespace SystemRestauracji.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RestaurantTables>("RestaurantSystemModel.FK_Reservations_RestaurantTables", "RestaurantTables");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RestaurantTables>("RestaurantSystem_v1Model.FK_Reservations_RestaurantTables", "RestaurantTables");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RestaurantTables>("RestaurantSystemModel.FK_Reservations_RestaurantTables", "RestaurantTables", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RestaurantTables>("RestaurantSystem_v1Model.FK_Reservations_RestaurantTables", "RestaurantTables", value);
                 }
             }
         }
@@ -5175,16 +5151,16 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Reservations_Users", "Users")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Reservations_Users", "Users")]
         public Users Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("RestaurantSystemModel.FK_Reservations_Users", "Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("RestaurantSystem_v1Model.FK_Reservations_Users", "Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("RestaurantSystemModel.FK_Reservations_Users", "Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("RestaurantSystem_v1Model.FK_Reservations_Users", "Users").Value = value;
             }
         }
         /// <summary>
@@ -5196,13 +5172,13 @@ namespace SystemRestauracji.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("RestaurantSystemModel.FK_Reservations_Users", "Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("RestaurantSystem_v1Model.FK_Reservations_Users", "Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("RestaurantSystemModel.FK_Reservations_Users", "Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("RestaurantSystem_v1Model.FK_Reservations_Users", "Users", value);
                 }
             }
         }
@@ -5214,7 +5190,7 @@ namespace SystemRestauracji.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystemModel", Name="RestaurantTables")]
+    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystem_v1Model", Name="RestaurantTables")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class RestaurantTables : EntityObject
@@ -5395,18 +5371,18 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Orders_RestaurantTables", "Orders")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Orders_RestaurantTables", "Orders")]
         public EntityCollection<Orders> Orders
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Orders>("RestaurantSystemModel.FK_Orders_RestaurantTables", "Orders");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Orders>("RestaurantSystem_v1Model.FK_Orders_RestaurantTables", "Orders");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Orders>("RestaurantSystemModel.FK_Orders_RestaurantTables", "Orders", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Orders>("RestaurantSystem_v1Model.FK_Orders_RestaurantTables", "Orders", value);
                 }
             }
         }
@@ -5417,18 +5393,18 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Reservations_RestaurantTables", "Reservations")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Reservations_RestaurantTables", "Reservations")]
         public EntityCollection<Reservations> Reservations
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Reservations>("RestaurantSystemModel.FK_Reservations_RestaurantTables", "Reservations");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Reservations>("RestaurantSystem_v1Model.FK_Reservations_RestaurantTables", "Reservations");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Reservations>("RestaurantSystemModel.FK_Reservations_RestaurantTables", "Reservations", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Reservations>("RestaurantSystem_v1Model.FK_Reservations_RestaurantTables", "Reservations", value);
                 }
             }
         }
@@ -5440,163 +5416,7 @@ namespace SystemRestauracji.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystemModel", Name="sysdiagrams")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class sysdiagrams : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new sysdiagrams object.
-        /// </summary>
-        /// <param name="name">Initial value of the name property.</param>
-        /// <param name="principal_id">Initial value of the principal_id property.</param>
-        /// <param name="diagram_id">Initial value of the diagram_id property.</param>
-        public static sysdiagrams Createsysdiagrams(global::System.String name, global::System.Int32 principal_id, global::System.Int32 diagram_id)
-        {
-            sysdiagrams sysdiagrams = new sysdiagrams();
-            sysdiagrams.name = name;
-            sysdiagrams.principal_id = principal_id;
-            sysdiagrams.diagram_id = diagram_id;
-            return sysdiagrams;
-        }
-
-        #endregion
-
-        #region Simple Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                OnnameChanging(value);
-                ReportPropertyChanging("name");
-                _name = StructuralObject.SetValidValue(value, false, "name");
-                ReportPropertyChanged("name");
-                OnnameChanged();
-            }
-        }
-        private global::System.String _name;
-        partial void OnnameChanging(global::System.String value);
-        partial void OnnameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 principal_id
-        {
-            get
-            {
-                return _principal_id;
-            }
-            set
-            {
-                Onprincipal_idChanging(value);
-                ReportPropertyChanging("principal_id");
-                _principal_id = StructuralObject.SetValidValue(value, "principal_id");
-                ReportPropertyChanged("principal_id");
-                Onprincipal_idChanged();
-            }
-        }
-        private global::System.Int32 _principal_id;
-        partial void Onprincipal_idChanging(global::System.Int32 value);
-        partial void Onprincipal_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 diagram_id
-        {
-            get
-            {
-                return _diagram_id;
-            }
-            set
-            {
-                if (_diagram_id != value)
-                {
-                    Ondiagram_idChanging(value);
-                    ReportPropertyChanging("diagram_id");
-                    _diagram_id = StructuralObject.SetValidValue(value, "diagram_id");
-                    ReportPropertyChanged("diagram_id");
-                    Ondiagram_idChanged();
-                }
-            }
-        }
-        private global::System.Int32 _diagram_id;
-        partial void Ondiagram_idChanging(global::System.Int32 value);
-        partial void Ondiagram_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> version
-        {
-            get
-            {
-                return _version;
-            }
-            set
-            {
-                OnversionChanging(value);
-                ReportPropertyChanging("version");
-                _version = StructuralObject.SetValidValue(value, "version");
-                ReportPropertyChanged("version");
-                OnversionChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _version;
-        partial void OnversionChanging(Nullable<global::System.Int32> value);
-        partial void OnversionChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.Byte[] definition
-        {
-            get
-            {
-                return StructuralObject.GetValidValue(_definition);
-            }
-            set
-            {
-                OndefinitionChanging(value);
-                ReportPropertyChanging("definition");
-                _definition = StructuralObject.SetValidValue(value, true, "definition");
-                ReportPropertyChanged("definition");
-                OndefinitionChanged();
-            }
-        }
-        private global::System.Byte[] _definition;
-        partial void OndefinitionChanging(global::System.Byte[] value);
-        partial void OndefinitionChanged();
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystemModel", Name="Users")]
+    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystem_v1Model", Name="Users")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Users : EntityObject
@@ -6021,18 +5841,18 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Orders_Users", "Orders")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Orders_Users", "Orders")]
         public EntityCollection<Orders> Orders
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Orders>("RestaurantSystemModel.FK_Orders_Users", "Orders");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Orders>("RestaurantSystem_v1Model.FK_Orders_Users", "Orders");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Orders>("RestaurantSystemModel.FK_Orders_Users", "Orders", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Orders>("RestaurantSystem_v1Model.FK_Orders_Users", "Orders", value);
                 }
             }
         }
@@ -6043,18 +5863,18 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Payments_Users", "Payments")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Payments_Users", "Payments")]
         public EntityCollection<Payments> Payments
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Payments>("RestaurantSystemModel.FK_Payments_Users", "Payments");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Payments>("RestaurantSystem_v1Model.FK_Payments_Users", "Payments");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Payments>("RestaurantSystemModel.FK_Payments_Users", "Payments", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Payments>("RestaurantSystem_v1Model.FK_Payments_Users", "Payments", value);
                 }
             }
         }
@@ -6065,18 +5885,18 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Reservations_Users", "Reservations")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Reservations_Users", "Reservations")]
         public EntityCollection<Reservations> Reservations
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Reservations>("RestaurantSystemModel.FK_Reservations_Users", "Reservations");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Reservations>("RestaurantSystem_v1Model.FK_Reservations_Users", "Reservations");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Reservations>("RestaurantSystemModel.FK_Reservations_Users", "Reservations", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Reservations>("RestaurantSystem_v1Model.FK_Reservations_Users", "Reservations", value);
                 }
             }
         }
@@ -6088,7 +5908,7 @@ namespace SystemRestauracji.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystemModel", Name="WorkstationDeviceLinks")]
+    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystem_v1Model", Name="WorkstationDeviceLinks")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class WorkstationDeviceLinks : EntityObject
@@ -6219,16 +6039,16 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_WorkstationDeviceLinks_Devices", "Devices")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_WorkstationDeviceLinks_Devices", "Devices")]
         public Devices Devices
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Devices>("RestaurantSystemModel.FK_WorkstationDeviceLinks_Devices", "Devices").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Devices>("RestaurantSystem_v1Model.FK_WorkstationDeviceLinks_Devices", "Devices").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Devices>("RestaurantSystemModel.FK_WorkstationDeviceLinks_Devices", "Devices").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Devices>("RestaurantSystem_v1Model.FK_WorkstationDeviceLinks_Devices", "Devices").Value = value;
             }
         }
         /// <summary>
@@ -6240,13 +6060,13 @@ namespace SystemRestauracji.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Devices>("RestaurantSystemModel.FK_WorkstationDeviceLinks_Devices", "Devices");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Devices>("RestaurantSystem_v1Model.FK_WorkstationDeviceLinks_Devices", "Devices");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Devices>("RestaurantSystemModel.FK_WorkstationDeviceLinks_Devices", "Devices", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Devices>("RestaurantSystem_v1Model.FK_WorkstationDeviceLinks_Devices", "Devices", value);
                 }
             }
         }
@@ -6257,18 +6077,18 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Documents_WorkstationDeviceLinks", "Documents")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Documents_WorkstationDeviceLinks", "Documents")]
         public EntityCollection<Documents> Documents
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Documents>("RestaurantSystemModel.FK_Documents_WorkstationDeviceLinks", "Documents");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Documents>("RestaurantSystem_v1Model.FK_Documents_WorkstationDeviceLinks", "Documents");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Documents>("RestaurantSystemModel.FK_Documents_WorkstationDeviceLinks", "Documents", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Documents>("RestaurantSystem_v1Model.FK_Documents_WorkstationDeviceLinks", "Documents", value);
                 }
             }
         }
@@ -6279,18 +6099,18 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_Invoices_WorkstationDeviceLinks", "Invoices")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_Invoices_WorkstationDeviceLinks", "Invoices")]
         public EntityCollection<Invoices> Invoices
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Invoices>("RestaurantSystemModel.FK_Invoices_WorkstationDeviceLinks", "Invoices");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Invoices>("RestaurantSystem_v1Model.FK_Invoices_WorkstationDeviceLinks", "Invoices");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Invoices>("RestaurantSystemModel.FK_Invoices_WorkstationDeviceLinks", "Invoices", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Invoices>("RestaurantSystem_v1Model.FK_Invoices_WorkstationDeviceLinks", "Invoices", value);
                 }
             }
         }
@@ -6301,16 +6121,16 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_WorkstationDeviceLinks_Workstations", "Workstations")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_WorkstationDeviceLinks_Workstations", "Workstations")]
         public Workstations Workstations
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Workstations>("RestaurantSystemModel.FK_WorkstationDeviceLinks_Workstations", "Workstations").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Workstations>("RestaurantSystem_v1Model.FK_WorkstationDeviceLinks_Workstations", "Workstations").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Workstations>("RestaurantSystemModel.FK_WorkstationDeviceLinks_Workstations", "Workstations").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Workstations>("RestaurantSystem_v1Model.FK_WorkstationDeviceLinks_Workstations", "Workstations").Value = value;
             }
         }
         /// <summary>
@@ -6322,13 +6142,13 @@ namespace SystemRestauracji.Models.Entities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Workstations>("RestaurantSystemModel.FK_WorkstationDeviceLinks_Workstations", "Workstations");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Workstations>("RestaurantSystem_v1Model.FK_WorkstationDeviceLinks_Workstations", "Workstations");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Workstations>("RestaurantSystemModel.FK_WorkstationDeviceLinks_Workstations", "Workstations", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Workstations>("RestaurantSystem_v1Model.FK_WorkstationDeviceLinks_Workstations", "Workstations", value);
                 }
             }
         }
@@ -6340,7 +6160,7 @@ namespace SystemRestauracji.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystemModel", Name="Workstations")]
+    [EdmEntityTypeAttribute(NamespaceName="RestaurantSystem_v1Model", Name="Workstations")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Workstations : EntityObject
@@ -6521,18 +6341,18 @@ namespace SystemRestauracji.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystemModel", "FK_WorkstationDeviceLinks_Workstations", "WorkstationDeviceLinks")]
+        [EdmRelationshipNavigationPropertyAttribute("RestaurantSystem_v1Model", "FK_WorkstationDeviceLinks_Workstations", "WorkstationDeviceLinks")]
         public EntityCollection<WorkstationDeviceLinks> WorkstationDeviceLinks
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<WorkstationDeviceLinks>("RestaurantSystemModel.FK_WorkstationDeviceLinks_Workstations", "WorkstationDeviceLinks");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<WorkstationDeviceLinks>("RestaurantSystem_v1Model.FK_WorkstationDeviceLinks_Workstations", "WorkstationDeviceLinks");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<WorkstationDeviceLinks>("RestaurantSystemModel.FK_WorkstationDeviceLinks_Workstations", "WorkstationDeviceLinks", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<WorkstationDeviceLinks>("RestaurantSystem_v1Model.FK_WorkstationDeviceLinks_Workstations", "WorkstationDeviceLinks", value);
                 }
             }
         }
