@@ -117,10 +117,10 @@
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Płatności">
-                    <MenuItem Header="Oczekujące" Command="{Binding }"/>
-                    <MenuItem Header="Archiwalne" Command="{Binding }"/>
-                    <MenuItem Header="Wydatki" Command="{Binding }"/>
-                    <MenuItem Header="Dodaj" Command="{Binding }">
+                    <MenuItem Header="Wszystkie płatności" Command="{Binding GetPaymentsCommand }"/>
+                    <MenuItem Header="Otwarte płatności" Command="{Binding GetOpenPaymentsCommand }"/>
+                    <MenuItem Header="Zamknięte płatności" Command="{Binding GetClosedPaymentsCommand }"/>
+                    <MenuItem Header="Wydatki" Command="{Binding GetFeePaymentsCommand }">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/icons/add.png" />
                         </MenuItem.Icon>

@@ -1,0 +1,29 @@
+﻿<local:WszystkieViewBase x:Class="SystemRestauracji.Views.GetPaymentsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SystemRestauracji.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="StyleZakladekResources.xaml"/>
+    </UserControl.Resources>
+    <Grid Background="White">
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}" SelectedItem="{Binding Path=SelectedOrder, Mode=TwoWay}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Notatki" Binding="{Binding Path=Description}"/>
+                <DataGridTextColumn Header="Przyjął pracownik" Binding="{Binding Path=EmployeeFullName}"/>
+                <DataGridTextColumn Header="Nazwa urządzenia" Binding="{Binding Path=DeviceName}"/>
+                <DataGridTextColumn Header="Do zapłaty" Binding="{Binding Path=TotalAmountGross}"/>
+                <DataGridTextColumn Header="Status płatności" Binding="{Binding Path=PaymentStatus}"/>
+                <DataGridTextColumn Header="Nazwa płatności" Binding="{Binding Path=PaymentType}"/>
+                <DataGridTextColumn Header="Data wystawienia" Binding="{Binding Path=PaymentDate}"/>
+                <DataGridTextColumn Header="Zapłata do" Binding="{Binding Path=PaymentDateLimit}"/>
+                <DataGridTextColumn Header="Ostatnia modyfikacja" Binding="{Binding Path=LastModified}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</local:WszystkieViewBase>

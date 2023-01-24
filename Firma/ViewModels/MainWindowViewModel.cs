@@ -135,6 +135,38 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
+        public ICommand GetPaymentsCommand
+        {
+            get
+            {
+                return new BaseCommand(GetPayments);
+            }
+        }
+
+        public ICommand GetOpenPaymentsCommand
+        {
+            get
+            {
+                return new BaseCommand(GetOpenPayments);
+            }
+        }
+
+        public ICommand GetClosedPaymentsCommand
+        {
+            get
+            {
+                return new BaseCommand(GetClosedPayments);
+            }
+        }
+
+        public ICommand GetFeePaymentsCommand
+        {
+            get
+            {
+                return new BaseCommand(GetFeePayments);
+            }
+        }
+
         #endregion
         #region stare
         public ICommand PokazUkryjMenuBoczneAsyncCommand { get { return new BaseCommand(async () => await PokazUkryjmenuBoczneAsync()); } }
@@ -589,6 +621,72 @@ namespace SystemRestauracji.ViewModels
 
             this.setActiveWorkspace(newWorkspace);
         }
+
+        private void GetOpenPayments()
+        {
+            GetPaymentsViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetPaymentsViewModel) as GetPaymentsViewModel;
+            var newWorkspace = new GetPaymentsViewModel(new[] { Status.Added, Status.InProgress, Status.Open }, "Otwarte płatności");
+            if (workspace != null)
+            {
+                Workspaces[Workspaces.IndexOf(workspace)] = newWorkspace;
+            }
+            else
+            {
+                this.Workspaces.Add(newWorkspace);
+            }
+
+            this.setActiveWorkspace(newWorkspace);
+        }
+
+        private void GetClosedPayments()
+        {
+            GetPaymentsViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetPaymentsViewModel) as GetPaymentsViewModel;
+            var newWorkspace = new GetPaymentsViewModel(new[] { Status.Done, Status.Cancelled, Status.Paid }, "Zamknięte płatności");
+            if (workspace != null)
+            {
+                Workspaces[Workspaces.IndexOf(workspace)] = newWorkspace;
+            }
+            else
+            {
+                this.Workspaces.Add(newWorkspace);
+            }
+
+            this.setActiveWorkspace(newWorkspace);
+        }
+
+        private void GetPayments()
+        {
+            GetPaymentsViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetPaymentsViewModel) as GetPaymentsViewModel;
+            var newWorkspace = new GetPaymentsViewModel(new[] { Status.Added, Status.InProgress, Status.Paid, Status.Done, Status.Cancelled, Status.Fee }, "Wszystkie płatności");
+            if (workspace != null)
+            {
+                Workspaces[Workspaces.IndexOf(workspace)] = newWorkspace;
+            }
+            else
+            {
+                this.Workspaces.Add(newWorkspace);
+            }
+
+            this.setActiveWorkspace(newWorkspace);
+        }
+
+        private void GetFeePayments()
+        {
+            GetPaymentsViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetPaymentsViewModel) as GetPaymentsViewModel;
+            var newWorkspace = new GetPaymentsViewModel(new[] { Status.Fee }, "Wszystkie wydatki");
+            if (workspace != null)
+            {
+                Workspaces[Workspaces.IndexOf(workspace)] = newWorkspace;
+            }
+            else
+            {
+                this.Workspaces.Add(newWorkspace);
+            }
+
+            this.setActiveWorkspace(newWorkspace);
+        }
+
+
 
         #endregion
         #region MessengerUsings
