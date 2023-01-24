@@ -93,7 +93,7 @@
             </MenuItem>
             <MenuItem Header="Finanse">
                 <MenuItem Header="Faktury" >
-                    <MenuItem Header="Wyświetl" Command="{Binding FakturyCommand}">
+                    <MenuItem Header="Wyświetl" Command="{Binding GetInvoicesCommand}">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/icons/display.png" />
                         </MenuItem.Icon>
@@ -236,7 +236,7 @@
                     <ImageBrush ImageSource="/Views/Content/icons/addFaktura.png"/>
                 </ToggleButton.Background>
             </ToggleButton>
-            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding FakturyCommand}" ToolTip="Wszystkie Faktury" Cursor="Hand">
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding GetInvoicesCommand}" ToolTip="Wszystkie Faktury" Cursor="Hand">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/icons/faktura.png"/>
                 </ToggleButton.Background>

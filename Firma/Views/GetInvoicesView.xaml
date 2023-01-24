@@ -1,0 +1,46 @@
+﻿<local:WszystkieViewBase x:Class="SystemRestauracji.Views.GetInvoicesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SystemRestauracji.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="StyleZakladekResources.xaml"/>
+    </UserControl.Resources>
+    <Grid Background="White">
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Opis" Binding="{Binding Path=Description}"/>
+                <DataGridTextColumn Header="Tytuł" Binding="{Binding Path=Title}"/>
+                <DataGridTextColumn Header="Numer" Binding="{Binding Path=Number}"/>
+                <DataGridTextColumn Header="Autor Nazwa Firmy" Binding="{Binding Path=AuthorCompanyName}"/>
+                <DataGridTextColumn Header="A. Nazwa" Binding="{Binding Path=AuthorFullName}"/>
+                <DataGridTextColumn Header="A. NIP" Binding="{Binding Path=AuthorNIP}"/>
+                <DataGridTextColumn Header="A. Adres" Binding="{Binding Path=AuthorFullAddress}"/>
+                <DataGridTextColumn Header="A. Kontakt" Binding="{Binding Path=AuthorContact}"/>
+                <DataGridTextColumn Header="Odbiorca Imie" Binding="{Binding Path=RecipientFirstName}"/>
+                <DataGridTextColumn Header="O. Nazwisko" Binding="{Binding Path=RecipientSecondName}"/>
+                <DataGridTextColumn Header="O. Nip" Binding="{Binding Path=RecipientNIP}"/>
+                <DataGridTextColumn Header="O. Adress" Binding="{Binding Path=RecipientFullAddress}"/>
+                <DataGridTextColumn Header="O. Kontakt" Binding="{Binding Path=RecipientContact}"/>
+                <DataGridTextColumn Header="Pracownik" Binding="{Binding Path=EmployeeFullName}"/>
+                <DataGridTextColumn Header="Status Platności" Binding="{Binding Path=PaymentStatus}"/>
+                <DataGridTextColumn Header="Zapłata do" Binding="{Binding Path=PaymentDateLimit}"/>
+                <DataGridTextColumn Header="Data Faktury" Binding="{Binding Path=InvoiceDate}"/>
+                <DataGridTextColumn Header="Kwota całość" Binding="{Binding Path=TotalAmountGross}"/>
+                <DataGridTextColumn Header="Kw. Netto" Binding="{Binding Path=TotalAmountNet}"/>
+                <DataGridTextColumn Header="Kw. Brutto" Binding="{Binding Path=TotalAmountVAT}"/>
+                <DataGridTextColumn Header="Status Faktury" Binding="{Binding Path=InvoiceStatus}"/>
+                <DataGridTextColumn Header="Wydrukowano" Binding="{Binding Path=Printed}"/>
+                <DataGridTextColumn Header="Id.UWF" Binding="{Binding Path=WorkstationDeviceLinkId}"/>
+                <DataGridTextColumn Header="Czy Aktywny" Binding="{Binding Path=IsActive}"/>
+                <DataGridTextColumn Header="Ostatnia Modyfikacja" Binding="{Binding Path=LastModified}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</local:WszystkieViewBase>

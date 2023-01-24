@@ -56,6 +56,10 @@
     <DataTemplate DataType="{x:Type vm:GetUsersViewModel}">
         <vw:GetUsersView/>
     </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:GetInvoicesViewModel}">
+        <vw:GetInvoicesView/>
+    </DataTemplate>
 
     <!--old-->
     <DataTemplate DataType="{x:Type vm:WszystkieTowaryViewModel}">
