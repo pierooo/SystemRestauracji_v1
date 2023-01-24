@@ -3,7 +3,7 @@
     /// <summary>
     /// Interaction logic for GetDocumentsView.xaml
     /// </summary>
-    public partial class GetDocumentsView : WszystkieViewBase
+    public partial class GetDocumentsView : GetAllViewBase
     {
         public GetDocumentsView()
         {

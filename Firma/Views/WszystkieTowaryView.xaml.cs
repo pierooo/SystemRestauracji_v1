@@ -18,7 +18,7 @@ namespace SystemRestauracji.Views
     /// <summary>
     /// Interaction logic for WszystkieTowaryView.xaml
     /// </summary>
-    public partial class WszystkieTowaryView : WszystkieViewBase
+    public partial class WszystkieTowaryView : GetAllViewBase
     {
         public WszystkieTowaryView()
         {

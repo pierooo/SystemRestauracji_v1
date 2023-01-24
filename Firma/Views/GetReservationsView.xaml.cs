@@ -18,7 +18,7 @@ namespace SystemRestauracji.Views
     /// <summary>
     /// Interaction logic for GetReservationsView.xaml
     /// </summary>
-    public partial class GetReservationsView : WszystkieViewBase
+    public partial class GetReservationsView : GetAllViewBase
     {
         public GetReservationsView()
         {

@@ -18,7 +18,7 @@ namespace SystemRestauracji.Views
     /// <summary>
     /// Interaction logic for NowaFakturaView.xaml
     /// </summary>
-    public partial class NowaKategoriaView : JedenViewBase
+    public partial class NowaKategoriaView : AddViewBase
     {
         public NowaKategoriaView()
         {

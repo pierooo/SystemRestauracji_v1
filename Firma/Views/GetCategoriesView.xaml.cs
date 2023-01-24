@@ -3,7 +3,7 @@
     /// <summary>
     /// Interaction logic for GetCategoriesView.xaml
     /// </summary>
-    public partial class GetCategoriesView : WszystkieViewBase
+    public partial class GetCategoriesView : GetAllViewBase
     {
         public GetCategoriesView()
         {

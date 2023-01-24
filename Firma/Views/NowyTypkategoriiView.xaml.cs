@@ -18,7 +18,7 @@ namespace SystemRestauracji.Views
     /// <summary>
     /// Interaction logic for NowyTypkategoriiView.xaml
     /// </summary>
-    public partial class NowyTypkategoriiView : JedenViewBase
+    public partial class NowyTypkategoriiView : AddViewBase
     {
         public NowyTypkategoriiView()
         {

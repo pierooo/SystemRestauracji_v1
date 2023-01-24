@@ -18,7 +18,7 @@ namespace SystemRestauracji.Views
     /// <summary>
     /// Interaction logic for WszystkieTypyKategoriiView.xaml
     /// </summary>
-    public partial class WszystkieTypyKategoriiView : WszystkieViewBase
+    public partial class WszystkieTypyKategoriiView : GetAllViewBase
     {
         public WszystkieTypyKategoriiView()
         {
