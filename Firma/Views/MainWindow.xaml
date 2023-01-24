@@ -46,7 +46,7 @@
                         <Image Source="/Views/Content/icons/display.png" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Dodaj" Command="{Binding NowaKategoriaCommand}">
+                <MenuItem Header="Dodaj" Command="{Binding AddCategoryCommand}">
                     <MenuItem.Icon>
                         <Image Source="/Views/Content/icons/add.png" />
                     </MenuItem.Icon>

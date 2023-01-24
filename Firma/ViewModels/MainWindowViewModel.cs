@@ -37,7 +37,7 @@ namespace SystemRestauracji.ViewModels
             }
         }
         #endregion
-        #region Komendy menu i paska narzedzi
+        #region Get commands
         //after refactoring
         public ICommand GetProductsCommand
         {
@@ -183,6 +183,17 @@ namespace SystemRestauracji.ViewModels
         }
 
         #endregion
+
+        #region Add commands
+        public ICommand AddCategoryCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new AddCategoryViewModel()));
+            }
+        }
+        #endregion
+
         #region stare
         public ICommand PokazUkryjMenuBoczneAsyncCommand { get { return new BaseCommand(async () => await PokazUkryjmenuBoczneAsync()); } }
 
