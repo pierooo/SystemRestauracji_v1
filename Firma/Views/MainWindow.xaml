@@ -158,7 +158,7 @@
             <MenuItem Header="Firma">
                 <MenuItem Header="Dane restauracji" InputGestureText="Ctrl+R" Command="{Binding RestauracjaCommand}"/>
                 <MenuItem Header="Pracownicy" >
-                    <MenuItem Header="Wszyscy" Command="{Binding PracownicyCommand}">
+                    <MenuItem Header="Wszyscy" Command="{Binding GetUsersCommand}">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/icons/display.png" />
                         </MenuItem.Icon>
@@ -279,7 +279,7 @@
                     <ImageBrush ImageSource="/Views/Content/icons/information.png"/>
                 </ToggleButton.Background>
             </ToggleButton>
-            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding PracownicyCommand}" ToolTip="Wszyscy Pracownicy" Cursor="Hand">
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding GetUsersCommand}" ToolTip="Wszyscy Pracownicy" Cursor="Hand">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/icons/employee.png"/>
                 </ToggleButton.Background>

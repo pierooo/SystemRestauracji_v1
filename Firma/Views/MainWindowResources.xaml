@@ -53,6 +53,10 @@
         <vw:GetPaymentsView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:GetUsersViewModel}">
+        <vw:GetUsersView/>
+    </DataTemplate>
+
     <!--old-->
     <DataTemplate DataType="{x:Type vm:WszystkieTowaryViewModel}">
         <vw:WszystkieTowaryView/>
