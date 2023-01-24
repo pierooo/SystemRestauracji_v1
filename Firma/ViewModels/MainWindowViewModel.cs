@@ -166,6 +166,21 @@ namespace SystemRestauracji.ViewModels
                 return new BaseCommand(GetFeePayments);
             }
         }
+        public ICommand GetUsersCommand
+        {
+            get
+            {
+                return new BaseCommand(GetUsers);
+            }
+        }
+
+        public ICommand GetInvoicesCommand
+        {
+            get
+            {
+                return new BaseCommand(GetInvoices);
+            }
+        }
 
         #endregion
         #region stare
@@ -686,7 +701,27 @@ namespace SystemRestauracji.ViewModels
             this.setActiveWorkspace(newWorkspace);
         }
 
+        private void GetInvoices()
+        {
+            GetInvoicesViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetInvoicesViewModel) as GetInvoicesViewModel;
+            if (workspace == null)
+            {
+                workspace = new GetInvoicesViewModel();
+                this.Workspaces.Add(workspace);
+            }
+            this.setActiveWorkspace(workspace);
+        }
 
+        private void GetUsers()
+        {
+            GetUsersViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetUsersViewModel) as GetUsersViewModel;
+            if(workspace == null)
+            {
+                workspace = new GetUsersViewModel();
+                this.Workspaces.Add(workspace);
+            }
+            this.setActiveWorkspace(workspace);
+        }
 
         #endregion
         #region MessengerUsings
