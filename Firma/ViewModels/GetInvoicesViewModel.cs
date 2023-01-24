@@ -13,7 +13,6 @@ namespace SystemRestauracji.ViewModels
     {
         public GetInvoicesViewModel():base("Faktury")
         {
-
         }
 
         public override void Load()
