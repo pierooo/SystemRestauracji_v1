@@ -1,6 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
-using GalaSoft.MvvmLight.Messaging;
 using SystemRestauracji.Models.Correspondences;
 using SystemRestauracji.Models.Entities;
 using SystemRestauracji.ViewModels.Abstract;
@@ -24,7 +23,10 @@ namespace SystemRestauracji.ViewModels
                 if (selectedProduct != value)
                 {
                     selectedProduct = value;
-                    addProductToOrder.Product = selectedProduct;
+                    if(addProductToOrder != null)
+                    {
+                        addProductToOrder.Product = selectedProduct;
+                    }
                 }
             }
         }

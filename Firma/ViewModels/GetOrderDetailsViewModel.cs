@@ -4,6 +4,7 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using SystemRestauracji.Helpers;
 using SystemRestauracji.Models.BusinessLogic;
+using SystemRestauracji.Models.BusinessLogic.Calculations;
 using SystemRestauracji.Models.Correspondences;
 using SystemRestauracji.Models.EntitiesForView;
 using SystemRestauracji.ViewModels.Abstract;
@@ -53,7 +54,7 @@ namespace SystemRestauracji.ViewModels
                     Quantity = x.Quantity,
                     UnitPriceNetto = x.UnitPriceNetto,
                     VAT = x.VAT,
-                    UnitPriceGross = ((x.UnitPriceNetto + (x.UnitPriceNetto * (x.VAT / 100))) * x.Quantity)
+                    UnitPriceGross = Calculate.CalculateGrossPriceWithQuantity(x.UnitPriceNetto, x.VAT, x.Quantity)
                 }));
         }
 

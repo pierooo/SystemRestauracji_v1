@@ -34,7 +34,7 @@
                         <Image Source="/Views/Content/icons/display.png" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Dodaj" InputGestureText="Ctrl+A" Command="{Binding NowyTowarCommand}">
+                <MenuItem Header="Dodaj" InputGestureText="Ctrl+A" Command="{Binding AddProductCommand}">
                     <MenuItem.Icon>
                         <Image Source="/Views/Content/icons/addOrder.png" />
                     </MenuItem.Icon>
