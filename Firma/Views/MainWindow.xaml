@@ -148,7 +148,7 @@
                         </MenuItem.Icon>
                     </MenuItem>
 
-                    <MenuItem Header="Wyświetl" Command="{Binding GetCompaniesCommand}">
+                    <MenuItem Header="Wyświetl" Command="{Binding GetUsersCommand}">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/icons/display.png" />
                         </MenuItem.Icon>
@@ -158,12 +158,12 @@
             <MenuItem Header="Firma">
                 <MenuItem Header="Dane restauracji" InputGestureText="Ctrl+R" Command="{Binding RestauracjaCommand}"/>
                 <MenuItem Header="Pracownicy" >
-                    <MenuItem Header="Wszyscy" Command="{Binding GetUsersCommand}">
+                    <MenuItem Header="Wszyscy" Command="{Binding GetEmployeesCommand}">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/icons/display.png" />
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="Dodaj" Command="{Binding DodajPracownikaCommand}">
+                    <MenuItem Header="Dodaj" Command="{Binding AddEmployeeCommand}">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/icons/addEmployee.png" />
                         </MenuItem.Icon>
@@ -279,7 +279,7 @@
                     <ImageBrush ImageSource="/Views/Content/icons/information.png"/>
                 </ToggleButton.Background>
             </ToggleButton>
-            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding GetUsersCommand}" ToolTip="Wszyscy Pracownicy" Cursor="Hand">
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding GetEmployeesCommand}" ToolTip="Wszyscy Pracownicy" Cursor="Hand">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/icons/employee.png"/>
                 </ToggleButton.Background>

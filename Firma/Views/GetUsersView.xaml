@@ -9,23 +9,32 @@
     <UserControl.Resources>
         <ResourceDictionary Source="StyleZakladekResources.xaml"/>
     </UserControl.Resources>
-    <Grid Background="White">
-        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
-                <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=FirstName}"/>
-                <DataGridTextColumn Header="Opis" Binding="{Binding Path=LastName}"/>
-                <DataGridTextColumn Header="Rola" Binding="{Binding Path=Role}"/>
-                <DataGridTextColumn Header="Adres" Binding="{Binding Path=Address}"/>
-                <DataGridTextColumn Header="Miasto" Binding="{Binding Path=City}"/>
-                <DataGridTextColumn Header="Kod Pocztowy" Binding="{Binding Path=PostalCode}"/>
-                <DataGridTextColumn Header="Data Urodzenia" Binding="{Binding Path=BirthDate}"/>
-                <DataGridTextColumn Header="Nr. Tel" Binding="{Binding Path=PhoneNumber}"/>
-                <DataGridTextColumn Header="Mail" Binding="{Binding Path=Mail}"/>
-                <DataGridTextColumn Header="Nazwa Użytkownika" Binding="{Binding Path=UserName}"/>
-                <DataGridTextColumn Header="Czy Aktywny" Binding="{Binding Path=IsActive}"/>
-                <DataGridTextColumn Header="Ostatnia Modyfikacja" Binding="{Binding Path=LastModified}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-    </Grid>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" Background="Azure">
+        <StackPanel Margin="30" HorizontalAlignment="Center">
+            <Grid Background="White">
+                <DataGrid Grid.Row="1" VerticalGridLinesBrush="Azure" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AutoGenerateColumns="False" FontSize="14" FontWeight="Bold" ItemsSource="{Binding List}" SelectedItem="{Binding Path=SelectedProduct, Mode=TwoWay}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
+                        <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=FirstName}"/>
+                        <DataGridTextColumn Header="Opis" Binding="{Binding Path=LastName}"/>
+                        <DataGridTextColumn Header="Rola" Binding="{Binding Path=Role}"/>
+                        <DataGridTextColumn Header="Adres" Binding="{Binding Path=Address}"/>
+                        <DataGridTextColumn Header="Miasto" Binding="{Binding Path=City}"/>
+                        <DataGridTextColumn Header="Kod Pocztowy" Binding="{Binding Path=PostalCode}"/>
+                        <DataGridTextColumn Header="Data Urodzenia" Binding="{Binding Path=BirthDate}"/>
+                        <DataGridTextColumn Header="Nr. Tel" Binding="{Binding Path=PhoneNumber}"/>
+                        <DataGridTextColumn Header="Mail" Binding="{Binding Path=Mail}"/>
+                        <DataGridTextColumn Header="Nazwa Użytkownika" Binding="{Binding Path=UserName}"/>
+                        <DataGridTemplateColumn Header="Zdjęcie" Width="100" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding PhotoUrl}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
 </local:GetAllViewBase>
