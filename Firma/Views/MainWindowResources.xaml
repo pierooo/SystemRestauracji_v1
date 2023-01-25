@@ -70,7 +70,9 @@
         <vw:AddProductView/>
     </DataTemplate>
 
-
+    <DataTemplate DataType="{x:Type vm:AddDeviceViewModel}">
+        <vw:AddDeviceView/>
+    </DataTemplate>
 
     <!--old-->
     <DataTemplate DataType="{x:Type vm:WszystkieTowaryViewModel}">
