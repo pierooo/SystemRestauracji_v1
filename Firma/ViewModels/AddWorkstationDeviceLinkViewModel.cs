@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using SystemRestauracji.Models.BusinessLogic.Calculations;
 using SystemRestauracji.Models.Entities;
 using SystemRestauracji.Models.EntitiesForView;
 using SystemRestauracji.ViewModels.Abstract;
@@ -10,7 +8,6 @@ namespace SystemRestauracji.ViewModels
 {
     public class AddWorkstationDeviceLinkViewModel : ItemViewModel<WorkstationDeviceLinks>
     {
-        //private List<Categories> categories;
         private List<Workstations> workstations;
         private List<Devices> devices;
 

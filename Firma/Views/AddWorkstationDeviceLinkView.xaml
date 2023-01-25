@@ -26,16 +26,11 @@
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <Label Grid.Row="0" Grid.Column="0" Margin="0,8,0,8" Content="Wybierz:"/>
+                    <Label Grid.Row="0" Grid.Column="0" Margin="0,8,0,8" HorizontalAlignment="Center" Content="Wybierz:" Grid.ColumnSpan="2"/>
                     <Label Grid.Row="1" Grid.Column="0" Margin="0,8,0,8" Content="Stacja Robocza:"/>
                     <Label Grid.Row="2" Grid.Column="0" Margin="0,8,0,8" Content="Urządzenie:"/>
-                    <Label Grid.Row="0" Grid.Column="1" Margin="0,8,0,8" Content="Rozwiń za pomocą ComboBox'a:"/>
 
                     <ComboBox Grid.Row="1" Grid.Column="1" Width="200" Margin="0,8,0,8" HorizontalAlignment="Left"
                         ItemsSource="{Binding Devices}"
