@@ -12,6 +12,7 @@ namespace SystemRestauracji.ViewModels
     {
         private List<Categories> categories;
 
+        #region prop
         public string Name
         {
             get => Item.Name;
@@ -100,6 +101,7 @@ namespace SystemRestauracji.ViewModels
                 return GetCategories();
             }
         }
+        #endregion
 
         public AddProductViewModel() : base("Nowy produkt")
         {
