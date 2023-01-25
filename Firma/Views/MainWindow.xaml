@@ -187,7 +187,7 @@
                             <Image Source="/Views/Content/icons/display.png" />
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="Dodaj" Command="{Binding }">
+                    <MenuItem Header="Dodaj" Command="{Binding AddWorkstationCommand }">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/icons/addEmployee.png" />
                         </MenuItem.Icon>
