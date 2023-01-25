@@ -80,6 +80,10 @@
 
     <DataTemplate DataType="{x:Type vm:AddWorkstationViewModel}">
         <vw:AddWorkstationView/>
+    </DataTemplate> 
+    
+    <DataTemplate DataType="{x:Type vm:AddWorkstationDeviceLinkViewModel}">
+        <vw:AddWorkstationDeviceLinkView/>
     </DataTemplate>
 
 
