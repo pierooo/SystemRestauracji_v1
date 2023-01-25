@@ -209,6 +209,14 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
+        public ICommand AddDeviceCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new AddDeviceViewModel()));
+            }
+        }
+        
         public ICommand AddEmployeeCommand
         {
             get
