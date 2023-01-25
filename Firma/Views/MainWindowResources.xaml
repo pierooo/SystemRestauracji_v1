@@ -74,6 +74,12 @@
         <vw:AddDeviceView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:AddEmployeeViewModel}">
+        <vw:AddEmployeeView/>
+    </DataTemplate>
+
+
+
     <!--old-->
     <DataTemplate DataType="{x:Type vm:WszystkieTowaryViewModel}">
         <vw:WszystkieTowaryView/>

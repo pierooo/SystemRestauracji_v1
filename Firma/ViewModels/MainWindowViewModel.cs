@@ -173,6 +173,14 @@ namespace SystemRestauracji.ViewModels
                 return new BaseCommand(GetUsers);
             }
         }
+        
+        public ICommand GetEmployeesCommand
+        {
+            get
+            {
+                return new BaseCommand(GetEmployees);
+            }
+        }
 
         public ICommand GetInvoicesCommand
         {
@@ -206,6 +214,14 @@ namespace SystemRestauracji.ViewModels
             get
             {
                 return new BaseCommand(() => createView(new AddDeviceViewModel()));
+            }
+        }
+        
+        public ICommand AddEmployeeCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new AddEmployeeViewModel()));
             }
         }
 
@@ -743,12 +759,31 @@ namespace SystemRestauracji.ViewModels
         private void GetUsers()
         {
             GetUsersViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetUsersViewModel) as GetUsersViewModel;
-            if(workspace == null)
+            var newWorkspace = new GetUsersViewModel((int)Role.Client, "Klienci");
+            if (workspace != null)
             {
-                workspace = new GetUsersViewModel();
-                this.Workspaces.Add(workspace);
+                Workspaces[Workspaces.IndexOf(workspace)] = newWorkspace;
             }
-            this.setActiveWorkspace(workspace);
+            else
+            {
+                this.Workspaces.Add(newWorkspace);
+            }
+            this.setActiveWorkspace(newWorkspace);
+        }
+
+        private void GetEmployees()
+        {
+            GetUsersViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetUsersViewModel) as GetUsersViewModel;
+            var newWorkspace = new GetUsersViewModel((int)Role.Employee, "Pracownicy");
+            if (workspace != null)
+            {
+                Workspaces[Workspaces.IndexOf(workspace)] = newWorkspace;
+            }
+            else
+            {
+                this.Workspaces.Add(newWorkspace);
+            }
+            this.setActiveWorkspace(newWorkspace);
         }
 
         #endregion
