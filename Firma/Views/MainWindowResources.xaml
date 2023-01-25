@@ -78,6 +78,10 @@
         <vw:AddEmployeeView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:AddWorkstationViewModel}">
+        <vw:AddWorkstationView/>
+    </DataTemplate>
+
 
 
     <!--old-->

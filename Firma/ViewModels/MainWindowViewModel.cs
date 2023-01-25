@@ -225,6 +225,14 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
+        public ICommand AddWorkstationCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new AddWorkstationViewModel()));
+            }
+        }
+
         #endregion
 
         #region stare
