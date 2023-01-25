@@ -65,8 +65,12 @@
     <DataTemplate DataType="{x:Type vm:AddCategoryViewModel}">
         <vw:AddCategoryView/>
     </DataTemplate>
-    
-    
+
+    <DataTemplate DataType="{x:Type vm:AddProductViewModel}">
+        <vw:AddProductView/>
+    </DataTemplate>
+
+
 
     <!--old-->
     <DataTemplate DataType="{x:Type vm:WszystkieTowaryViewModel}">

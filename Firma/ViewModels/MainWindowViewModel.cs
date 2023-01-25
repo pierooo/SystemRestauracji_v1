@@ -192,6 +192,15 @@ namespace SystemRestauracji.ViewModels
                 return new BaseCommand(() => createView(new AddCategoryViewModel()));
             }
         }
+
+        public ICommand AddProductCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new AddProductViewModel()));
+            }
+        }
+
         #endregion
 
         #region stare

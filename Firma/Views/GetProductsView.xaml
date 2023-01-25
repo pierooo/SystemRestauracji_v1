@@ -9,20 +9,29 @@
     <UserControl.Resources>
         <ResourceDictionary Source="StyleZakladekResources.xaml"/>
     </UserControl.Resources>
-    <Grid Background="White">
-        <DataGrid Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding List}" SelectedItem="{Binding Path=SelectedOrder, Mode=TwoWay}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
-                <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"/>
-                <DataGridTextColumn Header="Opis" Binding="{Binding Path=Description}"/>
-                <DataGridTextColumn Header="Cena netto" Binding="{Binding Path=UnitPriceNet}"/>
-                <DataGridTextColumn Header="Cena brutto" Binding="{Binding Path=UnitPriceGross}"/>
-                <DataGridTextColumn Header="VAT" Binding="{Binding Path=VAT}"/>
-                <DataGridTextColumn Header="Ilość na stanie" Binding="{Binding Path=UnitsInStock}"/>
-                <DataGridTextColumn Header="Zdjęcie" Binding="{Binding Path=PhotoUrl}"/>
-                <DataGridTextColumn Header="Wycofany" Binding="{Binding Path=Discontinued}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-
-    </Grid>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" Background="Azure">
+        <StackPanel Margin="30" HorizontalAlignment="Center">
+            <Grid>
+                <DataGrid Grid.Row="1" VerticalGridLinesBrush="Azure" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AutoGenerateColumns="False" FontSize="14" FontWeight="Bold" ItemsSource="{Binding List}" SelectedItem="{Binding Path=SelectedProduct, Mode=TwoWay}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"/>
+                        <DataGridTextColumn Header="Opis" Binding="{Binding Path=Description}"/>
+                        <DataGridTextColumn Header="Cena netto" Binding="{Binding Path=UnitPriceNet}"/>
+                        <DataGridTextColumn Header="Cena brutto" Binding="{Binding Path=UnitPriceGross}"/>
+                        <DataGridTextColumn Header="VAT" Binding="{Binding Path=VAT}"/>
+                        <DataGridTextColumn Header="Ilość na stanie" Binding="{Binding Path=UnitsInStock}"/>
+                        <DataGridTextColumn Header="Wycofany" Binding="{Binding Path=Discontinued}"/>
+                        <DataGridTemplateColumn Header="Zdjęcie" Width="100" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding PhotoUrl}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
 </local:GetAllViewBase>
