@@ -233,6 +233,14 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
+        public ICommand AddWorkstationDeviceLinkCommand
+        {
+            get
+            {
+                return new BaseCommand(AddWorkstationDeviceLink);
+            }
+        }
+
         #endregion
 
         #region stare
@@ -795,6 +803,20 @@ namespace SystemRestauracji.ViewModels
         }
 
         #endregion
+        #region Add
+        private void AddWorkstationDeviceLink()
+        {
+            AddWorkstationDeviceLinkViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is AddWorkstationDeviceLinkViewModel) as AddWorkstationDeviceLinkViewModel;
+            if (workspace == null)
+            {
+                workspace = new AddWorkstationDeviceLinkViewModel();
+                this.Workspaces.Add(workspace);
+            }
+            this.setActiveWorkspace(workspace);
+        }
+        #endregion
+
+
         #region MessengerUsings
         private void OpenGetOrdersDetails(OrderForOrderDetailsView order)
         {
