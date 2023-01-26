@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
+using GalaSoft.MvvmLight.Messaging;
 using SystemRestauracji.Models.Correspondences;
 using SystemRestauracji.Models.Entities;
 using SystemRestauracji.ViewModels.Abstract;
@@ -23,9 +24,11 @@ namespace SystemRestauracji.ViewModels
                 if (selectedProduct != value)
                 {
                     selectedProduct = value;
-                    if(addProductToOrder != null)
+                    if (addProductToOrder != null)
                     {
                         addProductToOrder.Product = selectedProduct;
+                        MoveToAddProductDetails();
+                        base.OnRequestClose();
                     }
                 }
             }
@@ -47,18 +50,23 @@ namespace SystemRestauracji.ViewModels
 
         public override void Load()
         {
-            if(addProductToOrder?.CategoryId == null && category == null)
+            if (addProductToOrder?.CategoryId == null && category == null)
             {
                 List = new ObservableCollection<Products>(restaurantEntities.Products.Select(x => x));
             }
-            else if(addProductToOrder?.CategoryId != null)
+            else if (addProductToOrder?.CategoryId != null)
             {
                 List = new ObservableCollection<Products>(restaurantEntities.Products.Where(x => x.CategoryId == addProductToOrder.CategoryId).Select(x => x));
             }
-            else if(category != null)
+            else if (category != null)
             {
                 List = new ObservableCollection<Products>(restaurantEntities.Products.Where(x => x.CategoryId == category.Id).Select(x => x));
             }
+        }
+
+        private void MoveToAddProductDetails()
+        {
+            Messenger.Default.Send(addProductToOrder);
         }
     }
 }

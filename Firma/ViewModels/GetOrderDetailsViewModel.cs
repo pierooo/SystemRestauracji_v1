@@ -43,7 +43,9 @@ namespace SystemRestauracji.ViewModels
 
         public override void Load()
         {
-            List = new ObservableCollection<OrderDetailsForAllView>(restaurantEntities.OrdersDetails
+            if(restaurantEntities.OrdersDetails.Any(x => x.OrderId == OrderId))
+            {
+                List = new ObservableCollection<OrderDetailsForAllView>(restaurantEntities.OrdersDetails
                 .Where(x => x.OrderDetailsStatus != "Anulowano" && x.OrderId == OrderId)
                 .Select(x =>
                 new OrderDetailsForAllView()
@@ -56,6 +58,7 @@ namespace SystemRestauracji.ViewModels
                     VAT = x.VAT,
                     UnitPriceGross = Calculate.CalculateGrossPriceWithQuantity(x.UnitPriceNetto, x.VAT, x.Quantity)
                 }));
+            }
         }
 
         private void GetCategories()

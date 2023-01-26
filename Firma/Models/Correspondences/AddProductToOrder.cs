@@ -17,6 +17,8 @@ namespace SystemRestauracji.Models.Correspondences
 
         public bool BackToCategories { get; set; }
 
+        public bool Added{ get; set; }
+
         public AddProductToOrder(int orderId, string orderFullName)
         {
             OrderId = orderId;
