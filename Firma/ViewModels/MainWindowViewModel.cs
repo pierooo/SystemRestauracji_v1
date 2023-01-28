@@ -884,7 +884,7 @@ namespace SystemRestauracji.ViewModels
                 }
                 this.setActiveWorkspace(newWorkspaceForProducts);
             }
-            else if(addProductToOrder.CategoryId != null && addProductToOrder.Product != null)
+            else if(addProductToOrder.CategoryId != null && addProductToOrder.Product != null && !addProductToOrder.Added)
             {
                 var newWorkspaceForProductsDetails = new AddOrderDetailsProductDetailsViewModel(addProductToOrder);
                 this.Workspaces.Add(newWorkspaceForProductsDetails);
@@ -892,7 +892,7 @@ namespace SystemRestauracji.ViewModels
             }
             else if (addProductToOrder.Added)
             {
-                OpenGetOrdersDetails(new OrderForOrderDetailsView(addProductToOrder.OrderId, addProductToOrder.OrderFullName, Status.Open));
+                OpenGetOrdersDetails(new OrderForOrderDetailsView(addProductToOrder.OrderId, addProductToOrder.OrderName, Status.Open));
             }
         }
 

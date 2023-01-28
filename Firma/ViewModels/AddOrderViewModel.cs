@@ -110,6 +110,7 @@ namespace SystemRestauracji.ViewModels
         public AddOrderViewModel() : base("Nowe zamówienie")
         {
             base.Item = new Orders();
+            Item.EmployeeId = Database.Users.Where(x => x.Role == (int)Role.Employee).Select(x => x.Id).First();
         }
 
         public override void Save()

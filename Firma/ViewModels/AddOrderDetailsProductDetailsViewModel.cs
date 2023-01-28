@@ -81,6 +81,7 @@ namespace SystemRestauracji.ViewModels
             CategoryName = addProductToOrder.CategoryName;
             UnitPriceGross = addProductToOrder.Product.UnitPriceGross;
             Item.UnitPriceNetto = addProductToOrder.Product.UnitPriceNet;
+            Item.UnitPriceGross = addProductToOrder.Product.UnitPriceGross;
             Item.ProductId = addProductToOrder.Product.Id;
             Item.VAT = addProductToOrder.Product.VAT;
             Item.OrderId = addProductToOrder.OrderId;
@@ -101,7 +102,7 @@ namespace SystemRestauracji.ViewModels
             {
                 result.LastModified = DateTime.Now;
                 result.TotalPriceNet += Item.Quantity * Item.UnitPriceNetto;
-                result.TotalPriceGross += Calculate.CalculateGrossPriceWithQuantity(Item.UnitPriceNetto, Item.VAT, Item.Quantity);
+                result.TotalPriceGross += Item.UnitPriceGross * Quantity;
                 Database.SaveChanges();
             }
         }
@@ -119,8 +120,8 @@ namespace SystemRestauracji.ViewModels
         {
             Save();
             addProductToOrder.Added = true;
-            MoveToOrderDetails();
             base.OnRequestClose();
+            MoveToOrderDetails();
         }
 
         private void MoveToOrderDetails()

@@ -21,6 +21,8 @@ namespace SystemRestauracji.ViewModels
 
         public string OrderFullName { get; set; }
 
+        public string OrderName { get; set; }
+
         public ICommand AddProductToOrderDetailsCommand
         {
             get
@@ -37,6 +39,7 @@ namespace SystemRestauracji.ViewModels
         {
             this.OrderId = order.Id;
             this.OrderFullName = order.Id.ToString() + "-" + order.Name;
+            this.OrderName = order.Name;
             this.orderStatus = order.Status;
             this.AddProductButtonStatus = order.Status == Status.Open ? true : false;
         }
@@ -56,14 +59,14 @@ namespace SystemRestauracji.ViewModels
                     Quantity = x.Quantity,
                     UnitPriceNetto = x.UnitPriceNetto,
                     VAT = x.VAT,
-                    UnitPriceGross = Calculate.CalculateGrossPriceWithQuantity(x.UnitPriceNetto, x.VAT, x.Quantity)
-                }));
+                    UnitPriceGross = x.UnitPriceGross
+            }));
             }
         }
 
         private void GetCategories()
         {
-            Messenger.Default.Send(new AddProductToOrder(OrderId, OrderFullName));
+            Messenger.Default.Send(new AddProductToOrder(OrderId, OrderFullName, OrderName));
         }
     }
 }
