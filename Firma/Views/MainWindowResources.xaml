@@ -48,7 +48,7 @@
     <DataTemplate DataType="{x:Type vm:GetOrderDetailsViewModel}">
         <vw:GetOrderDetailsView/>
     </DataTemplate>
-    
+
     <DataTemplate DataType="{x:Type vm:GetPaymentsViewModel}">
         <vw:GetPaymentsView/>
     </DataTemplate>
@@ -56,7 +56,7 @@
     <DataTemplate DataType="{x:Type vm:GetUsersViewModel}">
         <vw:GetUsersView/>
     </DataTemplate>
-    
+
     <DataTemplate DataType="{x:Type vm:GetInvoicesViewModel}">
         <vw:GetInvoicesView/>
     </DataTemplate>
@@ -80,8 +80,8 @@
 
     <DataTemplate DataType="{x:Type vm:AddWorkstationViewModel}">
         <vw:AddWorkstationView/>
-    </DataTemplate> 
-    
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:AddWorkstationDeviceLinkViewModel}">
         <vw:AddWorkstationDeviceLinkView/>
     </DataTemplate>
@@ -94,119 +94,19 @@
         <vw:AddOrderDetailsProductDetailsView/>
     </DataTemplate>
 
-
-
-    <!--old-->
-    <DataTemplate DataType="{x:Type vm:WszystkieTowaryViewModel}">
-        <vw:WszystkieTowaryView/>
-    </DataTemplate>
-    
-    <DataTemplate DataType="{x:Type vm:NowyTowarViewModel}">
-        <vw:NowyTowarView/>
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:NowaFakturaViewModel}">
-        <vw:NowaFakturaView/>
-    </DataTemplate>
-    
-    <DataTemplate DataType="{x:Type vm:NoweZamowienieViewModel}">
-        <vw:NoweZamowienieView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:ZakonczZamowienieViewModel}">
-        <vw:ZakonczZamowienieView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:MojeOtwarteZamowieniaViewModel}">
-        <vw:MojeOtwarteZamowieniaView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:MojeZamknieteZamowieniaViewModel}">
-        <vw:MojeZamknieteZamowieniaView/>
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:WszystkieFakturyViewModel}">
-        <vw:WszystkieFakturyView/>
-    </DataTemplate>
-    
-    <DataTemplate DataType="{x:Type vm:ZamknijZmianeViewModel}">
-        <vw:ZamknijZmianeView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:WszystkieKategorieViewModel}">
-        <vw:WszystkieKategorieView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NowaKategoriaViewModel}">
-        <vw:NowaKategoriaView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:DodajProduktDoKategoriiViewModel}">
-        <vw:DodajProduktDoKategoriiView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:WszystkieStolikiViewModel}">
-        <vw:WszystkieStolikiView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:DodajStolikViewModel}">
-        <vw:DodajStolikView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:WszystkieZamowieniaViewModel}">
-        <vw:WszystkieZamowieniaView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:TaZmianaZamowieniaViewModel}">
-        <vw:TaZmianaZamowieniaView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:MagazynProduktowViewModel}">
-        <vw:MagazynProduktowView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NowyDostawcaViewModel}">
-        <vw:NowyDostawcaView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:WszyscyDostawcyViewModel}">
-        <vw:WszyscyDostawcyView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:WszystkieWynagrodzeniaViewModel}">
-        <vw:WszystkieWynagrodzeniaView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:DaneRestauracjiViewModel}">
-        <vw:DaneRestauracjiView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:GrafikViewModel}">
-        <vw:GrafikView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:WszyscyPracownicyViewModel}">
-        <vw:WszyscyPracownicyView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NowyPracownikViewModel}">
-        <vw:NowyPracownikView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:WszystkieDrukarkiViewModel}">
-        <vw:WszystkieDrukarkiView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:WszystkieRezerwacjeViewModel}">
-        <vw:WszystkieRezerwacjeView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:WszystkieTypyKategoriViewModel}">
-        <vw:WszystkieTypyKategoriiView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NowyTypKategoriiViewModel}">
-        <vw:NowyTypkategoriiView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:MojaZmianaViewModel}">
-        <vw:MojaZmianaView/>
-    </DataTemplate>
-
-    <!--tu jest koniec laczenia View z ViewModel zakładek-->
+    <!-- Styles -->
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
         <Setter Property="HeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
-                   
+
                 </DataTemplate>
             </Setter.Value>
         </Setter>
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
-                <!-- 
-        This template ensures that content of a HeaderedContentControl 
-        fills the available vertical space. 
-        -->
                 <ControlTemplate TargetType="{x:Type HeaderedContentControl}">
                     <DockPanel>
                         <ContentPresenter 
@@ -224,9 +124,6 @@
         </Setter>
     </Style>
 
-    <!--
-  This style ensures that the borders in the main window are consistent.
-  -->
     <Style x:Key="MainBorderStyle" TargetType="{x:Type Border}">
         <Setter Property="Background" Value="WhiteSmoke" />
         <Setter Property="BorderBrush" Value="LightGray" />
@@ -256,11 +153,6 @@
         </Setter>
     </Style>
 
-
-    <!--
-  This template explains how to render the list of commands on the left
-  side in the main window (the 'Control Panel' area).
-  -->
     <DataTemplate x:Key="CommandsTemplate">
         <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2">
             <ItemsControl.ItemTemplate>
@@ -271,10 +163,6 @@
         </ItemsControl>
     </DataTemplate>
 
-    <!-- 
-  This template explains how to render 
-  a tab item with a close button.
-  -->
     <DataTemplate x:Key="ClosableTabItemTemplate">
         <DockPanel Width="190" Background="AliceBlue">
             <Button 
@@ -298,9 +186,6 @@
         </DockPanel>
     </DataTemplate>
 
-    <!--
-  This template explains how to render the 'Workspace' content area in the main window.
-  -->
     <DataTemplate x:Key="WorkspacesTemplate">
         <TabControl 
       IsSynchronizedWithCurrentItem="True" 

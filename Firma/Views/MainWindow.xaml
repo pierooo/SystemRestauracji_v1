@@ -14,7 +14,7 @@
         <KeyBinding Modifiers="Ctrl" Key="N" Command="{Binding AddOrderCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="P" Command="{Binding GetProductsCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="K" Command="{Binding GetCategoriesCommand}"/>
-        <KeyBinding Modifiers="Ctrl" Key="F" Command="{Binding NowaFakturaCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="F" Command="{Binding }"/>
         <KeyBinding Modifiers="Ctrl" Key="A" Command="{Binding AddProductCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="R" Command="{Binding RestauracjaCommand}"/>
     </Window.InputBindings>
@@ -27,7 +27,7 @@
         </Grid.RowDefinitions>
 
         <Menu Grid.Row="0" Grid.Column="0" Margin="3">
-            <MenuItem Header="Zamknij zmianę" Command="{Binding ZamknijZmianeCommand}"/>
+            <MenuItem Header="Zamknij zmianę" Command="{Binding }"/>
             <MenuItem Header="Produkty" >
                 <MenuItem Header="Wyświetl" InputGestureText="Ctrl+P" Command="{Binding GetProductsCommand}">
                     <MenuItem.Icon>
@@ -51,7 +51,7 @@
                         <Image Source="/Views/Content/icons/add.png" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Dodaj produkt do kategorii" Command="{Binding DodajProduktDoKategoriCommand}">
+                <MenuItem Header="Dodaj produkt do kategorii" Command="{Binding }">
                     <MenuItem.Icon>
                         <Image Source="/Views/Content/icons/addFaktura.png" />
                     </MenuItem.Icon>
@@ -63,7 +63,7 @@
                         <Image Source="/Views/Content/icons/display.png" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Dodaj" Command="{Binding DodajStolikCommand}">
+                <MenuItem Header="Dodaj" Command="{Binding }">
                     <MenuItem.Icon>
                         <Image Source="/Views/Content/icons/add.png" />
                     </MenuItem.Icon>
@@ -98,7 +98,7 @@
                             <Image Source="/Views/Content/icons/display.png" />
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="Dodaj" InputGestureText="Ctrl+F" Command="{Binding NowaFakturaCommand}">
+                    <MenuItem Header="Dodaj" InputGestureText="Ctrl+F" Command="{Binding }">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/icons/faktura.png" />
                         </MenuItem.Icon>
@@ -110,7 +110,7 @@
                             <Image Source="/Views/Content/icons/display.png" />
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="Dodaj" InputGestureText="Ctrl+F" Command="{Binding NowaFakturaCommand}">
+                    <MenuItem Header="Dodaj" InputGestureText="Ctrl+F" Command="{Binding }">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/icons/faktura.png" />
                         </MenuItem.Icon>
@@ -129,7 +129,7 @@
             </MenuItem>
             <MenuItem Header="Kontrahenci">
                 <MenuItem Header="Firmy">
-                    <MenuItem Header="Dodaj nową" Command="{Binding DodajDostawceCommand}">
+                    <MenuItem Header="Dodaj nową" Command="{Binding }">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/icons/addEmployee.png" />
                         </MenuItem.Icon>
@@ -142,7 +142,7 @@
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Osoby fizyczne">
-                    <MenuItem Header="Dodaj nową" Command="{Binding DodajDostawceCommand}">
+                    <MenuItem Header="Dodaj nową" Command="{Binding }">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/icons/addEmployee.png" />
                         </MenuItem.Icon>
@@ -215,7 +215,7 @@
                     <ImageBrush ImageSource="/Views/Content/icons/addOrder.png" />
                 </ToggleButton.Background>
             </ToggleButton>
-            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}" Command="{Binding ZakonczZamowienieCommand}" ToolTip="Zamknij Zamówienie" Cursor="Hand">
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}" Command="{Binding }" ToolTip="Zamknij Zamówienie" Cursor="Hand">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/icons/closeOrder.png" />
                 </ToggleButton.Background>
@@ -231,7 +231,7 @@
                 </ToggleButton.Background>
             </ToggleButton>
             <Separator HorizontalAlignment="Center" Width="3"/>
-            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding NowaFakturaCommand}" ToolTip="Nowa Faktura" Cursor="Hand">
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding }" ToolTip="Nowa Faktura" Cursor="Hand">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/icons/addFaktura.png"/>
                 </ToggleButton.Background>
@@ -274,7 +274,7 @@
                 </ToggleButton.Background>
             </ToggleButton>
             <Separator HorizontalAlignment="Center" Width="3"/>
-            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding RestauracjaCommand}" ToolTip="Informacje- Restauracja" Cursor="Hand">
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding }" ToolTip="Informacje- Restauracja" Cursor="Hand">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/icons/information.png"/>
                 </ToggleButton.Background>
