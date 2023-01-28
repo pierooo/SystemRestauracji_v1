@@ -94,6 +94,10 @@
         <vw:AddOrderDetailsProductDetailsView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:AddRestaurantTableViewModel}">
+        <vw:AddRestaurantTableView/>
+    </DataTemplate>
+
     <!-- Styles -->
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
