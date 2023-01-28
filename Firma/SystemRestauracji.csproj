@@ -33,6 +33,7 @@
 		<Resource Remove="Views\Content\Icons\employee.png" />
 		<Resource Remove="Views\Content\Icons\refresh.png" />
 		<Resource Remove="Views\Content\Icons\add-button.png" />
+		<Resource Remove="Views\Content\Icons\cancel.png" />
 
 	</ItemGroup>
 
@@ -75,6 +76,7 @@
 		<Resource Include="Views\Content\Icons\employee.png" />
 		<Resource Include="Views\Content\Icons\refresh.png" />
 		<Resource Include="Views\Content\Icons\add-button.png" />
+		<Resource Include="Views\Content\Icons\cancel.png" />
 	</ItemGroup>
 
 	<ItemGroup>
