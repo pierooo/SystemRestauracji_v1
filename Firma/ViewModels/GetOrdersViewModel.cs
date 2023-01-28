@@ -30,7 +30,10 @@ namespace SystemRestauracji.ViewModels
                     {
                         status = Status.Open;
                     }
-                    Messenger.Default.Send(new OrderForOrderDetailsView(selectedOrder.Id, selectedOrder.Name, status));
+                    if(selectedOrder != null)
+                    {
+                        Messenger.Default.Send(new OrderForOrderDetailsView(selectedOrder.Id, selectedOrder.Name, status));
+                    }
                 }
             }
         }

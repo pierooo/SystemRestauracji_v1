@@ -98,6 +98,10 @@
         <vw:AddRestaurantTableView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:AddClientViewModel}">
+        <vw:AddClientView/>
+    </DataTemplate>
+
     <!-- Styles -->
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">

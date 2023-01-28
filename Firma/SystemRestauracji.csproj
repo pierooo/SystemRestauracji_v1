@@ -31,6 +31,8 @@
 		<Resource Remove="Views\Content\Icons\information.png" />
 		<Resource Remove="Views\Content\Icons\contract.png" />
 		<Resource Remove="Views\Content\Icons\employee.png" />
+		<Resource Remove="Views\Content\Icons\refresh.png" />
+		<Resource Remove="Views\Content\Icons\add-button.png" />
 
 	</ItemGroup>
 
@@ -71,6 +73,8 @@
 		<Resource Include="Views\Content\Icons\information.png" />
 		<Resource Include="Views\Content\Icons\contract.png" />
 		<Resource Include="Views\Content\Icons\employee.png" />
+		<Resource Include="Views\Content\Icons\refresh.png" />
+		<Resource Include="Views\Content\Icons\add-button.png" />
 	</ItemGroup>
 
 	<ItemGroup>

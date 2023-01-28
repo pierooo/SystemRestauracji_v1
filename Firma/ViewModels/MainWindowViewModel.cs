@@ -223,6 +223,14 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
+        public ICommand AddClientCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new AddClientViewModel()));
+            }
+        }
+
         public ICommand AddWorkstationCommand
         {
             get
@@ -714,6 +722,20 @@ namespace SystemRestauracji.ViewModels
             switch (view)
             {
                 case "Orders": GetOpenedOrders(); break;
+                case "SystemRestauracji.Models.EntitiesForView.OrderForAllView" : createView(new AddOrderViewModel()); break;
+                case "SystemRestauracji.Models.Entities.Products" : createView(new AddProductViewModel()); break;
+                case "SystemRestauracji.Models.Entities.Categories" : createView(new AddCategoryViewModel()); break;
+                case "SystemRestauracji.Models.Entities.RestaurantTables" : createView(new AddRestaurantTableViewModel()); break;
+                case "SystemRestauracji.Models.EntitiesForView.ReservationForAllView" : createView(new AddOrderViewModel()); break;
+                case "SystemRestauracji.Models.Entities.Invoices" : createView(new AddOrderViewModel()); break;
+                case "SystemRestauracji.Models.EntitiesForView.DocumentForAllView" : createView(new AddOrderViewModel()); break;
+                case "SystemRestauracji.Models.EntitiesForView.PaymentsForAllView" : createView(new AddOrderViewModel()); break;
+                case "SystemRestauracji.Models.Entities.Companies" : createView(new AddOrderViewModel()); break;
+                case "PracownicyAdd" : createView(new AddEmployeeViewModel()); break;
+                case "KlienciAdd" : createView(new AddClientViewModel()); break;
+                case "SystemRestauracji.Models.Entities.Devices" : createView(new AddDeviceViewModel()); break;
+                case "SystemRestauracji.Models.Entities.Workstations": createView(new AddWorkstationViewModel()); break;
+                case "SystemRestauracji.Models.EntitiesForView.WorkstationDeviceLinksForAllView" : createView(new AddWorkstationDeviceLinkViewModel()); break;
                 default: break;
             }
         }
