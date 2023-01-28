@@ -264,6 +264,16 @@ namespace SystemRestauracji.ViewModels
         }
 
         #endregion
+
+        #region other Command
+        public ICommand CloseTabsCommand
+        {
+            get
+            {
+                return new BaseCommand(closeAllTabs);
+            }
+        }
+        #endregion
         #region left side menu buttons
         private ReadOnlyCollection<CommandViewModel> _Commands;//to jest kolekcja komend wlewym menu
         public ReadOnlyCollection<CommandViewModel> Commands
@@ -360,6 +370,12 @@ namespace SystemRestauracji.ViewModels
             if (collectionView != null)
                 collectionView.MoveCurrentTo(workspace);
         }
+
+        private void closeAllTabs()
+        {
+            Workspaces.Clear();
+        }
+
         #endregion
         #region methods to run views GET
 
@@ -705,7 +721,7 @@ namespace SystemRestauracji.ViewModels
                 }
                 this.setActiveWorkspace(newWorkspaceForProducts);
             }
-            else if(addProductToOrder.CategoryId != null && addProductToOrder.Product != null && !addProductToOrder.Added)
+            else if (addProductToOrder.CategoryId != null && addProductToOrder.Product != null && !addProductToOrder.Added)
             {
                 var newWorkspaceForProductsDetails = new AddOrderDetailsProductDetailsViewModel(addProductToOrder);
                 this.Workspaces.Add(newWorkspaceForProductsDetails);
@@ -722,20 +738,20 @@ namespace SystemRestauracji.ViewModels
             switch (view)
             {
                 case "Orders": GetOpenedOrders(); break;
-                case "SystemRestauracji.Models.EntitiesForView.OrderForAllView" : createView(new AddOrderViewModel()); break;
-                case "SystemRestauracji.Models.Entities.Products" : createView(new AddProductViewModel()); break;
-                case "SystemRestauracji.Models.Entities.Categories" : createView(new AddCategoryViewModel()); break;
-                case "SystemRestauracji.Models.Entities.RestaurantTables" : createView(new AddRestaurantTableViewModel()); break;
-                case "SystemRestauracji.Models.EntitiesForView.ReservationForAllView" : createView(new AddOrderViewModel()); break;
-                case "SystemRestauracji.Models.Entities.Invoices" : createView(new AddOrderViewModel()); break;
-                case "SystemRestauracji.Models.EntitiesForView.DocumentForAllView" : createView(new AddOrderViewModel()); break;
-                case "SystemRestauracji.Models.EntitiesForView.PaymentsForAllView" : createView(new AddOrderViewModel()); break;
-                case "SystemRestauracji.Models.Entities.Companies" : createView(new AddOrderViewModel()); break;
-                case "PracownicyAdd" : createView(new AddEmployeeViewModel()); break;
-                case "KlienciAdd" : createView(new AddClientViewModel()); break;
-                case "SystemRestauracji.Models.Entities.Devices" : createView(new AddDeviceViewModel()); break;
+                case "SystemRestauracji.Models.EntitiesForView.OrderForAllView": createView(new AddOrderViewModel()); break;
+                case "SystemRestauracji.Models.Entities.Products": createView(new AddProductViewModel()); break;
+                case "SystemRestauracji.Models.Entities.Categories": createView(new AddCategoryViewModel()); break;
+                case "SystemRestauracji.Models.Entities.RestaurantTables": createView(new AddRestaurantTableViewModel()); break;
+                case "SystemRestauracji.Models.EntitiesForView.ReservationForAllView": createView(new AddOrderViewModel()); break;
+                case "SystemRestauracji.Models.Entities.Invoices": createView(new AddOrderViewModel()); break;
+                case "SystemRestauracji.Models.EntitiesForView.DocumentForAllView": createView(new AddOrderViewModel()); break;
+                case "SystemRestauracji.Models.EntitiesForView.PaymentsForAllView": createView(new AddOrderViewModel()); break;
+                case "SystemRestauracji.Models.Entities.Companies": createView(new AddOrderViewModel()); break;
+                case "PracownicyAdd": createView(new AddEmployeeViewModel()); break;
+                case "KlienciAdd": createView(new AddClientViewModel()); break;
+                case "SystemRestauracji.Models.Entities.Devices": createView(new AddDeviceViewModel()); break;
                 case "SystemRestauracji.Models.Entities.Workstations": createView(new AddWorkstationViewModel()); break;
-                case "SystemRestauracji.Models.EntitiesForView.WorkstationDeviceLinksForAllView" : createView(new AddWorkstationDeviceLinkViewModel()); break;
+                case "SystemRestauracji.Models.EntitiesForView.WorkstationDeviceLinksForAllView": createView(new AddWorkstationDeviceLinkViewModel()); break;
                 default: break;
             }
         }

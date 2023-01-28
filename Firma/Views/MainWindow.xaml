@@ -282,6 +282,12 @@
                     <ImageBrush ImageSource="/Views/Content/icons/employee.png"/>
                 </ToggleButton.Background>
             </ToggleButton>
+            <Separator HorizontalAlignment="Center" Width="3"/>
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}"   Command="{Binding CloseTabsCommand}" ToolTip="Zamknij Wszystkie zakładki" Cursor="Hand">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/icons/cancel.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
 
 
         </ToolBar>
