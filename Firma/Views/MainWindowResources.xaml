@@ -86,6 +86,14 @@
         <vw:AddWorkstationDeviceLinkView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:AddOrderViewModel}">
+        <vw:AddOrderView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:AddOrderDetailsProductDetailsViewModel}">
+        <vw:AddOrderDetailsProductDetailsView/>
+    </DataTemplate>
+
 
 
     <!--old-->

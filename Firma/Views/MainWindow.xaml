@@ -11,11 +11,11 @@
         <ResourceDictionary Source="MainWindowResources.xaml"/>
     </Window.Resources>
     <Window.InputBindings>
-        <KeyBinding Modifiers="Ctrl" Key="N" Command="{Binding NoweZamowienieCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="N" Command="{Binding AddOrderCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="P" Command="{Binding GetProductsCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="K" Command="{Binding GetCategoriesCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="F" Command="{Binding NowaFakturaCommand}"/>
-        <KeyBinding Modifiers="Ctrl" Key="A" Command="{Binding NowyTowarCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="A" Command="{Binding AddProductCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="R" Command="{Binding RestauracjaCommand}"/>
     </Window.InputBindings>
     <Grid x:Name="grid">
@@ -85,7 +85,7 @@
                         <Image Source="/Views/Content/icons/showOrders.png" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Nowe zamówienie" Command="{Binding TaZmianaZamowieniaCommand}">
+                <MenuItem Header="Nowe zamówienie" Command="{Binding AddOrderCommand}">
                     <MenuItem.Icon>
                         <Image Source="/Views/Content/icons/add.png" />
                     </MenuItem.Icon>
@@ -210,7 +210,7 @@
         </Menu>
 
         <ToolBar Background="Beige" Grid.Row="1" Grid.Column="0" Margin="10,0,0,0">
-            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}" Command="{Binding NoweZamowienieCommand}" ToolTip="Nowe Zamówienie" Cursor="Hand">
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}" Command="{Binding AddOrderCommand}" ToolTip="Nowe Zamówienie" Cursor="Hand">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/icons/addOrder.png" />
                 </ToggleButton.Background>

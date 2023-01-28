@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RestaurantSystem_v1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="RestaurantSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="Id" />
@@ -149,6 +149,7 @@
           <Property Name="OrderId" Type="int" Nullable="false" />
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="UnitPriceNetto" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="UnitPriceGross" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Quantity" Type="int" />
           <Property Name="VAT" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Description" Type="nvarchar" MaxLength="250" />
@@ -464,7 +465,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="RestaurantSystem_v1ModelStoreContainer">
+        <EntityContainer Name="RestaurantSystemModelStoreContainer">
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Devices" EntityType="Self.Devices" Schema="dbo" store:Type="Tables" />
@@ -553,7 +554,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="RestaurantSystem_v1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="RestaurantSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="Id" />
@@ -713,6 +714,7 @@
           <Property Name="OrderId" Type="Int32" Nullable="false" />
           <Property Name="ProductId" Type="Int32" Nullable="false" />
           <Property Name="UnitPriceNetto" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="UnitPriceGross" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Quantity" Type="Int32" />
           <Property Name="VAT" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
@@ -1137,9 +1139,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="RestaurantSystem_v1ModelStoreContainer" CdmEntityContainer="RestaurantSystemEntities">
+        <EntityContainerMapping StorageEntityContainer="RestaurantSystemModelStoreContainer" CdmEntityContainer="RestaurantSystemEntities">
           <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="RestaurantSystem_v1Model.Categories">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Categories">
               <MappingFragment StoreEntitySet="Categories">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1151,7 +1153,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Companies">
-            <EntityTypeMapping TypeName="RestaurantSystem_v1Model.Companies">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Companies">
               <MappingFragment StoreEntitySet="Companies">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1169,7 +1171,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Devices">
-            <EntityTypeMapping TypeName="RestaurantSystem_v1Model.Devices">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Devices">
               <MappingFragment StoreEntitySet="Devices">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1181,7 +1183,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DocumentPositionsDetails">
-            <EntityTypeMapping TypeName="RestaurantSystem_v1Model.DocumentPositionsDetails">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.DocumentPositionsDetails">
               <MappingFragment StoreEntitySet="DocumentPositionsDetails">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="PositionName" ColumnName="PositionName" />
@@ -1197,7 +1199,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Documents">
-            <EntityTypeMapping TypeName="RestaurantSystem_v1Model.Documents">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Documents">
               <MappingFragment StoreEntitySet="Documents">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1225,7 +1227,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Invoices">
-            <EntityTypeMapping TypeName="RestaurantSystem_v1Model.Invoices">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Invoices">
               <MappingFragment StoreEntitySet="Invoices">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1262,7 +1264,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="RestaurantSystem_v1Model.Orders">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Orders">
               <MappingFragment StoreEntitySet="Orders">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1282,12 +1284,13 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrdersDetails">
-            <EntityTypeMapping TypeName="RestaurantSystem_v1Model.OrdersDetails">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.OrdersDetails">
               <MappingFragment StoreEntitySet="OrdersDetails">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="UnitPriceNetto" ColumnName="UnitPriceNetto" />
+                <ScalarProperty Name="UnitPriceGross" ColumnName="UnitPriceGross" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="VAT" ColumnName="VAT" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -1298,7 +1301,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Payments">
-            <EntityTypeMapping TypeName="RestaurantSystem_v1Model.Payments">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Payments">
               <MappingFragment StoreEntitySet="Payments">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1317,7 +1320,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="RestaurantSystem_v1Model.Products">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Products">
               <MappingFragment StoreEntitySet="Products">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1335,7 +1338,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Reservations">
-            <EntityTypeMapping TypeName="RestaurantSystem_v1Model.Reservations">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Reservations">
               <MappingFragment StoreEntitySet="Reservations">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1353,7 +1356,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RestaurantTables">
-            <EntityTypeMapping TypeName="RestaurantSystem_v1Model.RestaurantTables">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.RestaurantTables">
               <MappingFragment StoreEntitySet="RestaurantTables">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1365,7 +1368,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="RestaurantSystem_v1Model.Users">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -1387,7 +1390,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="WorkstationDeviceLinks">
-            <EntityTypeMapping TypeName="RestaurantSystem_v1Model.WorkstationDeviceLinks">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.WorkstationDeviceLinks">
               <MappingFragment StoreEntitySet="WorkstationDeviceLinks">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="WorkstationId" ColumnName="WorkstationId" />
@@ -1397,7 +1400,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Workstations">
-            <EntityTypeMapping TypeName="RestaurantSystem_v1Model.Workstations">
+            <EntityTypeMapping TypeName="RestaurantSystemModel.Workstations">
               <MappingFragment StoreEntitySet="Workstations">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

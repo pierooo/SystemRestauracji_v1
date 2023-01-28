@@ -34,7 +34,7 @@
             {
                 return netPrice;
             }
-            return ((netPrice + (netPrice * (vat / 100))) * quantity);
+            return ((netPrice + (netPrice * (vat / 100.00m))) * (decimal)quantity);
         }
     }
 }

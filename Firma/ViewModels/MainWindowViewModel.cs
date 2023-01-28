@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
@@ -173,7 +174,7 @@ namespace SystemRestauracji.ViewModels
                 return new BaseCommand(GetUsers);
             }
         }
-        
+
         public ICommand GetEmployeesCommand
         {
             get
@@ -216,7 +217,7 @@ namespace SystemRestauracji.ViewModels
                 return new BaseCommand(() => createView(new AddDeviceViewModel()));
             }
         }
-        
+
         public ICommand AddEmployeeCommand
         {
             get
@@ -230,6 +231,14 @@ namespace SystemRestauracji.ViewModels
             get
             {
                 return new BaseCommand(() => createView(new AddWorkstationViewModel()));
+            }
+        }
+
+        public ICommand AddOrderCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new AddOrderViewModel()));
             }
         }
 
@@ -459,6 +468,7 @@ namespace SystemRestauracji.ViewModels
             Messenger.Default.Register<OrderForOrderDetailsView>(this, OpenGetOrdersDetails);
             Messenger.Default.Register<AddProductToOrder>(this, OpenViewForAddingProductToOrderDetails);
             Messenger.Default.Register<Categories>(this, OpenProducts);
+            Messenger.Default.Register<string>(this, Open);
 
             return new List<CommandViewModel>
             {
@@ -529,7 +539,7 @@ namespace SystemRestauracji.ViewModels
             this.Workspaces.Add(workspace);
             this.setActiveWorkspace(workspace);
         }
-        
+
         private void GetProducts()
         {
             GetProductsViewModel workspaceProducts = this.Workspaces.FirstOrDefault(vm => vm is GetProductsViewModel) as GetProductsViewModel;
@@ -832,7 +842,7 @@ namespace SystemRestauracji.ViewModels
             }
             this.setActiveWorkspace(newWorkspace);
         }
-        
+
         private void OpenProducts(Categories category)
         {
             GetCategoriesViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetCategoriesViewModel) as GetCategoriesViewModel;
@@ -868,11 +878,30 @@ namespace SystemRestauracji.ViewModels
                 {
                     Workspaces[Workspaces.IndexOf(workspaceCategories)] = newWorkspaceForProducts;
                 }
-                else if(workspaceProducts != null)
+                else if (workspaceProducts != null)
                 {
                     this.Workspaces.Remove(workspaceProducts);
                 }
                 this.setActiveWorkspace(newWorkspaceForProducts);
+            }
+            else if(addProductToOrder.CategoryId != null && addProductToOrder.Product != null && !addProductToOrder.Added)
+            {
+                var newWorkspaceForProductsDetails = new AddOrderDetailsProductDetailsViewModel(addProductToOrder);
+                this.Workspaces.Add(newWorkspaceForProductsDetails);
+                this.setActiveWorkspace(newWorkspaceForProductsDetails);
+            }
+            else if (addProductToOrder.Added)
+            {
+                OpenGetOrdersDetails(new OrderForOrderDetailsView(addProductToOrder.OrderId, addProductToOrder.OrderName, Status.Open));
+            }
+        }
+
+        private void Open(string view)
+        {
+            switch (view)
+            {
+                case "Orders": GetOpenedOrders(); break;
+                default: break;
             }
         }
 
@@ -1026,9 +1055,9 @@ namespace SystemRestauracji.ViewModels
         private void showAllTowar()
         {
             WszystkieTowaryViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is WszystkieTowaryViewModel) as WszystkieTowaryViewModel;
-            if(workspace == null)
+            if (workspace == null)
             {
-                workspace=new WszystkieTowaryViewModel();
+                workspace = new WszystkieTowaryViewModel();
                 this.Workspaces.Add(workspace);
             }
             this.setActiveWorkspace(workspace);
@@ -1063,7 +1092,7 @@ namespace SystemRestauracji.ViewModels
             }
             this.setActiveWorkspace(workspace);
         }
-        
+
         private void ZamknijZmiane()
         {
             ZamknijZmianeViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is ZamknijZmianeViewModel) as ZamknijZmianeViewModel;
