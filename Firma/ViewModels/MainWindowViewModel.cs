@@ -247,6 +247,14 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
+        public ICommand AddRestaurantTableCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new AddRestaurantTableViewModel()));
+            }
+        }
+
         #endregion
         #region left side menu buttons
         private ReadOnlyCollection<CommandViewModel> _Commands;//to jest kolekcja komend wlewym menu

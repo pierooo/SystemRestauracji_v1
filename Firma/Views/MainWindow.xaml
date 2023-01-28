@@ -14,9 +14,7 @@
         <KeyBinding Modifiers="Ctrl" Key="N" Command="{Binding AddOrderCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="P" Command="{Binding GetProductsCommand}"/>
         <KeyBinding Modifiers="Ctrl" Key="K" Command="{Binding GetCategoriesCommand}"/>
-        <KeyBinding Modifiers="Ctrl" Key="F" Command="{Binding }"/>
         <KeyBinding Modifiers="Ctrl" Key="A" Command="{Binding AddProductCommand}"/>
-        <KeyBinding Modifiers="Ctrl" Key="R" Command="{Binding RestauracjaCommand}"/>
     </Window.InputBindings>
     <Grid x:Name="grid">
         <Grid.RowDefinitions>
@@ -63,7 +61,7 @@
                         <Image Source="/Views/Content/icons/display.png" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Dodaj" Command="{Binding }">
+                <MenuItem Header="Dodaj" Command="{Binding AddRestaurantTableCommand}">
                     <MenuItem.Icon>
                         <Image Source="/Views/Content/icons/add.png" />
                     </MenuItem.Icon>
