@@ -1,0 +1,67 @@
+﻿<local:AddViewBase x:Class="SystemRestauracji.Views.AddReservationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SystemRestauracji.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="StyleZakladekResources.xaml"/>
+    </UserControl.Resources>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <Grid Background="Azure">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Margin="30" HorizontalAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Margin="0,8,0,8" Content="Nazwa rezerwacji:"/>
+                    <Label Grid.Row="1" Grid.Column="0" Margin="0,8,0,8" Content="Opis:"/>
+                    <Label Grid.Row="2" Grid.Column="0" Margin="0,8,0,8" Content="Pracownik do obsługi:"/>
+                    <Label Grid.Row="3" Grid.Column="0" Margin="0,8,0,8" Content="Data rezerwacji:"/> 
+                    <Label Grid.Row="4" Grid.Column="0" Margin="0,8,0,8" Content="Godzina i minuta rezerwacji: "/> 
+                    <Label Grid.Row="5" Grid.Column="0" Margin="0,8,0,8" Content="Kwota limitu rachunku:"/>
+                    <Label Grid.Row="6" Grid.Column="0" Margin="0,8,0,8" Content="Stolik w restauracji:"/>
+                    <Label Grid.Row="7" Grid.Column="0" Margin="0,8,0,8" Content="Ilośc osób:"/>
+                    <Label Grid.Row="8" FontSize="18" FontWeight="ExtraBold" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,8" Content="{Binding Error, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBox Grid.Row="0" Grid.Column="1" Margin="8" HorizontalAlignment="Left" Width="400" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Margin="8" HorizontalAlignment="Left" Width="400" Height="50" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}"/>
+                    <ComboBox Grid.Row="2" Grid.Column="1" Width="200" Margin="8" HorizontalAlignment="Left"
+                        ItemsSource="{Binding Users}"
+                        DisplayMemberPath="Value"
+                        SelectedValuePath="Key"
+                        SelectedValue="{Binding Path=EmployeeId, Mode=TwoWay}"/>
+                    <DatePicker Grid.Row="3" Grid.Column="1" Width="120" HorizontalAlignment="Left" Margin="8" SelectedDate="{Binding ReservationDate}"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Margin="8" HorizontalAlignment="Left" Width="30" Text="{Binding Path=ReservationHour, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Margin="50,8,8,8" HorizontalAlignment="Left" Width="30" Text="{Binding Path=ReservationMinute, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" Margin="8" HorizontalAlignment="Left" Width="100" Text="{Binding Path=OrderAmountLimit, UpdateSourceTrigger=PropertyChanged}"/>
+                    <ComboBox Grid.Row="6" Grid.Column="1" Width="200" Margin="8" HorizontalAlignment="Left"
+                        ItemsSource="{Binding RestaurantTables}"
+                        DisplayMemberPath="Value"
+                        SelectedValuePath="Key"
+                        SelectedValue="{Binding Path=RestaurantTableId, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="7" Grid.Column="1" Margin="8" HorizontalAlignment="Left" Width="100" Text="{Binding Path=NumberOfPeople, UpdateSourceTrigger=PropertyChanged}"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</local:AddViewBase>

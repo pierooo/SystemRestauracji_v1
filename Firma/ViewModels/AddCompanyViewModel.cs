@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using SystemRestauracji.Models.BusinessLogic;
 using SystemRestauracji.Models.Entities;
 using SystemRestauracji.ViewModels.Abstract;
 
