@@ -220,7 +220,7 @@
                     <ImageBrush ImageSource="/Views/Content/icons/addOrder.png" />
                 </ToggleButton.Background>
             </ToggleButton>
-            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}" Command="{Binding }" ToolTip="Zamknij Zamówienie" Cursor="Hand">
+            <ToggleButton Style="{StaticResource stylePaskaNarzedzi}" Command="{Binding CloseOrderCommand}" ToolTip="Zamknij Zamówienie" Cursor="Hand">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/icons/closeOrder.png" />
                 </ToggleButton.Background>
