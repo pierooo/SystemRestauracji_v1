@@ -66,9 +66,16 @@
                         <Image Source="/Views/Content/icons/add.png" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Rezerwacje" Command="{Binding GetReservationsCommand}">
+            </MenuItem>
+            <MenuItem Header="Rezerwacje">
+                <MenuItem Header="Wyświetl" Command="{Binding GetReservationsCommand}">
                     <MenuItem.Icon>
                         <Image Source="/Views/Content/icons/display.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Dodaj" Command="{Binding AddReservationCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Content/icons/add.png" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>

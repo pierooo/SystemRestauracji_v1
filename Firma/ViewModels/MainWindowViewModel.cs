@@ -271,6 +271,14 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
+        public ICommand AddReservationCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new AddReservationViewModel()));
+            }
+        }
+
         #endregion
 
         #region other Command
@@ -750,7 +758,7 @@ namespace SystemRestauracji.ViewModels
                 case "SystemRestauracji.Models.Entities.Products": createView(new AddProductViewModel()); break;
                 case "SystemRestauracji.Models.Entities.Categories": createView(new AddCategoryViewModel()); break;
                 case "SystemRestauracji.Models.Entities.RestaurantTables": createView(new AddRestaurantTableViewModel()); break;
-                case "SystemRestauracji.Models.EntitiesForView.ReservationForAllView": createView(new AddOrderViewModel()); break;
+                case "SystemRestauracji.Models.EntitiesForView.ReservationForAllView": createView(new AddReservationViewModel()); break;
                 case "SystemRestauracji.Models.Entities.Invoices": createView(new AddOrderViewModel()); break;
                 case "SystemRestauracji.Models.EntitiesForView.DocumentForAllView": createView(new AddOrderViewModel()); break;
                 case "SystemRestauracji.Models.EntitiesForView.PaymentsForAllView": createView(new AddOrderViewModel()); break;
