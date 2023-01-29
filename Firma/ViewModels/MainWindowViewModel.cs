@@ -289,6 +289,14 @@ namespace SystemRestauracji.ViewModels
                 return new BaseCommand(closeAllTabs);
             }
         }
+
+        public ICommand CloseOrderCommand
+        {
+            get
+            {
+                return new BaseCommand(CloseOpenOrder);
+            }
+        }
         #endregion
         #region left side menu buttons
         private ReadOnlyCollection<CommandViewModel> _Commands;//to jest kolekcja komend wlewym menu
@@ -310,6 +318,7 @@ namespace SystemRestauracji.ViewModels
             Messenger.Default.Register<AddProductToOrder>(this, OpenViewForAddingProductToOrderDetails);
             Messenger.Default.Register<Categories>(this, OpenProducts);
             Messenger.Default.Register<string>(this, Open);
+            Messenger.Default.Register<CloseOrder>(this, CloseOrderDetails);
 
             return new List<CommandViewModel>
             {
@@ -518,6 +527,22 @@ namespace SystemRestauracji.ViewModels
         {
             GetOrdersViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetOrdersViewModel) as GetOrdersViewModel;
             var newWorkspace = new GetOrdersViewModel(new[] { Status.Added, Status.InProgress, Status.Paid }, "Otwarte zamówienia");
+            if (workspace != null)
+            {
+                Workspaces[Workspaces.IndexOf(workspace)] = newWorkspace;
+            }
+            else
+            {
+                this.Workspaces.Add(newWorkspace);
+            }
+
+            this.setActiveWorkspace(newWorkspace);
+        }
+
+        private void CloseOpenOrder()
+        {
+            GetOrdersViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetOrdersViewModel) as GetOrdersViewModel;
+            var newWorkspace = new GetOrdersViewModel(new[] { Status.Added, Status.InProgress, Status.Paid }, "Wybierz do zamknięcia", "Close");
             if (workspace != null)
             {
                 Workspaces[Workspaces.IndexOf(workspace)] = newWorkspace;
@@ -772,6 +797,22 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
+        private void CloseOrderDetails(CloseOrder closeOrder)
+        {
+            GetOrdersViewModel workscpaceOrders = this.Workspaces.FirstOrDefault(vm => vm is GetOrdersViewModel) as GetOrdersViewModel;
+
+            var newWorkspaceForCloseOrder = new CloseOrderViewModel(closeOrder);
+
+            if (workscpaceOrders.SelectedOrder.Id == closeOrder.Order.Id)
+            {
+                    Workspaces[Workspaces.IndexOf(workscpaceOrders)] = newWorkspaceForCloseOrder;
+            }
+            else
+            {
+                this.Workspaces.Add(newWorkspaceForCloseOrder);
+            }
+            this.setActiveWorkspace(newWorkspaceForCloseOrder);
+        }
         #endregion
     }
 }

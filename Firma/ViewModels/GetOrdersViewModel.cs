@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using GalaSoft.MvvmLight.Messaging;
 using SystemRestauracji.Models.BusinessLogic;
+using SystemRestauracji.Models.Correspondences;
 using SystemRestauracji.Models.EntitiesForView;
 using SystemRestauracji.ViewModels.Abstract;
 
@@ -11,6 +12,8 @@ namespace SystemRestauracji.ViewModels
     public class GetOrdersViewModel : ViewModelBase<OrderForAllView>
     {
         private readonly Status[] statuses;
+
+        private readonly string action;
 
         private OrderForAllView selectedOrder;
 
@@ -30,17 +33,22 @@ namespace SystemRestauracji.ViewModels
                     {
                         status = Status.Open;
                     }
-                    if(selectedOrder != null)
+                    if(selectedOrder != null && string.IsNullOrEmpty(action))
                     {
                         Messenger.Default.Send(new OrderForOrderDetailsView(selectedOrder.Id, selectedOrder.Name, status));
+                    }
+                    if(selectedOrder != null && action == "Close")
+                    {
+                        Messenger.Default.Send(new CloseOrder(action, selectedOrder));
                     }
                 }
             }
         }
 
-        public GetOrdersViewModel(Status[] statuses, string viewName) : base(viewName)
+        public GetOrdersViewModel(Status[] statuses, string viewName, string action = null) : base(viewName)
         {
             this.statuses = statuses;
+            this.action = action;
         }
 
         public override void Load()
