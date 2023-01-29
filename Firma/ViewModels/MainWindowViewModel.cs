@@ -263,6 +263,14 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
+        public ICommand AddCompanyCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new AddCompanyViewModel()));
+            }
+        }
+
         #endregion
 
         #region other Command
@@ -746,7 +754,7 @@ namespace SystemRestauracji.ViewModels
                 case "SystemRestauracji.Models.Entities.Invoices": createView(new AddOrderViewModel()); break;
                 case "SystemRestauracji.Models.EntitiesForView.DocumentForAllView": createView(new AddOrderViewModel()); break;
                 case "SystemRestauracji.Models.EntitiesForView.PaymentsForAllView": createView(new AddOrderViewModel()); break;
-                case "SystemRestauracji.Models.Entities.Companies": createView(new AddOrderViewModel()); break;
+                case "SystemRestauracji.Models.Entities.Companies": createView(new AddCompanyViewModel()); break;
                 case "PracownicyAdd": createView(new AddEmployeeViewModel()); break;
                 case "KlienciAdd": createView(new AddClientViewModel()); break;
                 case "SystemRestauracji.Models.Entities.Devices": createView(new AddDeviceViewModel()); break;

@@ -127,7 +127,7 @@
             </MenuItem>
             <MenuItem Header="Kontrahenci">
                 <MenuItem Header="Firmy">
-                    <MenuItem Header="Dodaj nową" Command="{Binding }">
+                    <MenuItem Header="Dodaj nową" Command="{Binding AddCompanyCommand}">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/icons/addEmployee.png" />
                         </MenuItem.Icon>
