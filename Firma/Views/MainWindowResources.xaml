@@ -102,6 +102,10 @@
         <vw:AddClientView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:AddCompanyViewModel}">
+        <vw:AddCompanyView/>
+    </DataTemplate>
+
     <!-- Styles -->
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
