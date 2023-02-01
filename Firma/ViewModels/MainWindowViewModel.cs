@@ -114,7 +114,7 @@ namespace SystemRestauracji.ViewModels
         {
             get
             {
-                return new BaseCommand(GetOpenedOrders);
+                return new BaseCommand(() => GetOpenedOrders());
             }
         }
 
@@ -294,7 +294,7 @@ namespace SystemRestauracji.ViewModels
         {
             get
             {
-                return new BaseCommand(CloseOpenOrder);
+                return new BaseCommand(() => CloseOpenOrder());
             }
         }
         #endregion
@@ -539,11 +539,17 @@ namespace SystemRestauracji.ViewModels
             this.setActiveWorkspace(newWorkspace);
         }
 
-        private void CloseOpenOrder()
+        private void CloseOpenOrder(CloseOrder closeOrder = null)
         {
             GetOrdersViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetOrdersViewModel) as GetOrdersViewModel;
             var newWorkspace = new GetOrdersViewModel(new[] { Status.Added, Status.InProgress, Status.Paid }, "Wybierz do zamknięcia", "Close");
-            if (workspace != null)
+            
+            if (closeOrder != null && closeOrder.Action == "CloseNext") 
+            {
+                newWorkspace = new GetOrdersViewModel(new[] { Status.Added, Status.InProgress, Status.Paid }, "Wybierz do zamknięcia", "CloseNext");
+            }
+
+            if (workspace != null )
             {
                 Workspaces[Workspaces.IndexOf(workspace)] = newWorkspace;
             }
@@ -799,19 +805,25 @@ namespace SystemRestauracji.ViewModels
 
         private void CloseOrderDetails(CloseOrder closeOrder)
         {
-            GetOrdersViewModel workscpaceOrders = this.Workspaces.FirstOrDefault(vm => vm is GetOrdersViewModel) as GetOrdersViewModel;
-
-            var newWorkspaceForCloseOrder = new CloseOrderViewModel(closeOrder);
-
-            if (workscpaceOrders.SelectedOrder.Id == closeOrder.Order.Id)
+            if (closeOrder.Action == "Close")
             {
+                GetOrdersViewModel workscpaceOrders = this.Workspaces.FirstOrDefault(vm => vm is GetOrdersViewModel) as GetOrdersViewModel;
+                var newWorkspaceForCloseOrder = new CloseOrderViewModel(closeOrder);
+
+                if (workscpaceOrders.SelectedOrder.Id == closeOrder.Order.Id)
+                {
                     Workspaces[Workspaces.IndexOf(workscpaceOrders)] = newWorkspaceForCloseOrder;
+                }
+                else
+                {
+                    this.Workspaces.Add(newWorkspaceForCloseOrder);
+                }
+                this.setActiveWorkspace(newWorkspaceForCloseOrder);
             }
-            else
+            else if(closeOrder.Action == "CloseNext" && closeOrder.Order == null)
             {
-                this.Workspaces.Add(newWorkspaceForCloseOrder);
+                CloseOpenOrder(closeOrder);
             }
-            this.setActiveWorkspace(newWorkspaceForCloseOrder);
         }
         #endregion
     }
