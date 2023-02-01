@@ -41,6 +41,11 @@ namespace SystemRestauracji.ViewModels
                     {
                         Messenger.Default.Send(new CloseOrder(action, selectedOrder));
                     }
+                    if (selectedOrder != null && action == "CloseNext")
+                    {
+                        base.OnRequestClose();
+                        Messenger.Default.Send(new CloseOrder(action, selectedOrder));     
+                    }
                 }
             }
         }
