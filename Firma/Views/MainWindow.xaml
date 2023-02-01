@@ -125,7 +125,8 @@
                     <MenuItem Header="Wszystkie płatności" Command="{Binding GetPaymentsCommand }"/>
                     <MenuItem Header="Otwarte płatności" Command="{Binding GetOpenPaymentsCommand }"/>
                     <MenuItem Header="Zamknięte płatności" Command="{Binding GetClosedPaymentsCommand }"/>
-                    <MenuItem Header="Wydatki" Command="{Binding GetFeePaymentsCommand }">
+                    <MenuItem Header="Wydatki" Command="{Binding GetFeePaymentsCommand }"/>
+                    <MenuItem Header="Dodaj Płatność" Command="{Binding AddPaymentCommand }">
                         <MenuItem.Icon>
                             <Image Source="/Views/Content/icons/add.png" />
                         </MenuItem.Icon>

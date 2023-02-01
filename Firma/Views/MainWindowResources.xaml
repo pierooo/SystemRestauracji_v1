@@ -115,6 +115,9 @@
         <vw:CloseOrderView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:AddPaymentViewModel}">
+        <vw:AddPaymentView/>
+    </DataTemplate>
     <!-- Styles -->
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">

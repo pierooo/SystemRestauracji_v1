@@ -59,7 +59,7 @@ namespace SystemRestauracji.ViewModels
                     DeviceName = x.Devices.Name ?? "Brak urządzenia",
                     TotalAmountGross = x.TotalAmountGross,
                     PaymentStatus = x.PaymentStatus,
-                    PaymentType = x.PaymentType,
+                    //PaymentType = x.PaymentType,
                     PaymentDate= x.PaymentDate,
                     PaymentDateLimit = x.PaymentDateLimit,
                     LastModified = x.LastModified                    

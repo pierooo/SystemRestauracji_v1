@@ -279,6 +279,13 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
+        public ICommand AddPaymentCommand
+        {
+            get
+            {
+                return new BaseCommand(AddPayment);
+            }
+        }
         #endregion
 
         #region other Command
@@ -704,6 +711,17 @@ namespace SystemRestauracji.ViewModels
             }
             this.setActiveWorkspace(workspace);
         }
+
+        private void AddPayment()
+        {
+            AddPaymentViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is AddPaymentViewModel) as AddPaymentViewModel;
+            if (workspace == null)
+            {
+                workspace = new AddPaymentViewModel();
+                this.Workspaces.Add(workspace);
+            }
+            this.setActiveWorkspace(workspace);
+        }
         #endregion
         #region messenger Usings
         private void OpenGetOrdersDetails(OrderForOrderDetailsView order)
@@ -779,6 +797,7 @@ namespace SystemRestauracji.ViewModels
             switch (view)
             {
                 case "Orders": GetOpenedOrders(); break;
+                case "Payments": GetPayments(); break;
                 case "SystemRestauracji.Models.EntitiesForView.OrderForAllView": createView(new AddOrderViewModel()); break;
                 case "SystemRestauracji.Models.Entities.Products": createView(new AddProductViewModel()); break;
                 case "SystemRestauracji.Models.Entities.Categories": createView(new AddCategoryViewModel()); break;
@@ -816,3 +835,4 @@ namespace SystemRestauracji.ViewModels
         #endregion
     }
 }
+
