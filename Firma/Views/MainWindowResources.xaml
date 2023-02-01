@@ -109,6 +109,12 @@
     <DataTemplate DataType="{x:Type vm:AddReservationViewModel}">
         <vw:AddReservationView/>
     </DataTemplate>
+
+    <!-- Close -->
+    <DataTemplate DataType="{x:Type vm:CloseOrderViewModel}">
+        <vw:CloseOrderView/>
+    </DataTemplate>
+
     <!-- Styles -->
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
