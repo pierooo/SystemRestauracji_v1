@@ -5,12 +5,21 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SystemRestauracji.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
+        #region WindowProperties
+        
+        public void ShowMessageBox(string messege)
+        {
+            MessageBox.Show(messege, "", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
 
+        #endregion
+        
         #region Propertychanged
         protected void OnPropertyChanged<T>(Expression<Func<T>> action)
         {
