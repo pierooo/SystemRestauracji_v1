@@ -29,7 +29,7 @@ namespace SystemRestauracji.ViewModels
                         status = Status.Done;
                     }
 
-                    if (statuses.Any(x => x == Status.InProgress || x== Status.Added))
+                    if (statuses.Any(x => x == Status.InProgress || x == Status.Added))
                     {
                         status = Status.Open;
                     }
@@ -44,7 +44,7 @@ namespace SystemRestauracji.ViewModels
         public override void Load()
         {
             var listForView = new List<PaymentsForAllView>();
-            foreach(var status  in statuses)
+            foreach (var status in statuses)
             {
                 var mappedStatus = StatusMapper.MapToDbStatus(status);
                 var items = restaurantEntities.Payments
@@ -59,10 +59,10 @@ namespace SystemRestauracji.ViewModels
                     DeviceName = x.Devices.Name ?? "Brak urządzenia",
                     TotalAmountGross = x.TotalAmountGross,
                     PaymentStatus = x.PaymentStatus,
-                    //PaymentType = x.PaymentType,
-                    PaymentDate= x.PaymentDate,
+                    PaymentType = x.PaymentType,
+                    PaymentDate = x.PaymentDate,
                     PaymentDateLimit = x.PaymentDateLimit,
-                    LastModified = x.LastModified                    
+                    LastModified = x.LastModified
                 });
                 if (items != null && items.Count() > 0)
                 {

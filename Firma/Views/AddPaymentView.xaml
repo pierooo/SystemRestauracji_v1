@@ -28,13 +28,15 @@
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
 
                     <Label Grid.Row="0" Grid.Column="0" Margin="0,8,0,8" Content="Nazwa Płatności:"/>
                     <Label Grid.Row="1" Grid.Column="0" Margin="0,8,0,8" Content="Opis:"/>
                     <Label Grid.Row="2" Grid.Column="0" Margin="0,8,0,8" Content="Pracownik:"/>
                     <Label Grid.Row="3" Grid.Column="0" Margin="0,8,0,8" Content="Urządzenie:"/>
-                    <Label Grid.Row="4" Grid.Column="0" Margin="0,8,0,8" Content="Rodzaj Platnosci:"/>
+                    <Label Grid.Row="4" Grid.Column="0" Margin="0,8,0,8" Content="Sposób Platnosci:"/>
+                    <Label Grid.Row="5" Grid.Column="0" Margin="0,8,0,8" Content="Kwota:"/>
 
                     <TextBox Grid.Row="0" Grid.Column="1" Margin="8" HorizontalAlignment="Left" Width="400" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBox Grid.Row="1" Grid.Column="1" Margin="8" HorizontalAlignment="Left" Width="400" Height="50" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}"/>
@@ -49,11 +51,10 @@
                         SelectedValuePath="Key"
                         SelectedValue="{Binding Path=DeviceId, Mode=TwoWay}"/>
                     <ComboBox Grid.Row="4" Grid.Column="1" Width="200" Margin="0,8,0,8" HorizontalAlignment="Left"
-                        ItemsSource="{Binding EnumPaymentMethod}"
-                        DisplayMemberPath="Value"
-                        SelectedValuePath="Key"
-                        SelectedValue="{Binding Path=PaymentType, Mode=TwoWay}"/>
-                    <Button Grid.Row="5" Grid.Column="0" Margin="8" Grid.ColumnSpan="2" Content="Zapłać i przejdz do Płatności" Padding="20,10,20,10" HorizontalAlignment="Center" Command="{Binding SaveAndOpenPaymentsCommand}"/>
+                        ItemsSource="{Binding PaymentTypes}"
+                        SelectedValue="{Binding Path=SelectedPaymentType, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" Width="150" Text="{Binding Path=TotalAmountGross, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Button Grid.Row="6" Grid.Column="0" Margin="8" Grid.ColumnSpan="2" Content="Zapłać i przejdz do Płatności" Padding="20,10,20,10" HorizontalAlignment="Center" Command="{Binding SaveAndOpenPaymentsCommand}"/>
                 </Grid>
             </StackPanel>
         </Grid>

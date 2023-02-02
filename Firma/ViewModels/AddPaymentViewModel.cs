@@ -1,12 +1,10 @@
-﻿using GalaSoft.MvvmLight.Messaging;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Messaging;
 using SystemRestauracji.Helpers;
 using SystemRestauracji.Models.BusinessLogic;
-using SystemRestauracji.Models.BusinessLogic.Calculations;
-using SystemRestauracji.Models.Correspondences;
 using SystemRestauracji.Models.Entities;
 using SystemRestauracji.Models.EntitiesForView;
 using SystemRestauracji.ViewModels.Abstract;
@@ -15,26 +13,9 @@ namespace SystemRestauracji.ViewModels
 {
     public class AddPaymentViewModel : ItemViewModel<Payments>
     {
-        // What with total amout gross ?
         private List<Users> users;
         private List<Devices> devices;
-        //private PaymentType paymentType;
-        //private PaymentType paymentType;
         #region prop
-        public string BLIK { get; set; }
-        public string Cash { get; set; }
-        public string Card { get; set; }
-
-        public enum EnumPaymentMethod
-        {
-            CREDITCARD = 1,
-            PAYPAL = 2,
-            BANKDEPOSIT = 3,
-            CASHONDELIVERY = 4,
-            CHEQUE = 5,
-            PICKUP = 6,
-            PHONE = 7
-        }
 
         public string Name
         {
@@ -78,18 +59,22 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
-        public DateTime? PaymentDate
+        public int? DeviceId
         {
-            get => Item.PaymentDate;
+            get
+            {
+                return this.Item.DeviceId;
+            }
             set
             {
-                if (value != Item.PaymentDate)
+                if (value != Item.DeviceId)
                 {
-                    Item.PaymentDate = value;
-                    this.OnPropertyChanged(() => PaymentDate);
+                    Item.DeviceId = value;
+                    base.OnPropertyChanged(() => DeviceId);
                 }
             }
         }
+
 
         public DateTime? PaymentDateLimit
         {
@@ -100,19 +85,6 @@ namespace SystemRestauracji.ViewModels
                 {
                     Item.PaymentDateLimit = value;
                     this.OnPropertyChanged(() => PaymentDateLimit);
-                }
-            }
-        }
-
-        public DateTime? LastModified
-        {
-            get => Item.LastModified;
-            set
-            {
-                if (value != Item.LastModified)
-                {
-                    Item.LastModified = value;
-                    this.OnPropertyChanged(() => LastModified);
                 }
             }
         }
@@ -130,64 +102,18 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
-        public List<KeyValuePair<string, int>> GetEnumList<T>()
+        public string SelectedPaymentType
         {
-            var list = new List<KeyValuePair<string, int>>();
-            foreach (var e in Enum.GetValues(typeof(T)))
-            {
-                list.Add(new KeyValuePair<string, int>(e.ToString(), (int)e));
-            }
-            return list;
-        }
-
-        //public string PaymentType
-        //{
-        //    get => Item.PaymentType;
-        //    set
-        //    {
-        //        if (value != Item.PaymentType)
-        //        {
-        //            Item.PaymentType = value;
-        //            this.OnPropertyChanged(() => PaymentType);
-        //        }
-        //    }
-        //}
-
-        public string PhotoUrl
-        {
-            get => Item.PhotoUrl;
+            get => Item.PaymentType;
             set
             {
-                if (value != Item.PhotoUrl)
+                if (value != Item.PaymentType)
                 {
-                    Item.PhotoUrl = value;
-                    this.OnPropertyChanged(() => PhotoUrl);
+                    Item.PaymentType = value;
+                    this.OnPropertyChanged(() => SelectedPaymentType);
                 }
             }
         }
-
-        //public List<KeyAndValue> GetPaymenttype()
-        //{
-        //    var list = new List<KeyAndValue>();
-        //    foreach (var e in Object.GetValues(typeof(T)))
-        //    {
-        //        list.Add(new KeyValuePair<string, int>(e.ToString(), (int)e));
-        //    }
-        //    return list;
-        //}
-        //public IEnumerable<PaymentType> PaymentTypes
-        //{
-        //    get => GetType.;
-        //    set
-        //    {
-        //        if (value != PaymentType)
-        //        {
-        //            PaymentType = value;
-        //            this.OnPropertyChanged(() => PaymentType);
-        //        }
-        //    }
-        //}
-
 
         public IQueryable<KeyAndValue> Users
         {
@@ -205,58 +131,20 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
-        //public IEnumerable<List<PaymentType>> PaymentTypes
-        //{
-        //    get
-        //    {
-        //        return GetPaymentTypes();
-        //    }
-        //}
-        //public IQueryable<KeyAndValue> PaymentType
-        //{
-        //    get
-        //    {
-        //        paymentType.Card = V
-        //    }
-        //}
-        //public IQueryable<KeyAndValue> PaymentType
-        //{
-
-        //    get
-        //    {
-        //        return GetPaymentType();
-        //    }
-        //}
-
-        //public IQueryable<PaymentType> PaymentTypes
-        //{
-        //    //var card = paymentType.Card;
-        //    //var cash = paymentType.Cash;
-        //    //var blik = paymentType.BLIK;
-        //    get
-        //    {
-        //        return GetPaymentTypes();
-        //    }
-
-        //}
-
-        public List<string> rodzaje()
+        public IQueryable<string> PaymentTypes
         {
-            return new List<string> { "Nazwa", "Kod", "Nip" };
+            get
+            {
+                return GetPaymentTypes();
+            }
         }
         #endregion
 
-        private BaseCommand saveAndOpenPaymentsCommand;
         public ICommand SaveAndOpenPaymentsCommand
         {
             get
             {
-                if (saveAndOpenPaymentsCommand is null)
-                {
-                    saveAndOpenPaymentsCommand = new BaseCommand(() => SaveAndOpenPayments());
-                    this.OnPropertyChanged(() => Image);
-                }
-                return saveAndOpenPaymentsCommand;
+                return new BaseCommand(SaveAndOpenPayments);
             }
         }
 
@@ -264,21 +152,17 @@ namespace SystemRestauracji.ViewModels
         {
             base.Item = new Payments();
             Item.EmployeeId = Database.Users.Where(x => x.Role == (int)Role.Employee).Select(x => x.Id).First();
-            List<KeyValuePair<string, int>> list = GetEnumList<EnumPaymentMethod>();
-
         }
 
         public override void Save()
         {
-            TotalAmountGross = TotalAmountGross;
-            Item.Description = Description;
-            Item.PhotoUrl = ImageUrl ?? ImageUrl;
             Item.IsActive = true;
+            Item.PaymentStatus = StatusMapper.MapToDbStatus(Status.Fee);
             Item.LastModified = DateTime.Now;
+            Item.PaymentDate = DateTime.Now;
             Database.Payments.AddObject(Item);
             Database.SaveChanges();
         }
-        // What in situation, if the user is not Employee ? 
 
         private IQueryable<KeyAndValue> GetEmployees()
         {
@@ -292,32 +176,10 @@ namespace SystemRestauracji.ViewModels
             return devices.Select(x => new KeyAndValue { Key = x.Id, Value = x.Name }).ToList().AsQueryable();
         }
 
-        //private IEnumerable<List<PaymentType>> GetPaymentTypes()
-        //{
-        //    paymentType = new PaymentType();
-        //    paymentType.Card = "cipa";
-        //    paymentType.Cash = "ciurek";
-        //    paymentType.BLIK = "nie ma juz sil";
-        //    paymentType.AddRange();
-        //    return GetPaymentTypes();
-            
-
-        //}
-
-
-
-        //private IQueryable<KeyAndValue> GetPaymentType()
-        //{
-        //    this.paymentType = PaymentType.AsQueryable().ToList();
-        //    return PaymentType.ToList().AsQueryable();
-        //}
-
-        //private void GetPaymentTypes()
-        //{
-        //    var card = paymentType.Card;
-        //    var cash = paymentType.Cash;
-        //    var blik = paymentType.BLIK;
-        //}
+        private IQueryable<string> GetPaymentTypes()
+        {
+            return PaymentType.GetPaymentTypes().AsQueryable();
+        }
 
         private void SaveAndOpenPayments()
         {

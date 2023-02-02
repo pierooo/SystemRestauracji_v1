@@ -550,13 +550,13 @@ namespace SystemRestauracji.ViewModels
         {
             GetOrdersViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetOrdersViewModel) as GetOrdersViewModel;
             var newWorkspace = new GetOrdersViewModel(new[] { Status.Added, Status.InProgress, Status.Paid }, "Wybierz do zamknięcia", "Close");
-            
-            if (closeOrder != null && closeOrder.Action == "CloseNext") 
+
+            if (closeOrder != null && closeOrder.Action == "CloseNext")
             {
                 newWorkspace = new GetOrdersViewModel(new[] { Status.Added, Status.InProgress, Status.Paid }, "Wybierz do zamknięcia", "CloseNext");
             }
 
-            if (workspace != null )
+            if (workspace != null)
             {
                 Workspaces[Workspaces.IndexOf(workspace)] = newWorkspace;
             }
@@ -811,7 +811,7 @@ namespace SystemRestauracji.ViewModels
                 case "SystemRestauracji.Models.EntitiesForView.ReservationForAllView": createView(new AddReservationViewModel()); break;
                 case "SystemRestauracji.Models.Entities.Invoices": createView(new AddOrderViewModel()); break;
                 case "SystemRestauracji.Models.EntitiesForView.DocumentForAllView": createView(new AddOrderViewModel()); break;
-                case "SystemRestauracji.Models.EntitiesForView.PaymentsForAllView": createView(new AddOrderViewModel()); break;
+                case "SystemRestauracji.Models.EntitiesForView.PaymentsForAllView": createView(new AddPaymentViewModel()); break;
                 case "SystemRestauracji.Models.Entities.Companies": createView(new AddCompanyViewModel()); break;
                 case "PracownicyAdd": createView(new AddEmployeeViewModel()); break;
                 case "KlienciAdd": createView(new AddClientViewModel()); break;
@@ -839,7 +839,7 @@ namespace SystemRestauracji.ViewModels
                 }
                 this.setActiveWorkspace(newWorkspaceForCloseOrder);
             }
-            else if(closeOrder.Action == "CloseNext" && closeOrder.Order == null)
+            else if (closeOrder.Action == "CloseNext" && closeOrder.Order == null)
             {
                 CloseOpenOrder(closeOrder);
             }
