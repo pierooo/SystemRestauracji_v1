@@ -48,10 +48,10 @@
                     <Label Grid.Row="8" Grid.Column="0" Margin="0,8,0,8" Content="Login:"/>
                     <Label Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,8,0,8" Content="Hasło dla pracowników jest przyzielane automatycznie- '1234'"/>
 
-                    <TextBox Grid.Row="0" Grid.Column="1" Margin="8" HorizontalAlignment="Left" Width="200" Text="{Binding Path=FirstName, UpdateSourceTrigger=PropertyChanged}"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Margin="8" HorizontalAlignment="Left" Width="200" Text="{Binding Path=LastName, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Margin="8" HorizontalAlignment="Left" Width="200" Text="{Binding Path=FirstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Margin="8" HorizontalAlignment="Left" Width="200" Text="{Binding Path=LastName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
                     <TextBox Grid.Row="2" Grid.Column="1" Margin="8" HorizontalAlignment="Left" Width="400" Text="{Binding Path=Address, UpdateSourceTrigger=PropertyChanged}"/>
-                    <TextBox Grid.Row="3" Grid.Column="1" Margin="8" HorizontalAlignment="Left" Width="300" Text="{Binding Path=City, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Margin="8" HorizontalAlignment="Left" Width="300" Text="{Binding Path=City, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
                     <TextBox Grid.Row="4" Grid.Column="1" Margin="8" HorizontalAlignment="Left" Width="300" Text="{Binding Path=PostalCode, UpdateSourceTrigger=PropertyChanged}"/>
                     <DatePicker Grid.Row="5" Grid.Column="1" Width="150" Margin="8" HorizontalAlignment="Left" SelectedDate="{Binding Path=BirthDate, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBox Grid.Row="6" Grid.Column="1" Margin="8" HorizontalAlignment="Left" Width="300" Text="{Binding Path=PhoneNumber, UpdateSourceTrigger=PropertyChanged}"/>

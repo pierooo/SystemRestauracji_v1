@@ -89,13 +89,28 @@ namespace SystemRestauracji.ViewModels.Abstract
 
         #endregion
 
+        #region Validators
+
+        public virtual bool IsValid()
+        {
+            return true;
+        }
+
+        #endregion
         #region Methods
         public abstract void Save();
 
         private void SaveAndClose()
         {
-            Save();
-            base.OnRequestClose();
+            if (IsValid())
+            {
+                Save();
+                base.OnRequestClose();
+            }
+            else
+            {
+                ShowMessageBox("Popraw Błędy");
+            }
         }
 
         public void LoadImage()
