@@ -526,7 +526,7 @@ namespace SystemRestauracji.ViewModels
         private void GetOpenedOrders()
         {
             GetOrdersViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetOrdersViewModel) as GetOrdersViewModel;
-            var newWorkspace = new GetOrdersViewModel(new[] { Status.Added, Status.InProgress, Status.Paid }, "Otwarte zamówienia");
+            var newWorkspace = new GetOrdersViewModel(new[] { Status.Added, Status.InProgress }, "Otwarte zamówienia");
             if (workspace != null)
             {
                 Workspaces[Workspaces.IndexOf(workspace)] = newWorkspace;

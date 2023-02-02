@@ -23,6 +23,11 @@ namespace SystemRestauracji.ViewModels
         private string employeeFullName;
         private string description;
         private string ordersForCloseLabel;
+        private string paymentName;
+        private string selectedPaymentType;
+        private bool saveAndCloseIsEnabled;
+        private bool addInvoiceIsEnabled;
+        private bool addDocumentIsEnabled;
 
         #region prop
         public string OrdersForCloseLabel
@@ -89,7 +94,21 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
-        public string PaymentName { get; set; }
+        public string PaymentName
+        {
+            get
+            {
+                return this.paymentName;
+            }
+            set
+            {
+                if (value != paymentName)
+                {
+                    paymentName = value;
+                    base.OnPropertyChanged(() => paymentName);
+                }
+            }
+        }
 
         public decimal? TotalPriceGross
         {
@@ -107,6 +126,54 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
+        public bool SaveAndCloseIsEnabled
+        {
+            get
+            {
+                return this.saveAndCloseIsEnabled;
+            }
+            set
+            {
+                if (value != saveAndCloseIsEnabled)
+                {
+                    saveAndCloseIsEnabled = value;
+                    base.OnPropertyChanged(() => saveAndCloseIsEnabled);
+                }
+            }
+        }
+
+        public bool AddDocumentIsEnabled
+        {
+            get
+            {
+                return this.addDocumentIsEnabled;
+            }
+            set
+            {
+                if (value != addDocumentIsEnabled)
+                {
+                    addDocumentIsEnabled = value;
+                    base.OnPropertyChanged(() => addDocumentIsEnabled);
+                }
+            }
+        }
+
+        public bool AddInvoiceIsEnabled
+        {
+            get
+            {
+                return this.addInvoiceIsEnabled;
+            }
+            set
+            {
+                if (value != addInvoiceIsEnabled)
+                {
+                    addInvoiceIsEnabled = value;
+                    base.OnPropertyChanged(() => addInvoiceIsEnabled);
+                }
+            }
+        }
+
         public IQueryable<string> PaymentTypes
         {
             get
@@ -115,12 +182,49 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
+        public string SelectedPaymentType
+        {
+            get
+            {
+                return this.selectedPaymentType;
+            }
+            set
+            {
+                if (value != selectedPaymentType)
+                {
+                    selectedPaymentType = value;
+                    base.OnPropertyChanged(() => selectedPaymentType);
+                    PaymentName = selectedPaymentType;
+
+                    if (selectedPaymentType == "Karta kredytowa" || selectedPaymentType == "Przelew")
+                    {
+                        SaveAndCloseIsEnabled = false;
+                    }
+                    else
+                    {
+                        SaveAndCloseIsEnabled = true;
+                    }
+                    if (selectedPaymentType == "Płatnośc odroczona")
+                    {
+                        AddInvoiceIsEnabled = false;
+                        AddDocumentIsEnabled = false;
+
+                    }
+                    else
+                    {
+                        AddInvoiceIsEnabled = true;
+                        AddDocumentIsEnabled = true;
+                    }
+                }
+            }
+        }
+
         #endregion
 
         public ICommand GetOrderDetailsCommand
         {
             get
-            {            
+            {
                 return new BaseCommand(GetOrderDetails);
             }
         }
@@ -149,6 +253,30 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
+        public ICommand SaveOrderForCloseAndCloseViewCommand
+        {
+            get
+            {
+                return new BaseCommand(Save);
+            }
+        }
+
+        public ICommand AddDocumentCommand
+        {
+            get
+            {
+                return new BaseCommand(SaveAndOpenAddDocumentView);
+            }
+        }
+
+        public ICommand AddInvoiceCommand
+        {
+            get
+            {
+                return new BaseCommand(SaveAndOpenAddInvoiceView);
+            }
+        }
+
         public CloseOrderViewModel(CloseOrder orderForClose) : base("Zamknij zamówienie - " + orderForClose.Order.Name)
         {
             OrderIds = new List<int>();
@@ -168,6 +296,57 @@ namespace SystemRestauracji.ViewModels
 
         public override void Save()
         {
+            List<Orders> result = new List<Orders>();
+            foreach (var orderId in OrderIds)
+            {
+                result.Add(Database.Orders.SingleOrDefault(x => x.Id == orderId));
+            }
+
+            if (result.Any())
+            {
+                foreach (var order in result)
+                {
+                    order.LastModified = DateTime.Now;
+                    if (SelectedPaymentType == "Płatnośc odroczona")
+                    {
+                        order.OrderStatus = StatusMapper.MapToDbStatus(Status.Paid);
+                    }
+                    else
+                    {
+                        order.OrderStatus = StatusMapper.MapToDbStatus(Status.Done);
+                    }
+                    Database.SaveChanges();
+                }
+            }
+            OnRequestClose();
+        }
+
+        public void SaveAndOpenAddDocumentView()
+        {
+            if (SelectedPaymentType == "Karta kredytowa" && !Database.WorkstationDeviceLinks.Any())
+            {
+                PaymentName = "PŁATNOŚC KARTĄ WYMAGA TERMINALA!";
+            }
+            else
+            {
+                Save();
+                // TODO: dodać płatność
+                // TODO: otworzyć dodatnie rachunku (dokumentu)
+            }
+        }
+
+        public void SaveAndOpenAddInvoiceView()
+        {
+            if (SelectedPaymentType == "Karta kredytowa" && !Database.WorkstationDeviceLinks.Any())
+            {
+                PaymentName = "PŁATNOŚC KARTĄ WYMAGA TERMINALA!";
+            }
+            else
+            {
+                Save();
+                // TODO: dodać płatność
+                // TODO: otworzyć dodatnie faktury 
+            }
         }
 
         private void GetOrderDetails()
@@ -178,10 +357,10 @@ namespace SystemRestauracji.ViewModels
         private void RefreshPrice()
         {
             decimal? totalPriceGross = 0m;
-            foreach(var orderId in OrderIds)
+            foreach (var orderId in OrderIds)
             {
                 Database = new RestaurantSystemEntities();
-                totalPriceGross +=  Database.Orders.SingleOrDefault(x => x.Id == orderId).TotalPriceGross;
+                totalPriceGross += Database.Orders.SingleOrDefault(x => x.Id == orderId).TotalPriceGross;
             }
             this.TotalPriceGross = totalPriceGross;
         }
@@ -210,16 +389,16 @@ namespace SystemRestauracji.ViewModels
         {
             Messenger.Default.Send(new CloseOrder("CloseNext", null));
         }
-        
+
         private void AddNextOrderForClose(CloseOrder closeOrder)
         {
-            if(closeOrder.Order != null && closeOrder.Action == "CloseNext")
+            if (closeOrder.Order != null && closeOrder.Action == "CloseNext")
             {
                 OrderIds.Add(closeOrder.Order.Id);
                 OrdersForCloseLabel += ", " + closeOrder.Order.Name;
                 TotalPriceGross += closeOrder.Order.TotalPriceGross;
                 Description += ",\r\nZamówienie " + closeOrder.Order.Name + ": " + closeOrder.Order.Description;
-                EmployeeFullName += ",\r\nZamówienie " + closeOrder.Order.Name  + ": " + closeOrder.Order.EmployeeFullName;
+                EmployeeFullName += ",\r\nZamówienie " + closeOrder.Order.Name + ": " + closeOrder.Order.EmployeeFullName;
                 RestaurantTableName += ",\r\nZamówienie " + closeOrder.Order.Name + ": " + closeOrder.Order.RestaurantTableName;
             }
         }
