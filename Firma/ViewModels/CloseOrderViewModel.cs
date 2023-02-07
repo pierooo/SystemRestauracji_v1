@@ -220,7 +220,7 @@ namespace SystemRestauracji.ViewModels
         }
 
         #endregion
-
+        #region commands
         public ICommand GetOrderDetailsCommand
         {
             get
@@ -276,6 +276,8 @@ namespace SystemRestauracji.ViewModels
                 return new BaseCommand(SaveAndOpenAddInvoiceView);
             }
         }
+        #endregion
+
 
         public CloseOrderViewModel(CloseOrder orderForClose) : base("Zamknij zamówienie - " + orderForClose.Order.Name)
         {
@@ -330,7 +332,7 @@ namespace SystemRestauracji.ViewModels
             else
             {
                 Save();
-                // TODO: dodać płatność
+                AddPayment();
                 // TODO: otworzyć dodatnie rachunku (dokumentu)
             }
         }
@@ -344,7 +346,7 @@ namespace SystemRestauracji.ViewModels
             else
             {
                 Save();
-                // TODO: dodać płatność
+                AddPayment();
                 // TODO: otworzyć dodatnie faktury 
             }
         }
@@ -406,6 +408,26 @@ namespace SystemRestauracji.ViewModels
         private IQueryable<string> GetPaymentTypes()
         {
             return PaymentType.GetPaymentTypes().AsQueryable();
+        }
+
+        private void AddPayment()
+        {
+            // TODO: adjust workstation device links for order closing
+            var employeeId = Database.Orders.First(x => x.Id == closeOrder.Order.Id).EmployeeId;
+            var deviceId = Database.Devices.First(x => x.IsActive == true).Id;
+            var payment = new Payments();
+            payment.Name = OrdersForCloseLabel + " Payment";
+            payment.Description = "Automatic payment from order closing functionality";
+            payment.TotalAmountGross = totalPriceGross;
+            payment.EmployeeId = employeeId;
+            payment.DeviceId = deviceId;
+            payment.IsActive = true;
+            payment.PaymentStatus = StatusMapper.MapToDbStatus(Status.Done);
+            payment.PaymentType = PaymentName;
+            payment.LastModified = DateTime.Now;
+            payment.PaymentDate = DateTime.Now;
+            Database.Payments.AddObject(payment);
+            Database.SaveChanges();
         }
     }
 }
