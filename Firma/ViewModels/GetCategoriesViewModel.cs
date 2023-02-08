@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using GalaSoft.MvvmLight.Messaging;
 using SystemRestauracji.Models.Correspondences;
@@ -50,6 +51,28 @@ namespace SystemRestauracji.ViewModels
         public override void Load()
         {
             List = new ObservableCollection<Categories>(restaurantEntities.Categories.Select(x => x));
+        }
+
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "Nazwa" };
+        }
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "Nazwa" };
+        }
+
+        public override void Sort()
+        {
+            if (SortField == "Nazwa")
+                List = new ObservableCollection<Categories>(List.OrderBy(item => item.Name));
+        }
+
+        public override void Find()
+        {
+            Load();
+            if (FindField == "Nazwa")
+                List = new ObservableCollection<Categories>(List.Where(item => item.Name != null && item.Name.StartsWith(FindText)));
         }
     }
 }

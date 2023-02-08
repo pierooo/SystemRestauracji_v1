@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
@@ -67,6 +68,28 @@ namespace SystemRestauracji.ViewModels
         private void GetCategories()
         {
             Messenger.Default.Send(new AddProductToOrder(OrderId, OrderFullName, OrderName));
+        }
+
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "Nazwa" };
+        }
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "Nazwa" };
+        }
+
+        public override void Sort()
+        {
+            if (SortField == "Nazwa")
+                List = new ObservableCollection<OrderDetailsForAllView>(List.OrderBy(item => item.ProductName));
+        }
+
+        public override void Find()
+        {
+            Load();
+            if (FindField == "Nazwa")
+                List = new ObservableCollection<OrderDetailsForAllView>(List.Where(item => item.ProductName != null && item.ProductName.StartsWith(FindText)));
         }
     }
 }

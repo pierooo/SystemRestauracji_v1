@@ -19,5 +19,27 @@ namespace SystemRestauracji.ViewModels
         {
             List = new ObservableCollection<Invoices>(restaurantEntities.Invoices.Select(x => x));
         }
+
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "Nazwa" };
+        }
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "Nazwa" };
+        }
+
+        public override void Sort()
+        {
+            if (SortField == "Nazwa")
+                List = new ObservableCollection<Invoices>(List.OrderBy(item => item.Name));
+        }
+
+        public override void Find()
+        {
+            Load();
+            if (FindField == "Nazwa")
+                List = new ObservableCollection<Invoices>(List.Where(item => item.Name != null && item.Name.StartsWith(FindText)));
+        }
     }
 }
