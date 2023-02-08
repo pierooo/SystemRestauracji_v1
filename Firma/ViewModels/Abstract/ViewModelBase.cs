@@ -84,7 +84,7 @@ namespace SystemRestauracji.ViewModels.Abstract
             }
         }
 
-        public string FindText { get; set; }
+        public string FindText { get; set; } = string.Empty;
         private ObservableCollection<T> list;
         public ObservableCollection<T> List
         {
