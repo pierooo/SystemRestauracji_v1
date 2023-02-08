@@ -38,6 +38,6 @@ namespace SystemRestauracji.ViewModels
         public override void Load()
         {
             List = new ObservableCollection<Workstations>(restaurantEntities.Workstations.Select(x => x));
-        }        
+        }
     }
 }
