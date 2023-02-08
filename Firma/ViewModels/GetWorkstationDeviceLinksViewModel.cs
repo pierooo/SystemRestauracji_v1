@@ -10,7 +10,7 @@ namespace SystemRestauracji.ViewModels
     {
         public GetWorkstationDeviceLinksViewModel() : base("Połączone stacje robocze i urządzenia")
         {
-        }       
+        }
 
         public override void Load()
         {
