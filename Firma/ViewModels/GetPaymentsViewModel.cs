@@ -71,5 +71,27 @@ namespace SystemRestauracji.ViewModels
             }
             List = new ObservableCollection<PaymentsForAllView>(listForView);
         }
+
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "Nazwa" };
+        }
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "Nazwa" };
+        }
+
+        public override void Sort()
+        {
+            if (SortField == "Nazwa")
+                List = new ObservableCollection<PaymentsForAllView>(List.OrderBy(item => item.Name));
+        }
+
+        public override void Find()
+        {
+            Load();
+            if (FindField == "Nazwa")
+                List = new ObservableCollection<PaymentsForAllView>(List.Where(item => item.Name != null && item.Name.StartsWith(FindText)));
+        }
     }
 }

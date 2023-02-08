@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using SystemRestauracji.Models.EntitiesForView;
 using SystemRestauracji.ViewModels.Abstract;
@@ -30,6 +31,27 @@ namespace SystemRestauracji.ViewModels
                     DocumentDate = x.DocumentDate,
                     EmployeeFullName = x.EmployeeFullName
                 }));
+        }
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "Nazwa" };
+        }
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "Nazwa" };
+        }
+
+        public override void Sort()
+        {
+            if (SortField == "Nazwa")
+                List = new ObservableCollection<DocumentForAllView>(List.OrderBy(item => item.Name));
+        }
+
+        public override void Find()
+        {
+            Load();
+            if (FindField == "Nazwa")
+                List = new ObservableCollection<DocumentForAllView>(List.Where(item => item.Name != null && item.Name.StartsWith(FindText)));
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
@@ -14,6 +15,8 @@ namespace SystemRestauracji.ViewModels.Abstract
         private BaseCommand loadCommand;
         private BaseCommand addCommand;
         private T triggerType;
+        private BaseCommand sortCommand;
+        private BaseCommand filtrCommand;        
 
         public ICommand AddCommand
         {
@@ -39,6 +42,49 @@ namespace SystemRestauracji.ViewModels.Abstract
             }
         }
 
+        public string SortField { get; set; }
+        public List<string> SortComboboxItems
+        {
+            get
+            {
+                return GetComboboxSortList();
+            }
+        }
+
+        public ICommand SortCommand
+        {
+            get
+            {
+                if(sortCommand == null)
+                {
+                    sortCommand = new BaseCommand(() => Sort());
+                }
+                return sortCommand;
+            }
+        }
+
+        public string FindField { get; set; }
+        public List<string> FiltrComboboxItems
+        {
+            get
+            {
+                return GetComboboxFindList();
+            }
+        }
+
+        public ICommand FiltrCommand
+        {
+            get
+            {
+                if (filtrCommand == null)
+                {
+                    filtrCommand = new BaseCommand(() => Find());
+                }
+                return filtrCommand;
+            }
+        }
+
+        public string FindText { get; set; }
         private ObservableCollection<T> list;
         public ObservableCollection<T> List
         {
@@ -57,7 +103,6 @@ namespace SystemRestauracji.ViewModels.Abstract
             }
         }
         #endregion
-
 
         #region Konstruktor
         public ViewModelBase(string title)
@@ -80,6 +125,12 @@ namespace SystemRestauracji.ViewModels.Abstract
             }
             Messenger.Default.Send(triggerTypeString);
         }
+
+        public abstract void Sort();
+        public abstract List<string> GetComboboxSortList();
+        public abstract void Find();
+        public abstract List<string> GetComboboxFindList();
+
         #endregion
     }
 }
