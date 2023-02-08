@@ -110,6 +110,10 @@
         <vw:AddReservationView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:AddDocumentViewModel}">
+        <vw:AddDocumentView/>
+    </DataTemplate>
+
     <!-- Close -->
     <DataTemplate DataType="{x:Type vm:CloseOrderViewModel}">
         <vw:CloseOrderView/>

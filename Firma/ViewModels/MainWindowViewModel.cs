@@ -326,6 +326,7 @@ namespace SystemRestauracji.ViewModels
             Messenger.Default.Register<Categories>(this, OpenProducts);
             Messenger.Default.Register<string>(this, Open);
             Messenger.Default.Register<CloseOrder>(this, CloseOrderDetails);
+            Messenger.Default.Register<OrdersForDocument>(this, OpenViewForAddingDocument);
 
             return new List<CommandViewModel>
             {
@@ -842,6 +843,24 @@ namespace SystemRestauracji.ViewModels
             else if (closeOrder.Action == "CloseNext" && closeOrder.Order == null)
             {
                 CloseOpenOrder(closeOrder);
+            }
+        }
+
+        private void OpenViewForAddingDocument(OrdersForDocument ordersForDocument)
+        {
+            if (!ordersForDocument.IsForInvoice)
+            {
+                AddDocumentViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is AddDocumentViewModel) as AddDocumentViewModel;
+                var newWorkspace = new AddDocumentViewModel();
+                if (workspace != null)
+                {
+                    Workspaces[Workspaces.IndexOf(workspace)] = newWorkspace;
+                }
+                else
+                {
+                    this.Workspaces.Add(newWorkspace);
+                }
+                this.setActiveWorkspace(newWorkspace);
             }
         }
         #endregion

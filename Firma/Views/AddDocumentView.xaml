@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="SystemRestauracji.Views.AddDocumentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SystemRestauracji.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="StyleZakladekResources.xaml"/>
+    </UserControl.Resources>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <Grid Background="Azure">
+            <StackPanel Grid.Row="0"  HorizontalAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label HorizontalAlignment="Center" Height="50" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="12pt" Margin="5" Content="{Binding Path=BillForOrderLabel}"/>
+                    <Grid Grid.Row="1" Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Margin="8" HorizontalAlignment="Center" FontWeight="Bold" Content="Pozycje rachunku:"/>
+                        <Grid Grid.Row="1">
+                            <DataGrid VerticalGridLinesBrush="Azure" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AutoGenerateColumns="False" FontSize="10" FontWeight="Bold" ItemsSource="{Binding DocumentPositions}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=ProductName}"/>
+                                    <DataGridTextColumn Header="Cena netto" Binding="{Binding Path=UnitPriceNetto}"/>
+                                    <DataGridTextColumn Header="VAT" Binding="{Binding Path=VAT}"/>
+                                    <DataGridTextColumn Header="Ilość" Binding="{Binding Path=Quantity}"/>
+                                    <DataGridTextColumn Header="Kwota brutto" Binding="{Binding Path=UnitPriceGross}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                        <Label Grid.Row="2" Grid.Column="0" Margin="18" HorizontalAlignment="Center" FontWeight="Bold" Content="Łączna wartość:"/>
+                        <Grid Grid.Row="3" Grid.Column="0" Margin="8" HorizontalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Margin="8" HorizontalAlignment="Center" FontWeight="Bold" Content="Kwota Netto:"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" Margin="8" IsEnabled="False" HorizontalAlignment="Left" Width="100" Height="30" Text="{Binding Path=AmountNet, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="1" Grid.Column="0" Margin="8" HorizontalAlignment="Center" FontWeight="Bold" Content="Kwota VAT:"/>
+                            <DataGrid Grid.Row="1" Grid.Column="1" Margin="8" VerticalGridLinesBrush="Azure" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AutoGenerateColumns="False" FontSize="10" FontWeight="Bold" ItemsSource="{Binding VATs}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Wartość VAT" Binding="{Binding Path=VATValue}"/>
+                                    <DataGridTextColumn Header="Kwota VAT" Binding="{Binding Path=VATAmount}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Label Grid.Row="2" Grid.Column="0" Margin="8" HorizontalAlignment="Center" FontWeight="Bold" Content="Łączny VAT:"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Margin="8" IsEnabled="False" HorizontalAlignment="Left" Width="100" Height="30" Text="{Binding Path=TotalVAT, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="3" Grid.Column="0" Margin="8" HorizontalAlignment="Center" FontWeight="Bold" Content="Kwota Brutto:"/>
+                            <TextBox Grid.Row="3" Grid.Column="1" Margin="8" IsEnabled="False" HorizontalAlignment="Left" Width="100" Height="30" Text="{Binding Path=AmountGross, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="1" Margin="50,0,50,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="1" Margin="8" HorizontalAlignment="Center" FontWeight="Bold" Content="Płatność:"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Margin="8" IsEnabled="False" HorizontalAlignment="Center" Width="100" Height="30" Text="{Binding Path=PaymentType, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Grid.Row="2" Grid.Column="1" Margin="8" HorizontalAlignment="Center" FontWeight="Bold" Content="Wystawia pracownik:"/>
+                        <ComboBox Grid.Row="3" Grid.Column="1" Width="200" Margin="0,8,0,8" HorizontalAlignment="Center"
+                        ItemsSource="{Binding Employees}"
+                        DisplayMemberPath="Value"
+                        SelectedValuePath="Key"
+                        SelectedValue="{Binding Path=EmployeeId, Mode=TwoWay}"/>
+                        <Label Grid.Row="4" Grid.Column="1" Margin="8" HorizontalAlignment="Center" FontWeight="Bold" Content="Data wystawienia:"/>
+                        <TextBox Grid.Row="5" Grid.Column="1" Margin="8" IsEnabled="False" HorizontalAlignment="Center" Width="100" Height="30" Text="{Binding Path=DocumentDate, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" FontSize="12pt" Margin="20" Padding="15" HorizontalAlignment="Center" BorderThickness="1" IsEnabled="{Binding SaveAndCloseIsEnabled}"  Content="Wystaw i zamknij" Command="{Binding Path=SaveDocumentAndCloseViewCommand}"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

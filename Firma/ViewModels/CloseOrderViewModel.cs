@@ -311,7 +311,7 @@ namespace SystemRestauracji.ViewModels
                     order.LastModified = DateTime.Now;
                     if (SelectedPaymentType == "Płatnośc odroczona")
                     {
-                        order.OrderStatus = StatusMapper.MapToDbStatus(Status.Paid);
+                        order.OrderStatus = StatusMapper.MapToDbStatus(Status.InProgress);
                     }
                     else
                     {
@@ -333,7 +333,7 @@ namespace SystemRestauracji.ViewModels
             {
                 Save();
                 AddPayment();
-                // TODO: otworzyć dodatnie rachunku (dokumentu)
+                Messenger.Default.Send(new OrdersForDocument(OrderIds, PaymentName, false));
             }
         }
 
@@ -417,7 +417,7 @@ namespace SystemRestauracji.ViewModels
             var deviceId = Database.Devices.First(x => x.IsActive == true).Id;
             var payment = new Payments();
             payment.Name = OrdersForCloseLabel + " Payment";
-            payment.Description = "Automatic payment from order closing functionality";
+            payment.Description = "Automatyczna - zamknięte zamówienie";
             payment.TotalAmountGross = totalPriceGross;
             payment.EmployeeId = employeeId;
             payment.DeviceId = deviceId;
