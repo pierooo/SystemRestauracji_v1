@@ -1,11 +1,13 @@
 ﻿using System;
+using System.ComponentModel;
 using SystemRestauracji.Models.BusinessLogic;
 using SystemRestauracji.Models.Entities;
+using SystemRestauracji.Models.Validators;
 using SystemRestauracji.ViewModels.Abstract;
 
 namespace SystemRestauracji.ViewModels
 {
-    internal class AddClientViewModel : ItemViewModel<Users>
+    internal class AddClientViewModel : ItemViewModel<Users>, IDataErrorInfo
     {
         #region prop
         public string FirstName
@@ -128,5 +130,47 @@ namespace SystemRestauracji.ViewModels
             Database.Users.AddObject(Item);
             Database.SaveChanges();
         }
+
+        #region Validatory
+        public string Error
+        {
+            get
+            {
+                return null;
+
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string message = null;
+                if (name == "FirstName")
+                {
+                    message = StringValidator.CheckIfStartsWithUpper(this.FirstName);
+                }
+
+                if (name == "LastName")
+                {
+                    message = StringValidator.CheckIfStartsWithUpper(this.LastName);
+                }
+
+                if (name == "City")
+                {
+                    message = StringValidator.CheckIfStartsWithUpper(this.City);
+                }
+                return message;
+
+            }
+        }
+        public override bool IsValid()
+        {
+            if (this["FirstName"] == null && this["LastName"] == null && this["City"] == null)
+                return true;
+            else
+                return false;
+        }
+
+        #endregion
     }
 }
