@@ -155,13 +155,19 @@ namespace SystemRestauracji.ViewModels
                 {
                     message = StringValidator.CheckIfStartsWithUpper(this.Country);
                 }
+
+                if(name == "Mail")
+                {
+                    message = StringValidator.IsValidEmailRegex(this.Mail);
+                }
                 return message;
 
             }
         }
+
         public override bool IsValid()
         {
-            if (this["Name"] == null && this["City"] == null && this["Country"] == null)
+            if (this["Name"] == null && this["City"] == null && this["Country"] == null && this["Mail"] == null )
                 return true;
             else
                 return false;
