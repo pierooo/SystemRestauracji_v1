@@ -31,7 +31,7 @@
                     <Label Grid.Row="0" Grid.Column="0" Margin="0,8,0,8" Content="Nazwa:"/>
                     <Label Grid.Row="1" Grid.Column="0" Margin="0,8,0,8" Content="Opis:"/>
 
-                    <TextBox Grid.Row="0" Grid.Column="1" Margin="8" HorizontalAlignment="Left" Width="400" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Margin="8" HorizontalAlignment="Left" Width="400" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
                     <TextBox Grid.Row="1" Grid.Column="1" Margin="8" HorizontalAlignment="Left" Width="400" Height="50" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}"/>
                     <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Content="Dodaj zdjęcie" Padding="20,10,20,10" HorizontalAlignment="Center" Command="{Binding LoadImageCommand}"/>
                     <Image Margin="10" Width="300" Height="300" HorizontalAlignment="Center"  Source="{Binding Image, UpdateSourceTrigger=PropertyChanged}" Stretch="Fill" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" />
