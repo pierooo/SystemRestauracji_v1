@@ -851,7 +851,7 @@ namespace SystemRestauracji.ViewModels
             if (!ordersForDocument.IsForInvoice)
             {
                 AddDocumentViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is AddDocumentViewModel) as AddDocumentViewModel;
-                var newWorkspace = new AddDocumentViewModel();
+                var newWorkspace = new AddDocumentViewModel(ordersForDocument);
                 if (workspace != null)
                 {
                     Workspaces[Workspaces.IndexOf(workspace)] = newWorkspace;

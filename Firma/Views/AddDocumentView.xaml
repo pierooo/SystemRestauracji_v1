@@ -39,10 +39,10 @@
                         </Grid.RowDefinitions>
                         <Label Grid.Row="0" Grid.Column="0" Margin="8" HorizontalAlignment="Center" FontWeight="Bold" Content="Pozycje rachunku:"/>
                         <Grid Grid.Row="1">
-                            <DataGrid VerticalGridLinesBrush="Azure" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AutoGenerateColumns="False" FontSize="10" FontWeight="Bold" ItemsSource="{Binding DocumentPositions}">
+                            <DataGrid VerticalGridLinesBrush="Azure" Width="400" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AutoGenerateColumns="False" FontSize="10" FontWeight="Bold" ItemsSource="{Binding DocumentPositions}">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=ProductName}"/>
-                                    <DataGridTextColumn Header="Cena netto" Binding="{Binding Path=UnitPriceNetto}"/>
+                                    <DataGridTextColumn Header="Cena netto" Binding="{Binding Path=UnitPriceNet}"/>
                                     <DataGridTextColumn Header="VAT" Binding="{Binding Path=VAT}"/>
                                     <DataGridTextColumn Header="Ilość" Binding="{Binding Path=Quantity}"/>
                                     <DataGridTextColumn Header="Kwota brutto" Binding="{Binding Path=UnitPriceGross}"/>
@@ -90,9 +90,7 @@
                         <Label Grid.Row="2" Grid.Column="1" Margin="8" HorizontalAlignment="Center" FontWeight="Bold" Content="Wystawia pracownik:"/>
                         <ComboBox Grid.Row="3" Grid.Column="1" Width="200" Margin="0,8,0,8" HorizontalAlignment="Center"
                         ItemsSource="{Binding Employees}"
-                        DisplayMemberPath="Value"
-                        SelectedValuePath="Key"
-                        SelectedValue="{Binding Path=EmployeeId, Mode=TwoWay}"/>
+                        SelectedValue="{Binding Path=Employee, Mode=TwoWay}"/>
                         <Label Grid.Row="4" Grid.Column="1" Margin="8" HorizontalAlignment="Center" FontWeight="Bold" Content="Data wystawienia:"/>
                         <TextBox Grid.Row="5" Grid.Column="1" Margin="8" IsEnabled="False" HorizontalAlignment="Center" Width="100" Height="30" Text="{Binding Path=DocumentDate, UpdateSourceTrigger=PropertyChanged}"/>
                     </Grid>
