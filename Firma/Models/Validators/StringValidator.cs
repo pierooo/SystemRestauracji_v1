@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace SystemRestauracji.Models.Validators
 {
@@ -14,7 +15,7 @@ namespace SystemRestauracji.Models.Validators
                     return "Rozpocznij duza litera!";
                 }
             }
-            catch (Exception) { return "Zły String"; }
+            catch (Exception) { return "Proszę rozpocznij z wielkiej litery"; }
             return null;
         }
 
@@ -29,7 +30,7 @@ namespace SystemRestauracji.Models.Validators
                 }
 
             }
-            catch (Exception) { return "Zły String"; }
+            catch (Exception) { return "Proszę wprowadź drukowanymi"; }
             return null;
         }
         bool IsValidEmail(string email)
@@ -50,5 +51,27 @@ namespace SystemRestauracji.Models.Validators
                 return false;
             }
         }
+
+        public static string IsValidEmailRegex(string email)
+        {
+            Regex regex = new Regex(@"^([a-z0-9]+)\.?([a-z0-9]+)@([a-z]+)\.[a-z]{2,3}$");
+            try
+            {
+                {
+                    var isMatch = regex.IsMatch(email);
+                    if (!isMatch)
+                    {
+                        return "Prosze wprowadz poprawny Mail ! ";
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception) { return "Proszę wprowadź mail małymi literami"; }
+
+        }
+
     }
 }

@@ -1,10 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
 using SystemRestauracji.Models.Entities;
+using SystemRestauracji.Models.Validators;
 using SystemRestauracji.ViewModels.Abstract;
 
 namespace SystemRestauracji.ViewModels
 {
-    public class AddDeviceViewModel : ItemViewModel<Devices>
+    public class AddDeviceViewModel : ItemViewModel<Devices>, IDataErrorInfo
     {
         public string Name
         {
@@ -45,5 +47,36 @@ namespace SystemRestauracji.ViewModels
             Database.Devices.AddObject(Item);
             Database.SaveChanges();
         }
+
+        #region Validatory
+        public string Error
+        {
+            get
+            {
+                return null;
+
+            }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string message = null;
+                if (name == "Name")
+                {
+                    message = StringValidator.CheckIfStartsWithUpper(this.Name);
+                }
+                return message;
+            }
+        }
+        public override bool IsValid()
+        {
+            if (this["Name"] == null)
+                return true;
+            else
+                return false;
+        }
+
+        #endregion
     }
 }
