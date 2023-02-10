@@ -80,19 +80,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ApplicationDefinition Update="App.xaml">
-	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-	  </ApplicationDefinition>
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Compile Update="Models\Entities\RestaurantSystemEntities.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>RestaurantSystemEntities.edmx</DependentUpon>
-	  </Compile>
-	  <Compile Update="ViewModelLocator\ViewModelLocator.cs">
-	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
 	  </Compile>
 	</ItemGroup>
 

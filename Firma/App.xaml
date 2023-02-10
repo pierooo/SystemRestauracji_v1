@@ -1,17 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Application x:Class="SystemRestauracji.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" d1p1:Ignorable="d" xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
+﻿<Application x:Class="SystemRestauracji.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SystemRestauracji"
+             >
     <Application.Resources>
-        <ResourceDictionary>
-            <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:SystemRestauracji.ViewModelLocator" />
-            <Style	TargetType="TextBox">
-                <Style.Triggers>
-                    <Trigger  Property="Validation.HasError"  Value="true">
-                        <Setter  Property="ToolTip"
- 	Value="{Binding  RelativeSource={x:Static RelativeSource.Self},
- 	Path=(Validation.Errors)[0].ErrorContent}"/>
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
-        </ResourceDictionary>
+         
     </Application.Resources>
 </Application>

@@ -1,5 +1,11 @@
-﻿using System.Windows;
-using SystemRestauracji.ViewModels;
+﻿using SystemRestauracji.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows;
 
 namespace SystemRestauracji
 {
@@ -12,8 +18,7 @@ namespace SystemRestauracji
         {
             base.OnStartup(e);
             MainWindow window = new MainWindow();
-            var viewModel = new MainWindowViewModel();
-            window.DataContext= viewModel;
+            window.DataContext= new MainWindowViewModel();
             window.Show();
         }
     }
