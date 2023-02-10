@@ -15,7 +15,7 @@ namespace SystemRestauracji.Models.Validators
                     return "Rozpocznij duza litera!";
                 }
             }
-            catch (Exception) { return "Zły String"; }
+            catch (Exception) { return "Proszę rozpocznij z wielkiej litery"; }
             return null;
         }
 
@@ -30,7 +30,7 @@ namespace SystemRestauracji.Models.Validators
                 }
 
             }
-            catch (Exception) { return "Zły String"; }
+            catch (Exception) { return "Proszę wprowadź drukowanymi"; }
             return null;
         }
         bool IsValidEmail(string email)
@@ -69,8 +69,8 @@ namespace SystemRestauracji.Models.Validators
                     }
                 }
             }
-            catch (Exception) { return " Wprowadziłeś zły format email."; }
-            return null;
+            catch (Exception) { return "Proszę wprowadź mail małymi literami"; }
+
         }
 
     }
