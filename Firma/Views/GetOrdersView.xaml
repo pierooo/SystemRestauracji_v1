@@ -21,7 +21,7 @@
                 <DataGridTextColumn Header="Do zapłaty" Binding="{Binding Path=TotalPriceGross}"/>
                 <DataGridTextColumn Header="Status zamówienia" Binding="{Binding Path=OrderStatus}"/>
                 <DataGridTextColumn Header="Nazwa płatności" Binding="{Binding Path=PaymentName}"/>
-                <DataGridTextColumn Header="Wystawiony dokument" Binding="{Binding Path=Documentname}"/>
+                <DataGridTextColumn Header="Wystawiony dokument" Binding="{Binding Path=DocumentName}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

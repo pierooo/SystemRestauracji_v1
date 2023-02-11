@@ -306,8 +306,25 @@ namespace SystemRestauracji.ViewModels
 
             if (result.Any())
             {
+                // TODO: adjust workstation device links for order closing
+                var employeeId = Database.Orders.First(x => x.Id == closeOrder.Order.Id).EmployeeId;
+                var deviceId = Database.Devices.First(x => x.IsActive == true).Id;
+                var payment = new Payments();
+                payment.Name = String.Join(",", OrderIds) + " Płatność " + PaymentName;
+                payment.Description = "Automatyczna - zamknięte zamówienie";
+                payment.TotalAmountGross = totalPriceGross;
+                payment.EmployeeId = employeeId;
+                payment.DeviceId = deviceId;
+                payment.IsActive = true;
+                payment.PaymentStatus = StatusMapper.MapToDbStatus(Status.Done);
+                payment.PaymentType = PaymentName;
+                payment.LastModified = DateTime.Now;
+                payment.PaymentDate = DateTime.Now;
+                Database.Payments.AddObject(payment);
+                Database.SaveChanges();
                 foreach (var order in result)
                 {
+                    order.PaymentId = payment.Id;
                     order.LastModified = DateTime.Now;
                     if (SelectedPaymentType == "Płatnośc odroczona")
                     {
@@ -332,7 +349,6 @@ namespace SystemRestauracji.ViewModels
             else
             {
                 Save();
-                AddPayment();
                 Messenger.Default.Send(new OrdersForDocument(OrderIds, PaymentName, false));
             }
         }
@@ -346,7 +362,6 @@ namespace SystemRestauracji.ViewModels
             else
             {
                 Save();
-                AddPayment();
                 // TODO: otworzyć dodatnie faktury 
             }
         }
@@ -408,26 +423,6 @@ namespace SystemRestauracji.ViewModels
         private IQueryable<string> GetPaymentTypes()
         {
             return PaymentType.GetPaymentTypes().AsQueryable();
-        }
-
-        private void AddPayment()
-        {
-            // TODO: adjust workstation device links for order closing
-            var employeeId = Database.Orders.First(x => x.Id == closeOrder.Order.Id).EmployeeId;
-            var deviceId = Database.Devices.First(x => x.IsActive == true).Id;
-            var payment = new Payments();
-            payment.Name = OrdersForCloseLabel + " Payment";
-            payment.Description = "Automatyczna - zamknięte zamówienie";
-            payment.TotalAmountGross = totalPriceGross;
-            payment.EmployeeId = employeeId;
-            payment.DeviceId = deviceId;
-            payment.IsActive = true;
-            payment.PaymentStatus = StatusMapper.MapToDbStatus(Status.Done);
-            payment.PaymentType = PaymentName;
-            payment.LastModified = DateTime.Now;
-            payment.PaymentDate = DateTime.Now;
-            Database.Payments.AddObject(payment);
-            Database.SaveChanges();
         }
     }
 }

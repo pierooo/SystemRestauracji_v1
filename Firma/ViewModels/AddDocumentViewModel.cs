@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Documents;
+using System.Windows.Input;
+using SystemRestauracji.Helpers;
 using SystemRestauracji.Models.BusinessLogic;
 using SystemRestauracji.Models.Correspondences;
 using SystemRestauracji.Models.Entities;
@@ -26,6 +29,8 @@ namespace SystemRestauracji.ViewModels
         public string PaymentType { get; set; }
 
         public DateTime DocumentDate { get; set; } = DateTime.Today;
+
+        private List<DocumentPositionForDocumentView> documentPositionForDocumentView;
 
         public bool SaveAndCloseIsEnabled
         {
@@ -68,24 +73,87 @@ namespace SystemRestauracji.ViewModels
             }
         }
 
-        public IQueryable<DocumentPositionForDocumentView> DocumentPositions
+        public IQueryable<KeyValuePair<decimal?, decimal>> VATs
         {
             get
             {
-                return GetDocumentPosition();
+                return GetVATs();
             }
         }
+
+        public IQueryable<DocumentPositionForDocumentView> DocumentPositions { get; set; }
         #endregion
+
+        public ICommand SaveDocumentAndCloseViewCommand
+        {
+            get
+            {
+                return new BaseCommand(Save);
+            }
+        }
 
         public AddDocumentViewModel(OrdersForDocument ordersForDocument) : base("Wystaw rachunek")
         {
             base.Item = new Documents();
             this.ordersForDocument = ordersForDocument;
             this.PaymentType = ordersForDocument.PaymentType;
+            this.DocumentPositions = GetDocumentPosition();
         }
 
         public override void Save()
         {
+            SaveDocument();
+            AddDocumentToOrder();
+            OnRequestClose();
+        }
+
+        private void SaveDocument()
+        {
+            Item.Name = "Rachunek " + DateTime.Now.Day + " " + String.Join(" ", ordersForDocument.OrderIds);
+            Item.Description = "Rachunek z systemu wystawiony do zamówień: " + String.Join(", ", ordersForDocument.OrderIds);
+            Item.EmployeeFullName = Employee;
+            Item.DocumentDate = DocumentDate;
+            Item.TotalAmountNet = AmountNet;
+            Item.TotalAmountVAT = TotalVAT;
+            Item.TotalAmountGross = AmountGross;
+            Item.DocumentStatus = StatusMapper.MapToDbStatus(Status.Done);
+            Item.Printed = false;
+            Item.IsActive = true;
+            Item.LastModified = DateTime.Now;
+            Database.Documents.AddObject(Item);
+            foreach (var documentPosition in documentPositionForDocumentView)
+            {
+                Item.DocumentPositionsDetails.Add(MapToDbEntity(documentPosition, Item.Id));
+            }
+
+            var tmp = Database.SaveChanges();
+        }
+
+        private void AddDocumentToOrder()
+        {
+            foreach(var orderId in ordersForDocument.OrderIds)
+            {
+                var result = Database.Orders.SingleOrDefault(x => x.Id == orderId);
+                result.LastModified = DateTime.Now;               
+                result.DocumentId = Item.Id;
+                Database.SaveChanges();
+            }
+        }
+
+        private DocumentPositionsDetails MapToDbEntity(DocumentPositionForDocumentView documentPositionForDocumentView, int documentId)
+        {
+            return new DocumentPositionsDetails()
+            {
+                PositionName = documentPositionForDocumentView.ProductName,
+                DucumentId = documentId,
+                UnitPriceNet = documentPositionForDocumentView.UnitPriceNet,
+                UnitPriceGross = documentPositionForDocumentView.UnitPriceGross,
+                VAT = documentPositionForDocumentView.VAT,
+                Quantity = documentPositionForDocumentView.Quantity,
+                Description = "Pozycja dodana z zamówienia",
+                IsActive = true,
+                LastModified = DateTime.Now
+            };
         }
 
         private IQueryable<string> GetUsers()
@@ -97,7 +165,7 @@ namespace SystemRestauracji.ViewModels
         private IQueryable<DocumentPositionForDocumentView> GetDocumentPosition()
         {
             var documentDetails = new List<DocumentPositionForDocumentView>();
-            foreach(var orderId in ordersForDocument.OrderIds)
+            foreach (var orderId in ordersForDocument.OrderIds)
             {
                 documentDetails.AddRange(Database.OrdersDetails.Where(x => x.OrderId == orderId)
                     .Select(x => new DocumentPositionForDocumentView()
@@ -116,7 +184,16 @@ namespace SystemRestauracji.ViewModels
 
             this.AmountGross = documentDetails.Sum(x => x.UnitPriceGross);
 
+            this.documentPositionForDocumentView = documentDetails;
+
             return documentDetails.AsQueryable();
+        }
+
+        private IQueryable<KeyValuePair<decimal?, decimal>> GetVATs()
+        {
+            return documentPositionForDocumentView.GroupBy(x => x.VAT)
+                .ToDictionary(x => x.Key,
+                x => x.Sum(t => Convert.ToDecimal(t.UnitPriceGross - t.UnitPriceNet))).AsQueryable();
         }
     }
 }

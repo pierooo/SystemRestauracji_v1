@@ -5,7 +5,6 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using SystemRestauracji.Helpers;
 using SystemRestauracji.Models.BusinessLogic;
-using SystemRestauracji.Models.BusinessLogic.Calculations;
 using SystemRestauracji.Models.Correspondences;
 using SystemRestauracji.Models.EntitiesForView;
 using SystemRestauracji.ViewModels.Abstract;
