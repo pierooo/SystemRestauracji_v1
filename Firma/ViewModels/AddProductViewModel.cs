@@ -13,6 +13,8 @@ namespace SystemRestauracji.ViewModels
         private List<Categories> categories;
 
         #region prop
+        public List<decimal?> VATs { get; set; }
+
         public string Name
         {
             get => Item.Name;
@@ -106,6 +108,7 @@ namespace SystemRestauracji.ViewModels
         public AddProductViewModel() : base("Nowy produkt")
         {
             base.Item = new Products();
+            VATs = GetVATs().ToList();
         }
 
         public override void Save()
@@ -123,6 +126,14 @@ namespace SystemRestauracji.ViewModels
         {
             this.categories = Database.Categories.ToList();
             return categories.Select(x => new KeyAndValue { Key = x.Id, Value = x.Name }).ToList().AsQueryable();
+        }
+
+        private IEnumerable<decimal?> GetVATs()
+        {
+            for(int i = 0; i<=30; i++)
+            {
+                yield return (decimal?)i;
+            }
         }
     }
 }
