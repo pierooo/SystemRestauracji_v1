@@ -3,7 +3,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:SystemRestauracji.ViewModelLocator" />
-            <Style	TargetType="TextBox">
+            <Style TargetType="TextBox">
                 <Style.Triggers>
                     <Trigger  Property="Validation.HasError"  Value="true">
                         <Setter  Property="ToolTip"
