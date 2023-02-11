@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using GalaSoft.MvvmLight.Messaging;
+using SystemRestauracji.Models.Correspondences;
 using SystemRestauracji.Models.EntitiesForView;
 using SystemRestauracji.ViewModels.Abstract;
 
@@ -8,6 +10,27 @@ namespace SystemRestauracji.ViewModels
 {
     public class GetDocumentsViewModel : ViewModelBase<DocumentForAllView>
     {
+
+        private DocumentForAllView selectedDocument;
+
+        public DocumentForAllView SelectedDocument
+        {
+            get
+            {
+                return selectedDocument;
+            }
+            set
+            {
+                if (selectedDocument != value)
+                {
+                    selectedDocument = value;
+
+                    Messenger.Default.Send(new DocumentForDocumentPositionsDetails(selectedDocument.Name, selectedDocument.Id));
+                    base.OnRequestClose();
+                }
+            }
+        }
+
         public GetDocumentsViewModel() : base("Dokumenty")
         {
         }
@@ -32,10 +55,14 @@ namespace SystemRestauracji.ViewModels
                     EmployeeFullName = x.EmployeeFullName
                 }));
         }
+
+
+
         public override List<string> GetComboboxSortList()
         {
             return new List<string> { "Nazwa" };
         }
+
         public override List<string> GetComboboxFindList()
         {
             return new List<string> { "Nazwa" };

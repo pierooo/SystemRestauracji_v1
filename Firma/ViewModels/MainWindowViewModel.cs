@@ -327,6 +327,7 @@ namespace SystemRestauracji.ViewModels
             Messenger.Default.Register<string>(this, Open);
             Messenger.Default.Register<CloseOrder>(this, CloseOrderDetails);
             Messenger.Default.Register<OrdersForDocument>(this, OpenViewForAddingDocument);
+            Messenger.Default.Register<DocumentForDocumentPositionsDetails>(this, GetDocumentPositionsDetails);
 
             return new List<CommandViewModel>
             {
@@ -444,6 +445,16 @@ namespace SystemRestauracji.ViewModels
                 workspace = new GetCompaniesViewModel();
                 this.Workspaces.Add(workspace);
             }
+            this.setActiveWorkspace(workspace);
+        }
+
+        private void GetDocumentPositionsDetails(DocumentForDocumentPositionsDetails details)
+        {
+            GetDocumentPositionsDetailsViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is GetDocumentPositionsDetailsViewModel) as GetDocumentPositionsDetailsViewModel;
+
+            workspace = new GetDocumentPositionsDetailsViewModel(details);
+            this.Workspaces.Add(workspace);
+
             this.setActiveWorkspace(workspace);
         }
 

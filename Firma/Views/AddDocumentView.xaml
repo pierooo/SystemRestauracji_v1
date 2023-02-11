@@ -66,8 +66,8 @@
                             <Label Grid.Row="1" Grid.Column="0" Margin="8" HorizontalAlignment="Center" FontWeight="Bold" Content="Kwota VAT:"/>
                             <DataGrid Grid.Row="1" Grid.Column="1" Margin="8" VerticalGridLinesBrush="Azure" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AutoGenerateColumns="False" FontSize="10" FontWeight="Bold" ItemsSource="{Binding VATs}">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Wartość VAT" Binding="{Binding Path=VATValue}"/>
-                                    <DataGridTextColumn Header="Kwota VAT" Binding="{Binding Path=VATAmount}"/>
+                                    <DataGridTextColumn Header="Wartość VAT" Binding="{Binding Path=Key}"/>
+                                    <DataGridTextColumn Header="Kwota VAT" Binding="{Binding Path=Value}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Label Grid.Row="2" Grid.Column="0" Margin="8" HorizontalAlignment="Center" FontWeight="Bold" Content="Łączny VAT:"/>

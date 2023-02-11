@@ -10,14 +10,10 @@
         <ResourceDictionary Source="StyleZakladekResources.xaml"/>
     </UserControl.Resources>
     <Grid Background="White">
-        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}" SelectedItem="{Binding Path=SelectedDocument, Mode=TwoWay}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nazwa dokumentu" Binding="{Binding Path=Name}"/>
                 <DataGridTextColumn Header="Faktura dla dokumentu" Binding="{Binding Path=InvoiveName}"/>
-                <DataGridTextColumn Header="Sprzedawca" Binding="{Binding Path=AuthorFullName}"/>
-                <DataGridTextColumn Header="Sprzedawca NIP" Binding="{Binding Path=AuthorNIP}"/>
-                <DataGridTextColumn Header="Nazwa odbiorcy" Binding="{Binding Path=RecipientFullName}"/>
-                <DataGridTextColumn Header="Odbiorca NIP" Binding="{Binding Path=RecipientNIP}"/>
                 <DataGridTextColumn Header="Termin płatności" Binding="{Binding Path=PaymentDateLimit}"/>
                 <DataGridTextColumn Header="Kwota do zapłaty brutto" Binding="{Binding Path=TotalAmountGross}"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Path=DocumentStatus}"/>
